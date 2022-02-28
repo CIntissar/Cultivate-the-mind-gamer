@@ -15,4 +15,8 @@ public class MouseInteraction : MonoBehaviour
     {
         
     }
+    void OnMouseOver()
+    {
+        
+    }
 }

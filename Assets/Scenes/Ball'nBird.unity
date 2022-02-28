@@ -217,6 +217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball_Y
       objectReference: {fileID: 0}
+    - target: {fileID: 6156225169096985028, guid: e8679c2d3473d2a48b097669c2a4a398, type: 3}
+      propertyPath: m_TagString
+      value: Ball
+      objectReference: {fileID: 0}
     - target: {fileID: 7873915271523612011, guid: e8679c2d3473d2a48b097669c2a4a398, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -263,3 +267,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8679c2d3473d2a48b097669c2a4a398, type: 3}
+--- !u!1 &2048453915979176419 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6156225169096985028, guid: e8679c2d3473d2a48b097669c2a4a398, type: 3}
+  m_PrefabInstance: {fileID: 2048453915979176418}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2048453915979176420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048453915979176419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674674921b81dc24d8601c3829beb280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &2048453915979176421
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048453915979176419}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

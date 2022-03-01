@@ -5,25 +5,26 @@ using DG.Tweening;
 
 public class MouseInteraction : MonoBehaviour
 {
+    string ballTag = "Ball";
     void OnMouseOver()
     {
         //cursor change
-        //Debug.Log("hovering !");
+        if(Input.GetMouseButtonDown(0))
+        {
+            switch(ballTag)
+            {
+                case "Ball":
+                    RollOver();
+                    break;
+            }
+        }
     }
     void OnMouseExit()
     {
         //Debug.Log("not hovering...");
     }
-    void OnClick()
+    public void RollOver()
     {
-        if(gameObject.CompareTag("Ball"))
-        {
-            //do something
-            Debug.Log("Clicked");
-        }
-    }
-    void RollOver()
-    {
-
+        transform.DOMoveX(transform.position.x + 5, 3);
     }
 }

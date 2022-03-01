@@ -5,15 +5,17 @@ using DG.Tweening;
 
 public class MouseInteraction : MonoBehaviour
 {
-    string ballTag = "Ball";
+    public string ObjectTag = "Ball";
+    public bool isMoving = false;
     void OnMouseOver()
     {
         //cursor change
         if(Input.GetMouseButtonDown(0))
         {
-            switch(ballTag)
+            switch(ObjectTag)
             {
                 case "Ball":
+                    isMoving = true;
                     RollOver();
                     break;
             }
@@ -25,6 +27,10 @@ public class MouseInteraction : MonoBehaviour
     }
     public void RollOver()
     {
-        transform.DOMoveX(transform.position.x + 5, 3);
+        if(isMoving)
+        {
+            isMoving = false;
+            transform.DOMoveX(transform.position.x + 4, 2);
+        }
     }
 }

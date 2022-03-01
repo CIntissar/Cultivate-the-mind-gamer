@@ -15,8 +15,8 @@ public class MouseInteraction : MonoBehaviour
             switch(ObjectTag)
             {
                 case "Ball":
-                    isMoving = true;
                     RollOver();
+                    isMoving = false;
                     break;
             }
         }
@@ -27,9 +27,9 @@ public class MouseInteraction : MonoBehaviour
     }
     public void RollOver()
     {
-        if(isMoving)
+        if(isMoving==false)
         {
-            isMoving = false;
+            isMoving = true;
             transform.DOMoveX(transform.position.x + 4, 2);
         }
     }

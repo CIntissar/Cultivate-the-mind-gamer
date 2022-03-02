@@ -9,7 +9,7 @@ public class MouseInteraction : MonoBehaviour
     public bool isMoving = false;
     public Vector3 currentRotation;
     public float clickCount = 0;
-    //public float animationTime;
+    public Transform upperBall;
     void Start()
     {
 
@@ -22,10 +22,12 @@ public class MouseInteraction : MonoBehaviour
             switch(ObjectTag)
             {
                 case "Ball":
-                    //RollOver();
                     StartCoroutine(RollOver());
-                    //isMoving = false;
                     break;
+            }
+            if (clickCount == 3)
+            {
+                OpenUp();
             }
         }
     }
@@ -42,13 +44,13 @@ public class MouseInteraction : MonoBehaviour
             transform.DOMoveX(transform.position.x + 4f, 2f);
             transform.DORotate(new Vector3 (0, 0, currentRotation.z - 120f), 2f);
             transform.DOScale(new Vector3(transform.localScale.x + 0.4f, transform.localScale.y + 0.4f, 0), 2f);
-            clickCount++;
             yield return new WaitForSeconds(2f);
             isMoving = false;
+            clickCount++;
         }
     }
-    // public IEnumerator Wait()
-    // {
-    //     yield return new WaitForSeconds(.5f);
-    // }
+    public void OpenUp()
+    {
+        upperBall.DOMoveY(transform.position.y + 3f, 1f);
+    }
 }

@@ -8,6 +8,8 @@ public class MouseInteraction : MonoBehaviour
     public string ObjectTag = "Ball";
     public bool isMoving = false;
     public Vector3 currentRotation;
+    public float clickCount = 0;
+    //public float animationTime;
     void Start()
     {
 
@@ -20,7 +22,8 @@ public class MouseInteraction : MonoBehaviour
             switch(ObjectTag)
             {
                 case "Ball":
-                    RollOver();
+                    //RollOver();
+                    StartCoroutine(RollOver());
                     //isMoving = false;
                     break;
             }
@@ -30,16 +33,22 @@ public class MouseInteraction : MonoBehaviour
     {
         //Debug.Log("not hovering...");
     }
-    public void RollOver()
+    public IEnumerator RollOver()
     {
-        if(isMoving==false)
+        if(isMoving == false && clickCount < 3)
         {
+            isMoving = true;
             currentRotation = transform.eulerAngles;
-            //isMoving = true;
             transform.DOMoveX(transform.position.x + 4f, 2f);
-            Debug.Log("rotating...");
-            transform.DORotate(new Vector3 (0, 0, currentRotation.z - 90f), 2f);
-            transform.DOScale(new Vector3(transform.localScale.x + 0.5f, transform.localScale.y + 0.5f, 0), 2);
+            transform.DORotate(new Vector3 (0, 0, currentRotation.z - 120f), 2f);
+            transform.DOScale(new Vector3(transform.localScale.x + 0.4f, transform.localScale.y + 0.4f, 0), 2f);
+            clickCount++;
+            yield return new WaitForSeconds(2f);
+            isMoving = false;
         }
     }
+    // public IEnumerator Wait()
+    // {
+    //     yield return new WaitForSeconds(.5f);
+    // }
 }

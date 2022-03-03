@@ -17,6 +17,7 @@ public class MouseInteraction : MonoBehaviour
     public float clickCount = 0;
     public Transform upperBall;
     public Transform bird;
+    public bool moveAround = false;
     public float limitX;
     public float limitY;
     void Start()
@@ -27,6 +28,12 @@ public class MouseInteraction : MonoBehaviour
     {
         limitX = Random.Range(-4f, 4f);
         limitY = Random.Range(-7f, 7f);
+
+        if(moveAround)
+        {
+            bird.DOMove(new Vector3 (limitX, limitY, 0), 1f);
+        }
+        
     }
     void OnMouseOver()
     {
@@ -63,12 +70,12 @@ public class MouseInteraction : MonoBehaviour
             clickCount++;
         }
     }
-    public IEnumerator OpenUp() //public IEnumerator OpenUp()
+    public IEnumerator OpenUp()
     {
         upperBall.DOMoveY(transform.position.y + 3f, 1f);
         yield return new WaitForSeconds(1f);
-        bird.DOMove(new Vector3 (limitX, limitY, 0), 1f).SetLoops(-1, LoopType.Restart);
+        bird.DOMove(new Vector3 (limitX, limitY, 0), 1f);
+        moveAround = true;
         //faire une boucle ?
-        //limite = -7x, 4y, 7x, -4y
     }
 }

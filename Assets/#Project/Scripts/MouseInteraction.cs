@@ -6,13 +6,27 @@ using DG.Tweening;
 public class MouseInteraction : MonoBehaviour
 {
     public string ObjectTag = "Ball";
+
+    [HideInInspector]
     public bool isMoving = false;
+
+    [HideInInspector]
     public Vector3 currentRotation;
+
+    [HideInInspector]
     public float clickCount = 0;
     public Transform upperBall;
+    public Transform bird;
+    public float limitX;
+    public float limitY;
     void Start()
     {
 
+    }
+    void Update()
+    {
+        limitX = Random.Range(-4f, 4f);
+        limitY = Random.Range(-7f, 7f);
     }
     void OnMouseOver()
     {
@@ -27,7 +41,7 @@ public class MouseInteraction : MonoBehaviour
             }
             if (clickCount == 3)
             {
-                OpenUp();
+                StartCoroutine(OpenUp());
             }
         }
     }
@@ -49,8 +63,12 @@ public class MouseInteraction : MonoBehaviour
             clickCount++;
         }
     }
-    public void OpenUp()
+    public IEnumerator OpenUp() //public IEnumerator OpenUp()
     {
         upperBall.DOMoveY(transform.position.y + 3f, 1f);
+        yield return new WaitForSeconds(1f);
+        bird.DOMove(new Vector3 (limitX, limitY, 0), 1f).SetLoops(-1, LoopType.Restart);
+        //faire une boucle ?
+        //limite = -7x, 4y, 7x, -4y
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ball
   - UpperBall
+  - Bird
   layers:
   - Default
   - TransparentFX

@@ -6,36 +6,35 @@ using UnityEngine.UI;
 public class MovingCamera : MonoBehaviour
 {
     Camera m_MainCamera;
+    Transform cameraTransform;
     public Button leftButton;
     public Button rightButton;
+    public float travel = 5.0f;
 
-    //private bool isLeft;
     void Start()
     {
         m_MainCamera = Camera.main;
+        cameraTransform = Camera.main.gameObject.transform;
+
         Button left = leftButton.GetComponent<Button>();
         Button right = rightButton.GetComponent<Button>();
 
-		left.onClick.AddListener(MoveCamera/*(true)*/);
-        right.onClick.AddListener(MoveCamera/*(false)*/);
+		left.onClick.AddListener(MoveLeft);
+        right.onClick.AddListener(MoveRight);
     }
 
-    void Update()
+    void MoveLeft()
     {
+        
+        Debug.Log("You're going to the left"); 
+        cameraTransform.Translate(-travel,0,0);
         
     }
 
-    void MoveCamera(/*bool isLeft*/)
+    void MoveRight()
     {
-        Debug.Log("You're moving");
-        // if(isLeft == true)
-        // {
-        //     Debug.Log("You're going to the left");
-        // }
-        // else if(isLeft == false)
-        // {
-        //     Debug.Log("You're going to the right");
-        // }
-        
+        Debug.Log("You're going to the right");
+        cameraTransform.Translate(travel,0,0);
+
     }
 }

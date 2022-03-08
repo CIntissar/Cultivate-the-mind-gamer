@@ -10,6 +10,7 @@ public class MovingCamera : MonoBehaviour
     public Button leftButton;
     public Button rightButton;
     public float travel = 5.0f;
+    public float limitTravel = 15f;
 
     void Start()
     {
@@ -25,16 +26,32 @@ public class MovingCamera : MonoBehaviour
 
     void MoveLeft()
     {
-        
         Debug.Log("You're going to the left"); 
-        cameraTransform.Translate(-travel,0,0);
-        
+
+        if(cameraTransform.position.x <= -limitTravel)
+        {
+            cameraTransform.Translate(0,0,0);
+            Debug.Log("Reserved to staff");
+        }
+        else
+        {
+            cameraTransform.Translate(-travel,0,0);
+        }
+
     }
 
     void MoveRight()
     {
         Debug.Log("You're going to the right");
-        cameraTransform.Translate(travel,0,0);
 
+        if(cameraTransform.position.x >= limitTravel)
+        {
+            cameraTransform.Translate(0,0,0);
+            Debug.Log("Reserved to staff");
+        }
+        else
+        {
+            cameraTransform.Translate(travel,0,0);
+        }
     }
 }

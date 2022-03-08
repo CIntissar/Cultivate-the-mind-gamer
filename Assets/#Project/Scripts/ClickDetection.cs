@@ -5,10 +5,19 @@ using DG.Tweening;
 
 public class ClickDetection : MonoBehaviour
 {
+    BallEvent ballEvent;
+    //BirdEvent birdEvent;
+    //[SerializeField] GameObject bird;
+    [SerializeField] GameObject ball;
     //public string ObjectTag = "Ball";
     //public Transform upperBall;
     //public Transform bird;
     //public Collider2D collider;
+    void Awake()
+    {
+        ballEvent = ball.GetComponent<BallEvent>();
+        //birdEvent = bird.GetComponent<BirdEvent>();
+    }
     void Start()
     {
 
@@ -20,27 +29,27 @@ public class ClickDetection : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray);
 
-            if (hit2D.collider.CompareTag("Ball"))
+            if (hit2D.collider != null)
             {
-                Debug.Log("Hit 2D Collider" + hit2D.collider.tag);
+                if (hit2D.collider.CompareTag("Ball"))
+                {
+                    StartCoroutine(ballEvent.RollOver());
+                    //Debug.Log("Hit 2D Collider" + hit2D.collider.tag);
+                    if(ballEvent.clickCount == 3)
+                    {
+                        StartCoroutine(ballEvent.OpenUp());
+                    }
+                }
             }
-         }
+            else
+            {
+                Debug.Log("there's nothing here...");
+            }
+        }
     }
     void OnMouseOver()
     {
-        // if(Input.GetMouseButtonDown(0))
-        // {
-        //     switch(ObjectTag)
-        //     {
-        //         case "Ball":
-        //             StartCoroutine(RollOver());
-        //             break;
-        //     }
-        //     if (clickCount == 3)
-        //     {
-        //         StartCoroutine(OpenUp());
-        //     }
-        // }
+
     }
     // void OnMouseExit()
     // {

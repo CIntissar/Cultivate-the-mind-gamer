@@ -5,12 +5,17 @@ using DG.Tweening;
 
 public class BallEvent : MonoBehaviour
 {
-    public string ObjectTag = "Ball";
+    BirdEvent birdEvent;
+    [SerializeField] GameObject bird;
     public bool isMoving = false;
     public Vector3 currentRotation;
     public float clickCount = 0;
     public Transform upperBall;
-    // Start is called before the first frame update
+    void Awake()
+    {
+        //bird = gameObject.GetComponentInChildren<BirdEvent>();
+        birdEvent = bird.GetComponent<BirdEvent>();
+    }
     void Start()
     {
         
@@ -23,10 +28,7 @@ public class BallEvent : MonoBehaviour
     }
     void OnMouseOver()
     {
-        if (clickCount == 3)
-        {
-            StartCoroutine(OpenUp());
-        }
+
     }
     public IEnumerator RollOver()
     {
@@ -37,7 +39,7 @@ public class BallEvent : MonoBehaviour
             transform.DOMoveX(transform.position.x + 4f, 2f);
             transform.DORotate(new Vector3 (0, 0, currentRotation.z - 120f), 2f);
             transform.DOScale(new Vector3(transform.localScale.x + 0.4f, transform.localScale.y + 0.4f, 0), 2f);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1.5f);
             isMoving = false;
             clickCount++;
         }
@@ -46,6 +48,6 @@ public class BallEvent : MonoBehaviour
     {
         upperBall.DOMoveY(transform.position.y + 3f, 1f);
         yield return new WaitForSeconds(0.9f);
-        //Fly();
+        StartCoroutine(birdEvent.Fly());
     }
 }

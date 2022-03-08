@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efff0e46bb730164f8fb93ad0a86b193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ball: {fileID: 2056676320}
 --- !u!4 &112433038
 Transform:
   m_ObjectHideFlags: 0
@@ -330,6 +331,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1190038563 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8257106440948917149, guid: c4096cd8a8793a7439f7f868afe28899, type: 3}
+  m_PrefabInstance: {fileID: 8257106441469062492}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1519845787
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,6 +660,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1869829305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 552576014, guid: c4096cd8a8793a7439f7f868afe28899, type: 3}
+  m_PrefabInstance: {fileID: 8257106441469062492}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1869829310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869829305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e36dacc6c2c7c344088519401c923478, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2056676320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8257106440997654800, guid: c4096cd8a8793a7439f7f868afe28899, type: 3}
+  m_PrefabInstance: {fileID: 8257106441469062492}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2056676321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056676320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd5e534aa1c9374ea11fd7ed193d42b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bird: {fileID: 1869829305}
+  isMoving: 0
+  currentRotation: {x: 0, y: 0, z: 0}
+  clickCount: 0
+  upperBall: {fileID: 1190038563}
 --- !u!1001 &8257106441469062492
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -661,6 +706,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1869829309, guid: c4096cd8a8793a7439f7f868afe28899, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8257106440997654800, guid: c4096cd8a8793a7439f7f868afe28899, type: 3}
       propertyPath: m_Name
       value: FullBall_Y

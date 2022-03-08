@@ -3,47 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class MouseInteraction : MonoBehaviour
+public class BallEvent : MonoBehaviour
 {
     public string ObjectTag = "Ball";
-
-    [HideInInspector]
     public bool isMoving = false;
-
-    [HideInInspector]
     public Vector3 currentRotation;
-
-    [HideInInspector]
     public float clickCount = 0;
     public Transform upperBall;
-    public Transform bird;
+    // Start is called before the first frame update
     void Start()
     {
-
+        
     }
+
+    // Update is called once per frame
     void Update()
     {
         
     }
     void OnMouseOver()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (clickCount == 3)
         {
-            switch(ObjectTag)
-            {
-                case "Ball":
-                    StartCoroutine(RollOver());
-                    break;
-            }
-            if (clickCount == 3)
-            {
-                StartCoroutine(OpenUp());
-            }
+            StartCoroutine(OpenUp());
         }
-    }
-    void OnMouseExit()
-    {
-
     }
     public IEnumerator RollOver()
     {
@@ -63,12 +46,6 @@ public class MouseInteraction : MonoBehaviour
     {
         upperBall.DOMoveY(transform.position.y + 3f, 1f);
         yield return new WaitForSeconds(0.9f);
-        Fly();
+        //Fly();
     }
-    public void Fly()
-    {
-        bird.DOMove(new Vector3 (Random.Range(0, 14), Random.Range(1, 6.5f), 0), 1f);
-    }
-    //limite = x -> 0, 14   y -> 6.5, 1
-    // milieu = x -> 7    y -> 3
 }

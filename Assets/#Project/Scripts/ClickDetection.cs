@@ -6,17 +6,25 @@ using UnityEngine.UI;
 
 public class ClickDetection : MonoBehaviour
 {
-    BallEvent ballEvent;
-    [SerializeField] GameObject ball;
-    public Animator animator;
+    public BallEvent ballEvent;
+    public GameObject ball;
+    public Animator canvaAnimator;
+    //public Animator birdAnimator;
+    //public GameObject birdPrefab;
+    //public Transform birdOrigin;
+    //public bool birdAppeared = false;
+    //public Transform birdPrefab;
     void Awake()
     {
         ballEvent = ball.GetComponent<BallEvent>();
-        animator = GameObject.FindGameObjectWithTag("FadeIn").GetComponent<Animator>();
+        canvaAnimator = GameObject.FindGameObjectWithTag("FadeIn").GetComponent<Animator>();
+        //birdAnimator = GameObject.FindGameObjectWithTag("Bird").GetComponent<Animator>();
     }
     void Start()
     {
-
+        //GameObject birdClone = Instantiate(birdPrefab, birdOrigin.position, birdOrigin.rotation);
+        //birdClone.transform.DOMoveY(10f, 1f);
+        //birdAnimator.SetBool("isFlying", true);
     }
     void Update() //put this code in another function
     {
@@ -33,8 +41,8 @@ public class ClickDetection : MonoBehaviour
                     //Debug.Log("Hit 2D Collider" + hit2D.collider.tag);
                     if(ballEvent.clickCount == 3)
                     {
-                        StartCoroutine(ballEvent.OpenUp());
-                        StartCoroutine(FadeIn());
+                        FadeIn(); //retirer le fadeIn
+                        StartCoroutine(ballEvent.OpenUpAndFly());
                     }
                 }
             }
@@ -48,10 +56,9 @@ public class ClickDetection : MonoBehaviour
     {
 
     }
-    public IEnumerator FadeIn()
+    public void FadeIn()
     {
-        animator.SetBool("GetDark", true);
-        yield return new WaitForSeconds(1.1f);
+        canvaAnimator.SetBool("GetDark", true); //??change fade in duration
     }
     // void OnMouseExit()
     // {

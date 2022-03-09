@@ -20,12 +20,9 @@ public class BirdEvent : MonoBehaviour
     {
         
     }
-    public IEnumerator Fly()
+    public void Fly()
     {
-        Debug.Log("start moving");
-        transform.DOMove(new Vector3 (1f, 1f, 0), 0.5f);
-        Debug.Log("stop moving");
-        yield return new WaitForSeconds(1f);
-        //animator.SetBool("isFlying", true);
+        // transform.DOMove(new Vector3 (1f, 1f, 0), 0.5f);
+        animator.SetBool("isFlying", true);
     }
 }

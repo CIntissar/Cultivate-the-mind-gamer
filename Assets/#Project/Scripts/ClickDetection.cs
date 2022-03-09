@@ -2,25 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class ClickDetection : MonoBehaviour
 {
-    BallEvent ballEvent;
-    //BirdEvent birdEvent;
-    //[SerializeField] GameObject bird;
-    [SerializeField] GameObject ball;
-    //public string ObjectTag = "Ball";
-    //public Transform upperBall;
-    //public Transform bird;
-    //public Collider2D collider;
+    public BallEvent ballEvent;
+    public GameObject ball;
+    public Animator canvaAnimator;
+    //public Animator birdAnimator;
+    //public GameObject birdPrefab;
+    //public Transform birdOrigin;
+    //public bool birdAppeared = false;
+    //public Transform birdPrefab;
     void Awake()
     {
         ballEvent = ball.GetComponent<BallEvent>();
-        //birdEvent = bird.GetComponent<BirdEvent>();
+        canvaAnimator = GameObject.FindGameObjectWithTag("FadeIn").GetComponent<Animator>();
+        //birdAnimator = GameObject.FindGameObjectWithTag("Bird").GetComponent<Animator>();
     }
     void Start()
     {
-
+        //GameObject birdClone = Instantiate(birdPrefab, birdOrigin.position, birdOrigin.rotation);
+        //birdClone.transform.DOMoveY(10f, 1f);
+        //birdAnimator.SetBool("isFlying", true);
     }
     void Update() //put this code in another function
     {
@@ -37,7 +41,8 @@ public class ClickDetection : MonoBehaviour
                     //Debug.Log("Hit 2D Collider" + hit2D.collider.tag);
                     if(ballEvent.clickCount == 3)
                     {
-                        StartCoroutine(ballEvent.OpenUp());
+                        FadeIn(); //retirer le fadeIn
+                        StartCoroutine(ballEvent.OpenUpAndFly());
                     }
                 }
             }
@@ -50,6 +55,10 @@ public class ClickDetection : MonoBehaviour
     void OnMouseOver()
     {
 
+    }
+    public void FadeIn()
+    {
+        canvaAnimator.SetBool("GetDark", true); //??change fade in duration
     }
     // void OnMouseExit()
     // {

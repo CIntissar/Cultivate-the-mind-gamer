@@ -7,6 +7,7 @@ TagManager:
   - Ball
   - UpperBall
   - Bird
+  - FadeIn
   layers:
   - Default
   - TransparentFX

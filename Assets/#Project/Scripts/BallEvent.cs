@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class BallEvent : MonoBehaviour
 {
@@ -11,10 +12,12 @@ public class BallEvent : MonoBehaviour
     public Vector3 currentRotation;
     public float clickCount = 0;
     public Transform upperBall;
+    
+    
     void Awake()
     {
-        //bird = gameObject.GetComponentInChildren<BirdEvent>();
-        birdEvent = bird.GetComponent<BirdEvent>();
+        //bird = GetComponentInChildren<BirdEvent>();
+        //birdEvent = bird.GetComponent<BirdEvent>();
     }
     void Start()
     {
@@ -46,8 +49,10 @@ public class BallEvent : MonoBehaviour
     }
     public IEnumerator OpenUp()
     {
+        
         upperBall.DOMoveY(transform.position.y + 3f, 1f);
         yield return new WaitForSeconds(0.9f);
-        StartCoroutine(birdEvent.Fly());
+        //StartCoroutine(birdEvent.Fly());
     }
+    
 }

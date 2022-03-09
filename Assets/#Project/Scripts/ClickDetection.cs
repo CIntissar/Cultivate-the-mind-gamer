@@ -2,21 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class ClickDetection : MonoBehaviour
 {
     BallEvent ballEvent;
-    //BirdEvent birdEvent;
-    //[SerializeField] GameObject bird;
     [SerializeField] GameObject ball;
-    //public string ObjectTag = "Ball";
-    //public Transform upperBall;
-    //public Transform bird;
-    //public Collider2D collider;
+    public Animator animator;
     void Awake()
     {
         ballEvent = ball.GetComponent<BallEvent>();
-        //birdEvent = bird.GetComponent<BirdEvent>();
+        animator = GameObject.FindGameObjectWithTag("FadeIn").GetComponent<Animator>();
     }
     void Start()
     {
@@ -38,6 +34,7 @@ public class ClickDetection : MonoBehaviour
                     if(ballEvent.clickCount == 3)
                     {
                         StartCoroutine(ballEvent.OpenUp());
+                        StartCoroutine(FadeIn());
                     }
                 }
             }
@@ -50,6 +47,11 @@ public class ClickDetection : MonoBehaviour
     void OnMouseOver()
     {
 
+    }
+    public IEnumerator FadeIn()
+    {
+        animator.SetBool("GetDark", true);
+        yield return new WaitForSeconds(1.1f);
     }
     // void OnMouseExit()
     // {

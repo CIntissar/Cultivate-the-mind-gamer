@@ -6,29 +6,33 @@ using DG.Tweening;
 public class BalltoEye : MonoBehaviour
 {
     //Function to make the pupil float after one click
-    
-    //make it change as an apple? -> having other paints reference?
-    public float clickCount = 0;
 
+    public float clickCount = 0;
+    public MovingCamera movingCamera;
 
     void Update()
     {
         if(Input.GetMouseButtonDown(0))
         {
-            if(clickCount == 1)
+            if(movingCamera.ballCenter == true && this.GetComponent<Collider>().CompareTag("Pupil"))
             {
-                FloatingBall();
-            }
-            else if(clickCount == 2)
-            {
-                Blink();
+                clickCount++;
+
+                if(clickCount == 1)
+                {
+                    FloatingBall();
+                }
+                else if(clickCount == 2)
+                {
+                    Blink();
+                }
             }
         }
     }
 
     void FloatingBall()
     {
-        transform.DOMoveY(transform.position.y + 5.0f, 2f);
+        transform.DOMoveY(transform.position.y + 4.45f, 2f);
     }
 
     void Blink()

@@ -12,6 +12,8 @@ public class MovingCamera : MonoBehaviour
     public float travel = 5.0f;
     public float limitTravel = 15f;
 
+    public bool ballCenter = false;
+
     void Start()
     {
         m_MainCamera = Camera.main;
@@ -24,34 +26,60 @@ public class MovingCamera : MonoBehaviour
         right.onClick.AddListener(MoveRight);
     }
 
-    void MoveLeft()
+    void Update()
     {
-        Debug.Log("You're going to the left"); 
-
-        if(cameraTransform.position.x <= -limitTravel)
+        if(cameraTransform.position.x == -limitTravel)
         {
-            cameraTransform.Translate(0,0,0);
-            Debug.Log("Reserved to staff");
+            ballCenter = true;
         }
         else
         {
-            cameraTransform.Translate(-travel,0,0);
+            ballCenter = false;
+        }
+    }
+
+    void MoveLeft()
+    {
+        if(ballCenter == false)
+        {
+            Debug.Log("You're going to the left"); 
+
+            if(cameraTransform.position.x <= -limitTravel)
+            {
+                cameraTransform.Translate(0,0,0);
+                Debug.Log("Reserved to staff");
+            }
+            else
+            {
+                cameraTransform.Translate(-travel,0,0);
+            }
+        }
+        else
+        {
+            cameraTransform.Translate(0,0,0);
         }
 
     }
 
     void MoveRight()
     {
-        Debug.Log("You're going to the right");
-
-        if(cameraTransform.position.x >= limitTravel)
+        if(ballCenter == false)
         {
-            cameraTransform.Translate(0,0,0);
-            Debug.Log("Reserved to staff");
+            Debug.Log("You're going to the right");
+            
+            if(cameraTransform.position.x >= limitTravel)
+            {
+                cameraTransform.Translate(0,0,0);
+                Debug.Log("Reserved to staff");
+            }
+            else
+            {
+                cameraTransform.Translate(travel,0,0);
+            }
         }
         else
         {
-            cameraTransform.Translate(travel,0,0);
+            cameraTransform.Translate(0,0,0);
         }
     }
 }

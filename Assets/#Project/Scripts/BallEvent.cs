@@ -17,7 +17,7 @@ public class BallEvent : MonoBehaviour
         birdEvent = bird.GetComponent<BirdEvent>();
     }
     void Start()
-    {
+    {       
         
     }
 

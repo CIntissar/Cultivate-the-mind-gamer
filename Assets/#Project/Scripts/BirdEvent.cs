@@ -22,7 +22,8 @@ public class BirdEvent : MonoBehaviour
     }
     public void Fly()
     {
-        // transform.DOMove(new Vector3 (1f, 1f, 0), 0.5f);
+        //transform.DOMove(new Vector3 (0f, 0f, 0), 0.5f);
+        animator.SetBool("GoCenter", true);
         animator.SetBool("isFlying", true);
     }
 }

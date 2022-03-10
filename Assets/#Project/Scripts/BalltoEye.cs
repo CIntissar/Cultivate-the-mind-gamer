@@ -7,6 +7,7 @@ public class BalltoEye : MonoBehaviour
 {
     //Function to make the pupil float after one click
 
+    public Animator animator;
     public float clickCount = 0;
     public MovingCamera movingCamera;
 
@@ -14,17 +15,25 @@ public class BalltoEye : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            if(movingCamera.ballCenter == true && this.GetComponent<Collider>().CompareTag("Pupil"))
-            {
-                clickCount++;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray);
 
-                if(clickCount == 1)
+            if (hit2D.collider != null)
+            {
+                if (movingCamera.ballCenter == true && hit2D.collider.CompareTag("Pupil"))
                 {
-                    FloatingBall();
-                }
-                else if(clickCount == 2)
-                {
-                    Blink();
+                    Debug.Log("DON'T TOUCH ME!!!");
+
+                    clickCount++;
+
+                    if(clickCount == 1)
+                    {
+                        FloatingBall();
+                    }
+                    else if(clickCount == 2)
+                    {
+                        Blink();
+                    }
                 }
             }
         }
@@ -32,7 +41,7 @@ public class BalltoEye : MonoBehaviour
 
     void FloatingBall()
     {
-        transform.DOMoveY(transform.position.y + 4.45f, 2f);
+        transform.DOMoveY(transform.position.y + 5.50f, 2f);
     }
 
     void Blink()

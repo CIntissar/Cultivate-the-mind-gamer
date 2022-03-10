@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class MovingCamera : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class MovingCamera : MonoBehaviour
 
 		left.onClick.AddListener(MoveLeft);
         right.onClick.AddListener(MoveRight);
+
+        FromClouds();
     }
 
     void Update()
@@ -38,6 +41,12 @@ public class MovingCamera : MonoBehaviour
         }
     }
 
+    void FromClouds()
+    {
+        
+       //active l'animation des nuages
+        //Fait apparaitre les flèches du canvas
+    }
     void MoveLeft()
     {
         if(ballCenter == false)
@@ -82,4 +91,5 @@ public class MovingCamera : MonoBehaviour
             cameraTransform.Translate(0,0,0);
         }
     }
+    
 }

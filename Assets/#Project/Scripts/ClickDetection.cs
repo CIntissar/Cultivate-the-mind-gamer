@@ -8,6 +8,9 @@ public class ClickDetection : MonoBehaviour
 {
     public BallEvent ballEvent;
     public GameObject ball;
+    public BirdEvent birdEvent;
+    public GameObject bird;
+    //public Animation birdAnimation;
     public Animator canvaAnimator;
     //public Animator birdAnimator;
     //public GameObject birdPrefab;
@@ -17,6 +20,7 @@ public class ClickDetection : MonoBehaviour
     void Awake()
     {
         ballEvent = ball.GetComponent<BallEvent>();
+        birdEvent = bird.GetComponent<BirdEvent>();
         canvaAnimator = GameObject.FindGameObjectWithTag("FadeIn").GetComponent<Animator>();
         //birdAnimator = GameObject.FindGameObjectWithTag("Bird").GetComponent<Animator>();
     }
@@ -39,17 +43,25 @@ public class ClickDetection : MonoBehaviour
                 {
                     StartCoroutine(ballEvent.RollOver());
                     //Debug.Log("Hit 2D Collider" + hit2D.collider.tag);
-                    if(ballEvent.clickCount == 3)
+                    if(ballEvent.clickCount >= 3)
                     {
-                        FadeIn(); //retirer le fadeIn
+                        //FadeIn(); //retirer le fadeIn
                         StartCoroutine(ballEvent.OpenUpAndFly());
                     }
+                }
+                if(hit2D.collider.CompareTag("Bird"))
+                {
+                    birdEvent.StopAndExpand();
                 }
             }
             else
             {
                 Debug.Log("there's nothing here...");
             }
+        }
+        if(ballEvent.clickCount == 3)
+        {
+            FadeIn();
         }
     }
     void OnMouseOver()

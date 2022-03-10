@@ -12,7 +12,7 @@ public class BallEvent : MonoBehaviour
     public Vector3 currentRotation;
     public float clickCount = 0;
     public Transform upperBall;
-
+    public Animator animator;
     public float counter = 0;
     //Animator animator;
     
@@ -21,6 +21,7 @@ public class BallEvent : MonoBehaviour
     {
         //bird = GetComponentInChildren<BirdEvent>();
         birdEvent = bird.GetComponent<BirdEvent>();
+        animator = GetComponent<Animator>();
         //animator = GetComponent<Animator>();
     }
     void Start()
@@ -55,6 +56,7 @@ public class BallEvent : MonoBehaviour
     {
         upperBall.DOMoveY(transform.position.y + 3f, 1f);
         yield return new WaitForSeconds(0.9f);
+        animator.SetBool("fade", true);
         birdEvent.Fly();
         //bird.DOMove(new Vector3 (10f, 10f, 0), 1f);
         //bird.animator.SetBool("isFlying", true);

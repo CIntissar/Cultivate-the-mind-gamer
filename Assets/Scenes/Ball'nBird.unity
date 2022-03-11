@@ -868,7 +868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8492634671063774194, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.49
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8492634671063774194, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
       propertyPath: m_LocalPosition.y
@@ -935,6 +935,7 @@ MonoBehaviour:
   currentRotation: {x: 0, y: 0, z: 0}
   clickCount: 0
   upperBall: {fileID: 1190038563}
+  animator: {fileID: 0}
   counter: 0
 --- !u!95 &2056676322
 Animator:

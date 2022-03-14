@@ -7,8 +7,8 @@ public class BalltoEye : MonoBehaviour
 {
     //Function to make the pupil float after one click
 
-    public Animator animator;
     public float clickCount = 0;
+    public bool blinkTransition = false;
     public MovingCamera movingCamera;
 
     void Update()
@@ -41,14 +41,14 @@ public class BalltoEye : MonoBehaviour
 
     void FloatingBall()
     {
-        transform.DOMoveY(transform.position.y + 5.50f, 2f);
+        transform.DOMoveY(transform.position.y + 5.20f, 2f);
     }
 
     void Blink()
     {
         //having a transition (fading in/out) to make appear the eyes 
         // animation blink every 5 sec?
-        
+        blinkTransition = true;                
     }
     
 }

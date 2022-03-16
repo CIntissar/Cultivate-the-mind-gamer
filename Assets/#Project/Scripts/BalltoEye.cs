@@ -48,7 +48,10 @@ public class BalltoEye : MonoBehaviour
     {
         //having a transition (fading in/out) to make appear the eyes 
         // animation blink every 5 sec?
-        blinkTransition = true;                
+        blinkTransition = true;
+        //then a simple transition with eyes blinking?
+        //touching the eyes and have hurted sound? 
+        // after 3 clicks -> transition for the face?                
     }
-    
+        
 }

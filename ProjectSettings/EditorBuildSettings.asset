@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Ball'nBird.unity
+    guid: 2be0cb5e6363f424ebaaf166ee9f7377
+  - enabled: 1
+    path: Assets/Scenes/Dot on sea.unity
+    guid: 3d1f92ff5c0267f4a8970c2901f3f21a
   m_configObjects: {}

@@ -10,13 +10,9 @@ public class ClickDetection : MonoBehaviour
     public GameObject ball;
     public BirdEvent birdEvent;
     public GameObject bird;
-    //public Animation birdAnimation;
     public Animator canvaAnimator;
-    //public Animator birdAnimator;
-    //public GameObject birdPrefab;
-    //public Transform birdOrigin;
-    //public bool birdAppeared = false;
-    //public Transform birdPrefab;
+    
+
     void Awake()
     {
         ballEvent = ball.GetComponent<BallEvent>();

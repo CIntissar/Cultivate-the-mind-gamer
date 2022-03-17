@@ -8,6 +8,8 @@ TagManager:
   - UpperBall
   - Bird
   - FadeIn
+  - Pupil
+  - Skin
   layers:
   - Default
   - TransparentFX

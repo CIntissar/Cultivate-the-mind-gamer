@@ -20,7 +20,7 @@ public class BalltoEye : MonoBehaviour
 
             if (hit2D.collider != null)
             {
-                if (movingCamera.ballCenter == true && hit2D.collider.CompareTag("Pupil"))
+                if(movingCamera.ballCenter == true && hit2D.collider.CompareTag("Pupil"))
                 {
                     Debug.Log("DON'T TOUCH ME!!!");
 
@@ -34,6 +34,10 @@ public class BalltoEye : MonoBehaviour
                     {
                         Blink();
                     }
+                }
+                else if(movingCamera.ballCenter == true && hit2D.collider.CompareTag("Skin"))
+                {
+                    Poke();
                 }
             }
         }
@@ -49,9 +53,15 @@ public class BalltoEye : MonoBehaviour
         //having a transition (fading in/out) to make appear the eyes 
         // animation blink every 5 sec?
         blinkTransition = true;
+              
+    }
+
+    void Poke()
+    {
         //then a simple transition with eyes blinking?
         //touching the eyes and have hurted sound? 
-        // after 3 clicks -> transition for the face?                
+        // after 3 clicks -> transition for the face? 
+        Debug.Log("OUTCH!!!");
     }
         
 }

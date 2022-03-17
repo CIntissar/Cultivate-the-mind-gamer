@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class BirdEvent : MonoBehaviour
 {
     Animator animator;
-    //public Animation anim;
+    public Animator transition;
+    public float transitionTime = 1f;
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -29,6 +31,17 @@ public class BirdEvent : MonoBehaviour
     public void StopAndExpand()
     {
         animator.SetBool("Growth", true);
-        //transform.DOScale(20, 1f);
+        LoadNextLevel();
+    }
+    public void LoadNextLevel()
+    {
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        transition.SetTrigger("start");
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadScene(levelIndex);
+        transition.SetTrigger("end");
     }
 }

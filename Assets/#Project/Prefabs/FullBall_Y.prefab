@@ -174,6 +174,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8257106440997654803}
   - component: {fileID: 471546957}
+  - component: {fileID: 2056676322}
+  - component: {fileID: 2056676321}
   m_Layer: 0
   m_Name: FullBall_Y
   m_TagString: Ball
@@ -213,3 +215,42 @@ CircleCollider2D:
   m_Offset: {x: -0.05, y: -0.020779014}
   serializedVersion: 2
   m_Radius: 1.0346316
+--- !u!95 &2056676322
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8257106440997654800}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c4a899fa28eb28c4a91d11bb5ba75b09, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2056676321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8257106440997654800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd5e534aa1c9374ea11fd7ed193d42b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  birdEvent: {fileID: 0}
+  bird: {fileID: 0}
+  isMoving: 0
+  currentRotation: {x: 0, y: 0, z: 0}
+  clickCount: 0
+  upperBall: {fileID: 8257106440948917149}
+  animator: {fileID: 0}
+  counter: 0

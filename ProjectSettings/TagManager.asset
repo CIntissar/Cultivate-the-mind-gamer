@@ -10,6 +10,7 @@ TagManager:
   - FadeIn
   - Pupil
   - Skin
+  - whiteSprite
   layers:
   - Default
   - TransparentFX

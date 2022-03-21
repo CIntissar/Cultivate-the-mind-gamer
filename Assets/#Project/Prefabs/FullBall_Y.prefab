@@ -248,9 +248,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   birdEvent: {fileID: 0}
   bird: {fileID: 0}
-  isMoving: 0
-  currentRotation: {x: 0, y: 0, z: 0}
   clickCount: 0
   upperBall: {fileID: 8257106440948917149}
   animator: {fileID: 0}
-  counter: 0

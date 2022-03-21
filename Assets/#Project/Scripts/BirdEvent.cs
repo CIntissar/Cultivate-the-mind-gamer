@@ -7,15 +7,19 @@ using UnityEngine.SceneManagement;
 public class BirdEvent : MonoBehaviour
 {
     Animator animator;
-    public Animator transition;
+    public SpriteRenderer sprite;
+    public float birdSpeed = 2f;
+    //public Animator transition;
     public float transitionTime = 1f;
+    [HideInInspector] public Tween myTween;
     void Awake()
     {
         animator = GetComponent<Animator>();
+        sprite = GameObject.FindGameObjectWithTag("whiteSprite").GetComponent<SpriteRenderer>();
     }
     void Start()
     {
-        //anim = GetComponent<Animation>();
+        
     }
 
     void Update()
@@ -24,14 +28,23 @@ public class BirdEvent : MonoBehaviour
     }
     public void Fly()
     {
-        //transform.DOMove(new Vector3 (0f, 0f, 0), 0.5f);
-        animator.SetBool("GoCenter", true);
-        animator.SetBool("isFlying", true);
+        myTween = transform.DOMove(new Vector3 (Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0), birdSpeed);
+        myTween.Play().OnComplete(Fly);
+        //x=8.3, -8.1 y= -2.4, 4
+        //if smooth later on doesn't work, try using DOPath
+        //if myTween isPlaying return ???
     }
     public void StopAndExpand()
     {
-        animator.SetBool("Growth", true);
-        LoadNextLevel();
+        if(myTween.IsPlaying())
+        {
+            myTween.Kill();
+        }
+        transform.DOMove(Vector3.zero, 0.5f).OnComplete(() => {
+            transform.DOScale(20, 1f);
+        });
+
+        //LoadNextLevel();
     }
     public void LoadNextLevel()
     {
@@ -39,9 +52,9 @@ public class BirdEvent : MonoBehaviour
     }
     IEnumerator LoadLevel(int levelIndex)
     {
-        transition.SetTrigger("start");
+        sprite.DOFade(1,1);
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(levelIndex);
-        transition.SetTrigger("end");
+        sprite.DOFade(0,1);
     }
 }

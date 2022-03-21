@@ -10,44 +10,38 @@ public class ClickDetection : MonoBehaviour
     public GameObject ball;
     public BirdEvent birdEvent;
     public GameObject bird;
-    public Animator canvaAnimator;
-    
 
     void Awake()
     {
         ballEvent = ball.GetComponent<BallEvent>();
         birdEvent = bird.GetComponent<BirdEvent>();
-        canvaAnimator = GameObject.FindGameObjectWithTag("FadeIn").GetComponent<Animator>();
         //birdAnimator = GameObject.FindGameObjectWithTag("Bird").GetComponent<Animator>();
     }
+
     void Start()
     {
-        //GameObject birdClone = Instantiate(birdPrefab, birdOrigin.position, birdOrigin.rotation);
-        //birdClone.transform.DOMoveY(10f, 1f);
-        //birdAnimator.SetBool("isFlying", true);
+
     }
     void Update() //put this code in another function
     {
-        if(Input.GetMouseButtonDown(0))
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); //using raycasts
+        RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray);
+        
+        if(Input.GetMouseButtonDown(0)) //if left click is pressed
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray);
-
-            if (hit2D.collider != null)
+            if (hit2D.collider != null) //if the ray hits something
             {
-                if (hit2D.collider.CompareTag("Ball"))
+                if (hit2D.collider.CompareTag("Ball")) //if that something is the ball
                 {
-                    StartCoroutine(ballEvent.RollOver());
-                    //Debug.Log("Hit 2D Collider" + hit2D.collider.tag);
-                    if(ballEvent.clickCount >= 3)
+                    StartCoroutine(ballEvent.RollOver()); //the ball rolls
+                    if(ballEvent.clickCount >= 3) //if it rolled 3 times
                     {
-                        //FadeIn(); //retirer le fadeIn
-                        StartCoroutine(ballEvent.OpenUpAndFly());
+                        StartCoroutine(ballEvent.OpenUpAndFly()); //balls opens up and bird starts flying
                     }
                 }
                 if(hit2D.collider.CompareTag("Bird"))
                 {
-                    birdEvent.StopAndExpand();
+                    birdEvent.StopAndExpand(); //bird stops flying and expands
                 }
             }
             else
@@ -55,27 +49,5 @@ public class ClickDetection : MonoBehaviour
                 Debug.Log("there's nothing here...");
             }
         }
-        if(ballEvent.clickCount == 3)
-        {
-            FadeIn();
-        }
     }
-    void OnMouseOver()
-    {
-
-    }
-    public void FadeIn()
-    {
-        canvaAnimator.SetBool("GetDark", true); //??change fade in duration
-    }
-    // void OnMouseExit()
-    // {
-
-    // }
-    // public void Fly()
-    // {
-    //     bird.DOMove(new Vector3 (Random.Range(0, 14), Random.Range(1, 6.5f), 0), 1f);
-    // }
-    //limite = x -> 0, 14   y -> 6.5, 1
-    // milieu = x -> 7    y -> 3
 }

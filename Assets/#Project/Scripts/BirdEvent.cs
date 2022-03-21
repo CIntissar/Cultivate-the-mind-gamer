@@ -11,6 +11,7 @@ public class BirdEvent : MonoBehaviour
     public float birdSpeed = 2f;
     //public Animator transition;
     public float transitionTime = 1f;
+    [HideInInspector] public Tween myTween;
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -27,16 +28,23 @@ public class BirdEvent : MonoBehaviour
     }
     public void Fly()
     {
-        transform.DOMove(new Vector3 (Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0), birdSpeed).OnComplete(Fly); //x=8.3, -8.1 y= -2.4, 4
+        myTween = transform.DOMove(new Vector3 (Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0), birdSpeed);
+        myTween.Play().OnComplete(Fly);
+        //x=8.3, -8.1 y= -2.4, 4
         //if smooth later on doesn't work, try using DOPath
+        //if myTween isPlaying return ???
     }
     public void StopAndExpand()
     {
-        transform.DOMove(Vector3.zero, 1f).OnComplete(() => {
+        if(myTween.IsPlaying())
+        {
+            myTween.Kill();
+        }
+        transform.DOMove(Vector3.zero, 0.5f).OnComplete(() => {
             transform.DOScale(20, 1f);
         });
 
-        LoadNextLevel();
+        //LoadNextLevel();
     }
     public void LoadNextLevel()
     {

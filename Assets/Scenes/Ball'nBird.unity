@@ -339,9 +339,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8642605012189752961, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
   m_PrefabInstance: {fileID: 1963565133}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1391846979 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8492634671063774194, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
+--- !u!212 &1391846980 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3852068014751288314, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
   m_PrefabInstance: {fileID: 1963565133}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1675768117
@@ -688,7 +688,7 @@ PrefabInstance:
     - target: {fileID: 2056676321, guid: c4096cd8a8793a7439f7f868afe28899, type: 3}
       propertyPath: bird
       value: 
-      objectReference: {fileID: 1391846979}
+      objectReference: {fileID: 1391846980}
     - target: {fileID: 8257106440997654800, guid: c4096cd8a8793a7439f7f868afe28899, type: 3}
       propertyPath: m_Name
       value: FullBall_Y

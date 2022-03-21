@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class BallEvent : MonoBehaviour
 {
     [SerializeField] BirdEvent birdEvent;
-    [SerializeField] Transform bird;
+    [SerializeField] SpriteRenderer bird;
     [HideInInspector] bool isMoving = false;
     Vector3 currentRotation;
     [HideInInspector] public float clickCount = 0;
@@ -19,6 +19,7 @@ public class BallEvent : MonoBehaviour
     {
         birdEvent = bird.GetComponent<BirdEvent>();
         animator = GetComponent<Animator>();
+        bird = GameObject.FindGameObjectWithTag("Bird").GetComponent<SpriteRenderer>();
     }
     void Start()
     {
@@ -46,7 +47,7 @@ public class BallEvent : MonoBehaviour
     {
         upperBall.DOMoveY(transform.position.y + 3f, 1f);
         yield return new WaitForSeconds(0.9f);
-        animator.SetBool("fade", true);
+        bird.DOFade(1, 0.1f);
         birdEvent.Fly();
     }
     

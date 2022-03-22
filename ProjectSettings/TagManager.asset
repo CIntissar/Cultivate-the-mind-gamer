@@ -11,6 +11,7 @@ TagManager:
   - Pupil
   - Skin
   - whiteSprite
+  - Cloud
   layers:
   - Default
   - TransparentFX

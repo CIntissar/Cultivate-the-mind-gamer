@@ -9,10 +9,17 @@ public class BalltoEye : MonoBehaviour
 
     public float clickCount = 0;
     public bool blinkTransition = false;
+    public GameObject pupil;
     public MovingCamera movingCamera;
+    public ClickChange clickChange;
 
     void Update()
     {
+        if(clickChange.pupilOn == true)
+        {
+            pupil.SetActive(true);
+        }
+
         if(Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

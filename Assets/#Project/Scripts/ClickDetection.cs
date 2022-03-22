@@ -16,6 +16,7 @@ public class ClickDetection : MonoBehaviour
         ballEvent = ball.GetComponent<BallEvent>();
         birdEvent = bird.GetComponent<BirdEvent>();
         //birdAnimator = GameObject.FindGameObjectWithTag("Bird").GetComponent<Animator>();
+        //Cursor.visible = false; here?????
     }
 
     void Start()

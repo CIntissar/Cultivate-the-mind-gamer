@@ -28,33 +28,33 @@ public class BirdEvent : MonoBehaviour
     }
     public void Fly()
     {
-        myTween = transform.DOMove(new Vector3 (Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0), birdSpeed);
-        myTween.Play().OnComplete(Fly);
+        myTween = transform.DOMove(new Vector3 (Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0), birdSpeed).SetEase(Ease.OutBack).OnComplete(Fly);
         //x=8.3, -8.1 y= -2.4, 4
         //if smooth later on doesn't work, try using DOPath
         //if myTween isPlaying return ???
     }
     public void StopAndExpand()
     {
-        if(myTween.IsPlaying())
-        {
-            myTween.Kill();
-        }
+        myTween.Kill();
         transform.DOMove(Vector3.zero, 0.5f).OnComplete(() => {
             transform.DOScale(20, 1f);
         });
 
+        sprite.DOFade(1,1).OnComplete(() => {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        });
+
         //LoadNextLevel();
     }
-    public void LoadNextLevel()
-    {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
-    }
-    IEnumerator LoadLevel(int levelIndex)
-    {
-        sprite.DOFade(1,1);
-        yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadScene(levelIndex);
-        sprite.DOFade(0,1);
-    }
+    // public void LoadNextLevel()
+    // {
+    //     StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+    // }
+    // IEnumerator LoadLevel(int levelIndex)
+    // {
+    //     sprite.DOFade(1,1);
+    //     yield return new WaitForSeconds(transitionTime);
+    //     SceneManager.LoadScene(levelIndex);
+    //     sprite.DOFade(0,1);
+    // }
 }

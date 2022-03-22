@@ -13,17 +13,18 @@ public class BallEvent : MonoBehaviour
     [HideInInspector] public float clickCount = 0;
     [SerializeField] Transform upperBall;
     [SerializeField] Animator animator;
-    
+    public SpriteRenderer[] spriteRenderers;
     
     void Awake()
     {
         birdEvent = bird.GetComponent<BirdEvent>();
         animator = GetComponent<Animator>();
         bird = GameObject.FindGameObjectWithTag("Bird").GetComponent<SpriteRenderer>();
+        //add get component in children, returns array,
     }
     void Start()
     {
-
+       spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
     }
     void OnMouseOver()
     {
@@ -48,6 +49,11 @@ public class BallEvent : MonoBehaviour
         upperBall.DOMoveY(transform.position.y + 3f, 1f);
         yield return new WaitForSeconds(0.9f);
         bird.DOFade(1, 0.1f);
+        foreach (SpriteRenderer rend in spriteRenderers)
+        {
+            rend.DOFade(0, 0.5f);
+        }
+        //animator.SetBool("fade", true);
         birdEvent.Fly();
     }
     

@@ -5,7 +5,7 @@ using UnityEngine;
 public class MouseCursor : MonoBehaviour
 {
     [HideInInspector] public SpriteRenderer rend;
-    public Sprite lensCursor;
+    public Sprite magnifierCursor;
     public Sprite normalCursor;
 
     void Start()
@@ -18,18 +18,13 @@ public class MouseCursor : MonoBehaviour
     {
         Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = cursorPos;
-
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray);
-
-        //TEST
-        if (Input.GetMouseButtonDown(0))
-        {
-            rend.sprite = lensCursor;
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            rend.sprite = normalCursor;
-        }
+    }
+    public void ChngeToMagnifier()
+    {
+        rend.sprite = magnifierCursor;
+    }
+    public void ChngeToDefault()
+    {
+        rend.sprite = normalCursor;
     }
 }

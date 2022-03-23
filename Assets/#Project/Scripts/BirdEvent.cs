@@ -39,7 +39,7 @@ public class BirdEvent : MonoBehaviour
     }
     public void Fly()
     {
-        myTween = transform.DOMove(new Vector3 (Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0), birdSpeed).SetEase(Ease.OutBack).OnComplete(Fly);
+        myTween = transform.DOMove(new Vector3 (Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0), birdSpeed).SetEase(Ease.OutSine).OnComplete(Fly);
         //x=8.3, -8.1 y= -2.4, 4
         //if smooth later on doesn't work, try using DOPath
         //if myTween isPlaying return ???

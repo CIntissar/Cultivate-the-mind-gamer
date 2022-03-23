@@ -12,6 +12,12 @@ TagManager:
   - Skin
   - whiteSprite
   - Cloud
+  - Cloud_1
+  - Cloud_2
+  - Cloud_3
+  - Cloud_4
+  - Cloud_5
+  - Cloud_6
   layers:
   - Default
   - TransparentFX

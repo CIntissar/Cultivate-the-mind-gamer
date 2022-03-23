@@ -487,13 +487,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pupilOn: 0
   cloud_1: {fileID: 8866166657475639794}
+  falling_1: {fileID: 0}
   cloud_2: {fileID: 8866166658844532826}
   cloud_3: {fileID: 8866166657477292908}
+  falling_3: {fileID: 0}
   cloud_4: {fileID: 8866166657786492394}
+  falling_4: {fileID: 0}
   cloud_5: {fileID: 8866166658065213989}
+  falling_5: {fileID: 0}
   cloud_6: {fileID: 8866166657513787273}
+  falling_6: {fileID: 0}
   hideSpeed: 1
-  counter: 0
 --- !u!1 &8866166658065213989
 GameObject:
   m_ObjectHideFlags: 0

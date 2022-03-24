@@ -12,13 +12,10 @@ public class BirdEvent : MonoBehaviour
     //public Animator transition;
     public float transitionTime = 1f;
     [HideInInspector] public Tween myTween;
-     public GameObject cursor;
-    [SerializeField] MouseCursor mouseCursor;
     void Awake()
     {
         animator = GetComponent<Animator>();
         sprite = GameObject.FindGameObjectWithTag("whiteSprite").GetComponent<SpriteRenderer>();
-        mouseCursor = cursor.GetComponent<MouseCursor>();
     }
     void Start()
     {
@@ -28,14 +25,6 @@ public class BirdEvent : MonoBehaviour
     void Update()
     {
         
-    }
-    void OnMouseOver()
-    {
-        mouseCursor.ChngeToMagnifier();
-    }
-    void OnMouseExit()
-    {
-        mouseCursor.ChngeToDefault();
     }
     public void Fly()
     {

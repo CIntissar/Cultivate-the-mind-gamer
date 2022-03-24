@@ -7,24 +7,28 @@ public class MouseCursor : MonoBehaviour
     [HideInInspector] public SpriteRenderer rend;
     public Sprite magnifierCursor;
     public Sprite normalCursor;
+    Ray ray;
 
     void Start()
     {
         Cursor.visible = false; //hides the default cursor
         rend = GetComponent<SpriteRenderer>();
+        DontDestroyOnLoad(gameObject);
     }
 
     void Update()
     {
         Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = cursorPos;
-    }
-    public void ChngeToMagnifier()
-    {
-        rend.sprite = magnifierCursor;
-    }
-    public void ChngeToDefault()
-    {
-        rend.sprite = normalCursor;
+
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics2D.Raycast(ray.origin, ray.direction))
+        {
+            rend.sprite = magnifierCursor;
+        }
+        else
+        {
+            rend.sprite = normalCursor;
+        }
     }
 }

@@ -14,28 +14,17 @@ public class BallEvent : MonoBehaviour
     [SerializeField] Transform upperBall;
     [SerializeField] Animator animator;
     public SpriteRenderer[] spriteRenderers;
-    public GameObject cursor;
-    [SerializeField] MouseCursor mouseCursor;
     
     void Awake()
     {
         birdEvent = bird.GetComponent<BirdEvent>();
         animator = GetComponent<Animator>();
         bird = GameObject.FindGameObjectWithTag("Bird").GetComponent<SpriteRenderer>();
-        mouseCursor = cursor.GetComponent<MouseCursor>();
         //add get component in children, returns array,
     }
     void Start()
     {
        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
-    }
-    void OnMouseOver()
-    {
-        mouseCursor.ChngeToMagnifier();
-    }
-    void OnMouseExit()
-    {
-        mouseCursor.ChngeToDefault();
     }
     public IEnumerator RollOver()
     {

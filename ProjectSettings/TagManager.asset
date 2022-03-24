@@ -18,6 +18,7 @@ TagManager:
   - Cloud_4
   - Cloud_5
   - Cloud_6
+  - Apple
   layers:
   - Default
   - TransparentFX

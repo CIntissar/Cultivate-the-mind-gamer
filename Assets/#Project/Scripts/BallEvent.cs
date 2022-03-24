@@ -10,32 +10,25 @@ public class BallEvent : MonoBehaviour
     [SerializeField] SpriteRenderer bird;
     [HideInInspector] bool isMoving = false;
     Vector3 currentRotation;
-    [HideInInspector] public float clickCount = 0;
+    public float clickCount = 0;
     [SerializeField] Transform upperBall;
     [SerializeField] Animator animator;
     public SpriteRenderer[] spriteRenderers;
-    public GameObject cursor;
-    [SerializeField] MouseCursor mouseCursor;
     
     void Awake()
     {
         birdEvent = bird.GetComponent<BirdEvent>();
         animator = GetComponent<Animator>();
         bird = GameObject.FindGameObjectWithTag("Bird").GetComponent<SpriteRenderer>();
-        mouseCursor = cursor.GetComponent<MouseCursor>();
         //add get component in children, returns array,
     }
     void Start()
     {
        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
     }
-    void OnMouseOver()
+    void Update()
     {
-        mouseCursor.ChngeToMagnifier();
-    }
-    void OnMouseExit()
-    {
-        mouseCursor.ChngeToDefault();
+        
     }
     public IEnumerator RollOver()
     {
@@ -49,11 +42,17 @@ public class BallEvent : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
             isMoving = false;
             clickCount++;
+
+            if(clickCount == 3) //if it rolled 3 times
+            {
+                StartCoroutine(OpenUpAndFly()); //balls opens up and bird starts flying
+            }
         }
+        
     }
     public IEnumerator OpenUpAndFly()
     {
-        upperBall.DOMoveY(transform.position.y + 3f, 1f);
+        upperBall.DOMoveY(transform.position.y + 3f, 0.9f);
         yield return new WaitForSeconds(0.9f);
         bird.DOFade(1, 0.1f);
         foreach (SpriteRenderer rend in spriteRenderers)

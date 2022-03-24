@@ -16,7 +16,6 @@ public class ClickDetection : MonoBehaviour
         ballEvent = ball.GetComponent<BallEvent>();
         birdEvent = bird.GetComponent<BirdEvent>();
         //birdAnimator = GameObject.FindGameObjectWithTag("Bird").GetComponent<Animator>();
-        //Cursor.visible = false; here?????
     }
 
     void Start()
@@ -35,10 +34,6 @@ public class ClickDetection : MonoBehaviour
                 if (hit2D.collider.CompareTag("Ball")) //if that something is the ball
                 {
                     StartCoroutine(ballEvent.RollOver()); //the ball rolls
-                    if(ballEvent.clickCount >= 3) //if it rolled 3 times
-                    {
-                        StartCoroutine(ballEvent.OpenUpAndFly()); //balls opens up and bird starts flying
-                    }
                 }
                 if(hit2D.collider.CompareTag("Bird"))
                 {

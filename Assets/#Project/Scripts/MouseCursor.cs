@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MouseCursor : MonoBehaviour
 {
@@ -8,20 +9,33 @@ public class MouseCursor : MonoBehaviour
     public Sprite magnifierCursor;
     public Sprite normalCursor;
     Ray ray;
+    public float mouseOffSetY = -10f;
 
+    void Awake()
+    {
+        Cursor.visible = false;
+        DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
-        Cursor.visible = false; //hides the default cursor
         rend = GetComponent<SpriteRenderer>();
-        DontDestroyOnLoad(gameObject);
     }
 
     void Update()
     {
         Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = cursorPos;
+
+        if(SceneManager.GetActiveScene () == SceneManager.GetSceneByName ("Dot on sea"))
+        {
+            transform.position = new Vector2(cursorPos.x, cursorPos.y + mouseOffSetY);
+        }
+        else
+        {
+            transform.position = cursorPos;
+        }
 
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
         if (Physics2D.Raycast(ray.origin, ray.direction))
         {
             rend.sprite = magnifierCursor;

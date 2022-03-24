@@ -277,7 +277,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: f5ea2f2fce7c29447868323b960d61f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -318,6 +318,7 @@ MonoBehaviour:
   rend: {fileID: 0}
   magnifierCursor: {fileID: 21300000, guid: 668627c78d6780745a999177f1257d9f, type: 3}
   normalCursor: {fileID: 21300000, guid: f5ea2f2fce7c29447868323b960d61f3, type: 3}
+  mouseOffSetY: -2
 --- !u!1 &1679132577
 GameObject:
   m_ObjectHideFlags: 0

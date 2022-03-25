@@ -9,8 +9,7 @@ public class MouseCursor : MonoBehaviour
     public Sprite magnifierCursor;
     public Sprite normalCursor;
     Ray ray;
-    public float mouseOffSetY = -10f;
-
+    public float positionOffSetY = 9f;
     void Awake()
     {
         Cursor.visible = false;
@@ -27,7 +26,7 @@ public class MouseCursor : MonoBehaviour
 
         if(SceneManager.GetActiveScene () == SceneManager.GetSceneByName ("Dot on sea"))
         {
-            transform.position = new Vector2(cursorPos.x, cursorPos.y + mouseOffSetY);
+            transform.position = new Vector2(cursorPos.x, cursorPos.y + positionOffSetY);
         }
         else
         {

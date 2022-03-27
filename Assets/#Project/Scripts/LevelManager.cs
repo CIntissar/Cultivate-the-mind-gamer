@@ -7,11 +7,12 @@ public class LevelManager : MonoBehaviour
 {
     public Transform treePainting;
     public float spritePositionY = 0f;
-    public int punchVibration = 1;
 
+    public GameObject hatchet;
+    public HatchetBehaviour hatchetBehaviour;
     void Start()
     {
-        
+        hatchetBehaviour = hatchet.GetComponent<HatchetBehaviour>();
     }
 
     // Update is called once per frame
@@ -28,6 +29,10 @@ public class LevelManager : MonoBehaviour
                 {
                     //print("hey apple !");
                     GoToPainting();
+                }
+                if(hit2D.collider.CompareTag("Hatchet"))
+                {
+                    hatchetBehaviour.Slide();
                 }
             }
             else

@@ -7,15 +7,42 @@ public class LevelManager : MonoBehaviour
 {
     public Transform treePainting;
     public float spritePositionY = 0f;
+    public GameObject hatch;
+    public HatchesBehaviour hatchesBehaviour;
+    public GameObject apple;
+    public AppleBehaviour appleBehaviour;
+    //public GameObject[] hatches;
+    // public GameObject hatch0;
+    // public GameObject hatch1;
+    // public GameObject hatch2;
 
-    public GameObject hatchet;
-    public HatchetBehaviour hatchetBehaviour;
     void Start()
     {
-        hatchetBehaviour = hatchet.GetComponent<HatchetBehaviour>();
-    }
+        hatchesBehaviour = hatch.GetComponent<HatchesBehaviour>();
+        appleBehaviour = apple.GetComponent<AppleBehaviour>();
+        // hatch0 = GameObject.FindGameObjectWithTag("Hatches");
+        // hatch1 = GameObject.FindGameObjectWithTag("Hatches");
+        // hatch2 = GameObject.FindGameObjectWithTag("Hatches");
 
-    // Update is called once per frame
+        // hatchesBehaviour = hatch0.GetComponent<HatchesBehaviour>();
+        // hatchesBehaviour = hatch1.GetComponent<HatchesBehaviour>();
+        // hatchesBehaviour = hatch2.GetComponent<HatchesBehaviour>();
+
+        // foreach (var item in hatches)
+        // {
+        //     hatchesBehaviour = item.GetComponent<HatchesBehaviour>();
+        // }
+
+        // for (int i = 0; i < hatches.Length; i++)
+        // {
+        //     hatchesBehaviour[i] = hatches[i].GetComponent<HatchesBehaviour>();
+        // }
+
+        // hatchesBehaviour[0] = hatches[0].GetComponent<HatchesBehaviour>();
+        // hatchesBehaviour[1] = hatches[1].GetComponent<HatchesBehaviour>();
+        // hatchesBehaviour[2] = hatches[2].GetComponent<HatchesBehaviour>();
+
+    }
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); //using raycasts
@@ -30,9 +57,10 @@ public class LevelManager : MonoBehaviour
                     //print("hey apple !");
                     GoToPainting();
                 }
-                if(hit2D.collider.CompareTag("Hatchet"))
+
+                if(hit2D.collider.CompareTag("Hatches"))
                 {
-                    hatchetBehaviour.Slide();
+                    hatchesBehaviour.SlideAndGrow();
                 }
             }
             else
@@ -43,10 +71,6 @@ public class LevelManager : MonoBehaviour
     }
     void GoToPainting()
     {
-        // treePainting.DOMoveY(spritePositionY,1);
-        // treePainting.DOPunchPosition(new Vector3(0,-10,0), 2, punchVibration, 0f);
-        //use animation ??
-
         //temporary
         treePainting.DOMoveY(spritePositionY, 1).SetEase(Ease.OutBounce);
     }

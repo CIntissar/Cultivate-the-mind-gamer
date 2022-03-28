@@ -18,5 +18,10 @@ public class AnimManager : MonoBehaviour
         {
             animator.SetBool("isBlinking", true);
         }
+
+        if(balltoEye.pokingTransition == true)
+        {
+            animator.SetBool("pokingTransition", true);
+        }
     }
 }

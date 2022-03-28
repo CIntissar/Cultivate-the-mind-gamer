@@ -36,7 +36,7 @@ public class MovingCamera : MonoBehaviour
             pupil.SetActive(true);
         }
 
-        if(cameraTransform.position.x == -limitTravel && clickChange.counter >= 6 && clickChange.oceanUp)
+        if(cameraTransform.position.x == -limitTravel && clickChange.oceanUp)
         {
             ballCenter = true;
         }

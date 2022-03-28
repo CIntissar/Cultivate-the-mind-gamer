@@ -10,6 +10,8 @@ public class BalltoEye : MonoBehaviour
 
     public float clickCount = 0;
     public bool blinkTransition = false;
+    public bool pokingTransition = false;
+
     public GameObject pupil;
     public MovingCamera movingCamera;
     public ClickChange clickChange;
@@ -49,7 +51,7 @@ public class BalltoEye : MonoBehaviour
 
     void FloatingBall()
     {
-        transform.DOMoveY(transform.position.y + 5.20f, 2f);
+        pupil.transform.DOMoveY(transform.position.y + 4.5f, 2f);
     }
 
     void Blink()
@@ -66,6 +68,8 @@ public class BalltoEye : MonoBehaviour
         //touching the eyes and have hurted sound? 
         // after 3 clicks -> transition for the face? 
         Debug.Log("OUTCH!!!");
+        pokingTransition = true;
+        SceneManager.LoadScene("Ball'nBird");
     }
         
 }

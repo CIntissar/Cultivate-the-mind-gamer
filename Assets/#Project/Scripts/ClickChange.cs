@@ -8,9 +8,10 @@ public class ClickChange : MonoBehaviour
     
     [HideInInspector] public Tween myTween;
 
-
+    public BalltoEye balltoEye;
     public int counter = 0;
     public bool pupilOn = false;
+    public Animation anim;
 
     public GameObject cloud_1;
     public GameObject drop;
@@ -52,7 +53,6 @@ public class ClickChange : MonoBehaviour
                     Debug.Log("Ceci n'est pas DUO");
                     
                     HideCloud(cloud_2);
-                    pupilOn = true;
                     counter++;
 
                 }
@@ -100,10 +100,13 @@ public class ClickChange : MonoBehaviour
             }
         }
 
-        if(ocean.transform.position.y == -1)
+        if(counter >= 6)
         {
+            pupilOn = true;
             oceanUp = true;
         }
+
+
     }
 
     public void HideCloud(GameObject clouds)

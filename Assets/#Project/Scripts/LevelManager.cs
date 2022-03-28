@@ -7,10 +7,12 @@ public class LevelManager : MonoBehaviour
 {
     public Transform treePainting;
     public float spritePositionY = 0f;
-    public GameObject hatch;
+    //public GameObject[] hatches;
     public HatchesBehaviour hatchesBehaviour;
     public GameObject apple;
-    public AppleBehaviour appleBehaviour;
+    public GameObject greenApple;
+    public bool hatchesClicked;
+    //public AppleBehaviour appleBehaviour;
     //public GameObject[] hatches;
     // public GameObject hatch0;
     // public GameObject hatch1;
@@ -18,8 +20,7 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        hatchesBehaviour = hatch.GetComponent<HatchesBehaviour>();
-        appleBehaviour = apple.GetComponent<AppleBehaviour>();
+        //appleBehaviour = apple.GetComponent<AppleBehaviour>();
         // hatch0 = GameObject.FindGameObjectWithTag("Hatches");
         // hatch1 = GameObject.FindGameObjectWithTag("Hatches");
         // hatch2 = GameObject.FindGameObjectWithTag("Hatches");
@@ -42,6 +43,8 @@ public class LevelManager : MonoBehaviour
         // hatchesBehaviour[1] = hatches[1].GetComponent<HatchesBehaviour>();
         // hatchesBehaviour[2] = hatches[2].GetComponent<HatchesBehaviour>();
 
+        //!!!!!Simplement drag'n droper l'object avec le script dans l'inspecteur
+
     }
     void Update()
     {
@@ -58,9 +61,24 @@ public class LevelManager : MonoBehaviour
                     GoToPainting();
                 }
 
+                // for (int i = 0; i < hatches.Length; i++)
+                // {
+                //     if(hit2D.collider.CompareTag("Hatches"))
+                //     {
+                //         hatchesBehaviour[i].SlideAndGrow();
+                //     }
+                // }
                 if(hit2D.collider.CompareTag("Hatches"))
                 {
                     hatchesBehaviour.SlideAndGrow();
+                }
+                if (hit2D.collider.CompareTag("GreenApple"))
+                {
+                    greenApple.transform.DOScale(0, 0.4f).OnComplete(() => {
+                        treePainting.DOMoveY(10.05152f,1);
+                    });
+                    //change the apple sprite
+                    //rideaux
                 }
             }
             else

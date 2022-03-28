@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 333608948}
   m_Layer: 0
   m_Name: apple
-  m_TagString: Untagged
+  m_TagString: GreenApple
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -797,10 +797,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treePainting: {fileID: 1521729527}
   spritePositionY: -0.05
-  hatch: {fileID: 1768097691}
-  hatchesBehaviour: {fileID: 0}
-  apple: {fileID: 333608945}
-  appleBehaviour: {fileID: 0}
+  hatchesBehaviour: {fileID: 1521729528}
+  apple: {fileID: 1853419316}
+  greenApple: {fileID: 333608945}
+  hatchesClicked: 0
 --- !u!1 &1521729525
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,6 +811,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1521729527}
   - component: {fileID: 1521729526}
+  - component: {fileID: 1521729528}
   m_Layer: 0
   m_Name: tree_background
   m_TagString: Untagged
@@ -887,6 +888,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1521729528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521729525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f352d78cd965734b99a74bbbf082c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSliding: 0
+  apple: {fileID: 333608947}
+  hatches:
+  - {fileID: 1768097693}
+  - {fileID: 995412338}
+  - {fileID: 56229336}
 --- !u!1 &1768097691
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,7 +917,6 @@ GameObject:
   - component: {fileID: 1768097693}
   - component: {fileID: 1768097692}
   - component: {fileID: 1768097694}
-  - component: {fileID: 1768097695}
   m_Layer: 0
   m_Name: portiques_closes_0
   m_TagString: Hatches
@@ -1024,20 +1042,6 @@ PolygonCollider2D:
       - {x: 0.4304363, y: -0.6416291}
       - {x: 0.6336955, y: -0.63478196}
       - {x: 0.68, y: -0.59}
---- !u!114 &1768097695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768097691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f352d78cd965734b99a74bbbf082c98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSliding: 0
-  apple: {fileID: 333608947}
 --- !u!1 &1853419316
 GameObject:
   m_ObjectHideFlags: 0

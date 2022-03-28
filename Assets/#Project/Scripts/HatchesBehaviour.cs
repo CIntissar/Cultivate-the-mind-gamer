@@ -8,20 +8,25 @@ public class HatchesBehaviour : MonoBehaviour
     //public Transform hatches;
     public bool isSliding = false;
     public Transform apple;
+    public Transform[] hatches = new Transform[3];
     void Start()
     {
-       //hatches = GetComponentsInChildren<HatchesBehaviour>();
+       //hatches = GetComponentsInChildren<Transform>();
     }
     
     void Update()
     {
         
     }
+
     public void SlideAndGrow()
     {
-        isSliding = true;
         apple.DOScale(new Vector2(0.18f,0.18f), 0.2f);
-        transform.DOMoveX(4,1); //add on complete
+        foreach (var item in hatches)
+        {
+            item.DOMoveX(4,1); //add on complete
+            print("1");
+        }
         isSliding = false;
     }
 }

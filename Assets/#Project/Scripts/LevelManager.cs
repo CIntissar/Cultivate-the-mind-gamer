@@ -7,15 +7,17 @@ public class LevelManager : MonoBehaviour
 {
     public Transform treePainting;
     public float spritePositionY = 0f;
+    //public GameObject[] hatches;
+    public HatchesBehaviour hatchesBehaviour;
+    public GameObject apple;
+    public GameObject greenApple;
+    public bool hatchesClicked;
+    public AppleBehaviour appleBehaviour;
 
-    public GameObject hatchet;
-    public HatchetBehaviour hatchetBehaviour;
     void Start()
     {
-        hatchetBehaviour = hatchet.GetComponent<HatchetBehaviour>();
+        appleBehaviour = apple.GetComponent<AppleBehaviour>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); //using raycasts
@@ -30,9 +32,26 @@ public class LevelManager : MonoBehaviour
                     //print("hey apple !");
                     GoToPainting();
                 }
-                if(hit2D.collider.CompareTag("Hatchet"))
+
+                // for (int i = 0; i < hatches.Length; i++)
+                // {
+                //     if(hit2D.collider.CompareTag("Hatches"))
+                //     {
+                //         hatchesBehaviour[i].SlideAndGrow();
+                //     }
+                // }
+                if(hit2D.collider.CompareTag("Hatches"))
                 {
-                    hatchetBehaviour.Slide();
+                    hatchesBehaviour.SlideAndGrow();
+                }
+                if (hit2D.collider.CompareTag("GreenApple"))
+                {
+                    appleBehaviour.ChangeSprite();
+                    greenApple.transform.DOScale(0, 0.4f).OnComplete(() => {
+                        treePainting.DOMoveY(10.05152f,1);
+                    });
+                    //change the apple sprite
+                    //rideaux
                 }
             }
             else
@@ -43,10 +62,6 @@ public class LevelManager : MonoBehaviour
     }
     void GoToPainting()
     {
-        // treePainting.DOMoveY(spritePositionY,1);
-        // treePainting.DOPunchPosition(new Vector3(0,-10,0), 2, punchVibration, 0f);
-        //use animation ??
-
         //temporary
         treePainting.DOMoveY(spritePositionY, 1).SetEase(Ease.OutBounce);
     }

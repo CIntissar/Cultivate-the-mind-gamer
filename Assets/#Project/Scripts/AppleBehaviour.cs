@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class AppleBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [HideInInspector] public SpriteRenderer rend;
+    public Sprite greenAppleSprite;
     void Start()
     {
-        
+        rend = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
+    }
+    public void ChangeSprite()
+    {
+        rend.sprite = greenAppleSprite;
     }
 }

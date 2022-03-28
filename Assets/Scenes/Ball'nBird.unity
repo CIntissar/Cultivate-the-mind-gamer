@@ -319,8 +319,6 @@ MonoBehaviour:
   magnifierCursor: {fileID: 21300000, guid: 668627c78d6780745a999177f1257d9f, type: 3}
   normalCursor: {fileID: 21300000, guid: f5ea2f2fce7c29447868323b960d61f3, type: 3}
   positionOffSetY: -5.5
-  positionOffSetZ: 20
-  rotationOffSetX: -10
 --- !u!1 &1679132577
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +451,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 570822517}
     - target: {fileID: 1391846980, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
+      propertyPath: easeType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391846980, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
       propertyPath: birdSpeed
       value: 1.5
       objectReference: {fileID: 0}
@@ -516,7 +518,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: colombe
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6215484630898228670, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
 --- !u!1 &2056676320 stripped
 GameObject:

@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 56229337}
   m_Layer: 0
   m_Name: portiques_closes_2
-  m_TagString: Untagged
+  m_TagString: Hatches
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -296,7 +296,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: -6779282459331043656, guid: 49ce16e416a3cd641af679a9be81e534, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -320,7 +320,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1521729527}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &56229337
 PolygonCollider2D:
@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 333608948}
   m_Layer: 0
   m_Name: apple
-  m_TagString: Untagged
+  m_TagString: GreenApple
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -417,7 +417,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: e868ae409fb2cbd438a2063948c8f7e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -436,12 +436,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333608945}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.08, y: 1.35, z: 0}
-  m_LocalScale: {x: 0.37523, y: 0.37523, z: 0.37523}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.15, y: 2.5684795, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1521729527}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &333608948
 CircleCollider2D:
@@ -456,9 +456,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.10810769, y: -0.2248688}
+  m_Offset: {x: -0.015954971, y: -0.03209102}
   serializedVersion: 2
-  m_Radius: 2.7106564
+  m_Radius: 0.35962117
 --- !u!1 &387725713
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,7 +554,7 @@ GameObject:
   - component: {fileID: 995412339}
   m_Layer: 0
   m_Name: portiques_closes_1
-  m_TagString: Untagged
+  m_TagString: Hatches
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -598,7 +598,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: 2396374639075733745, guid: 49ce16e416a3cd641af679a9be81e534, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -622,7 +622,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1521729527}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &995412339
 PolygonCollider2D:
@@ -750,7 +750,7 @@ Transform:
   m_LocalScale: {x: 18.1, y: 10.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1306081645
 GameObject:
@@ -781,7 +781,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1306081647
 MonoBehaviour:
@@ -797,8 +797,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treePainting: {fileID: 1521729527}
   spritePositionY: -0.05
-  hatchet: {fileID: 1768097691}
-  hatchetBehaviour: {fileID: 0}
+  hatchesBehaviour: {fileID: 1521729528}
+  apple: {fileID: 1853419316}
+  greenApple: {fileID: 333608945}
+  hatchesClicked: 0
+  appleBehaviour: {fileID: 0}
 --- !u!1 &1521729525
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,6 +812,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1521729527}
   - component: {fileID: 1521729526}
+  - component: {fileID: 1521729528}
   m_Layer: 0
   m_Name: tree_background
   m_TagString: Untagged
@@ -879,11 +883,30 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1768097693}
+  - {fileID: 333608947}
   - {fileID: 995412338}
   - {fileID: 56229336}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1521729528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521729525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f352d78cd965734b99a74bbbf082c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSliding: 0
+  apple: {fileID: 333608947}
+  hatches:
+  - {fileID: 1768097693}
+  - {fileID: 995412338}
+  - {fileID: 56229336}
 --- !u!1 &1768097691
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,10 +918,9 @@ GameObject:
   - component: {fileID: 1768097693}
   - component: {fileID: 1768097692}
   - component: {fileID: 1768097694}
-  - component: {fileID: 1768097695}
   m_Layer: 0
   m_Name: portiques_closes_0
-  m_TagString: Hatchet
+  m_TagString: Hatches
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -942,7 +964,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: -4703439942534252105, guid: 49ce16e416a3cd641af679a9be81e534, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1021,18 +1043,6 @@ PolygonCollider2D:
       - {x: 0.4304363, y: -0.6416291}
       - {x: 0.6336955, y: -0.63478196}
       - {x: 0.68, y: -0.59}
---- !u!114 &1768097695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768097691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4b83fb62a1fffe4aa1e97876c87d590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1853419316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,6 +1054,7 @@ GameObject:
   - component: {fileID: 1853419318}
   - component: {fileID: 1853419317}
   - component: {fileID: 1853419319}
+  - component: {fileID: 1853419320}
   m_Layer: 0
   m_Name: apple_shadow
   m_TagString: Apple
@@ -1132,6 +1143,20 @@ CircleCollider2D:
   m_Offset: {x: -0.012958825, y: -0.031066597}
   serializedVersion: 2
   m_Radius: 0.3568073
+--- !u!114 &1853419320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853419316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19ebe36df0d17204a8ccba3910fe45fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rend: {fileID: 0}
+  greenAppleSprite: {fileID: 21300000, guid: e868ae409fb2cbd438a2063948c8f7e0, type: 3}
 --- !u!1 &2036831032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,7 +1237,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2063754083
 GameObject:
@@ -1376,7 +1401,7 @@ Transform:
   m_LocalScale: {x: 1.2629787, y: 1.3431593, z: 9.8938}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2146775752
 GameObject:

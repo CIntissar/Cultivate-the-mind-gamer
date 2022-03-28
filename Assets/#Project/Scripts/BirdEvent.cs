@@ -12,7 +12,7 @@ public class BirdEvent : MonoBehaviour
     //public Animator transition;
     public float transitionTime = 1f;
     [HideInInspector] public Tween myTween;
-    Ease easeType;
+    public Ease easeType;
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -29,20 +29,8 @@ public class BirdEvent : MonoBehaviour
     }
     public void Fly()
     {
-        myTween = transform.DOMove(new Vector3 (Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0), birdAnimDuration).SetEase(Ease.InBack).OnComplete(Fly);
+        myTween = transform.DOMove(new Vector3 (Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0), birdAnimDuration).SetEase(easeType).OnComplete(Fly);
         //if smooth later on doesn't work, try using DOPath
-        //if myTween isPlaying return ???
-        //Ease.Flash : nope
-        //Ease.InBack : nope
-        //Ease.InBounce : nope
-        //Ease.InOutBack : nope
-        //Ease.InOutBounce : nope
-        //Ease.InOutSine : maybe ?
-        //Ease.InOutQuad : nope
-        //Ease.InQuad : nope
-        //Ease.OutBack : nope
-        //Ease.OutBounce : nope
-        //Ease.OutQuad : nope
     }
     public void StopAndExpand()
     {

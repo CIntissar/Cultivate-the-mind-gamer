@@ -8,26 +8,28 @@ public class ClickChange : MonoBehaviour
     
     [HideInInspector] public Tween myTween;
 
+
+    public int counter = 0;
     public bool pupilOn = false;
+
     public GameObject cloud_1;
-    public GameObject falling_1;
+    public GameObject drop;
+
     public GameObject cloud_2;
-
-    // its falling object is the black pupil! 
     public GameObject cloud_3;
-    public GameObject falling_3;
+    public GameObject drop3;
     public GameObject cloud_4;
-    public GameObject falling_4;
+    public GameObject drop4;
     public GameObject cloud_5;
-    public GameObject falling_5;
+    public GameObject drop5;
     public GameObject cloud_6;
-    public GameObject falling_6;
+    public GameObject drop6;
+    public GameObject ocean;
+    public bool oceanUp = false;
     public float hideSpeed = 1f;
-
     void Update()
     {
-        transform.position += new Vector3(0.01f, 0, 0);
-
+        
         if(Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -35,88 +37,92 @@ public class ClickChange : MonoBehaviour
 
             if (hit2D.collider != null)
             {
-                
-                
+                                
                 if(hit2D.collider.CompareTag("Cloud_1"))
                 {
                     Debug.Log("Ceci n'est pas UNO");
                     
-                    myTween = cloud_1.transform.DOPunchScale(new Vector3 (0.85f,0.85f,0),hideSpeed, 2, 2f).OnComplete(() => {
-                    cloud_1.transform.DOScale(0, 0.25f);
-                    });
-
-                    cloud_1.SetActive(false);
-
-                    falling_1.SetActive(true);
+                    HideCloud(cloud_1);
+                    RiseOcean(drop);
+                    counter++;                    
 
                 }
                 else if(hit2D.collider.CompareTag("Cloud_2"))
                 {
                     Debug.Log("Ceci n'est pas DUO");
                     
-                    myTween = cloud_2.transform.DOPunchScale(new Vector3 (0.85f,0.85f,0),hideSpeed, 2, 2f).OnComplete(() => {
-                    cloud_2.transform.DOScale(0, 0.25f);
-                    });
-
-                    cloud_2.SetActive(false);
-
+                    HideCloud(cloud_2);
                     pupilOn = true;
+                    counter++;
+
                 }
                 
                 else if(hit2D.collider.CompareTag("Cloud_3"))
                 {
                     Debug.Log("Ceci n'est pas TRE");
                     
-                    myTween = cloud_3.transform.DOPunchScale(new Vector3 (0.85f,0.85f,0),hideSpeed, 2, 2f).OnComplete(() => {
-                    cloud_3.transform.DOScale(0, 0.25f);
-                    });
+                    HideCloud(cloud_3);
+                    RiseOcean(drop3); 
+                    counter++;
 
-                    cloud_3.SetActive(false);
-
-                    falling_3.SetActive(true);
                 }
                 
                 else if(hit2D.collider.CompareTag("Cloud_4"))
                 {
                     Debug.Log("Ceci n'est pas QUATTRO");
                     
-                    myTween = cloud_4.transform.DOPunchScale(new Vector3 (0.85f,0.85f,0),hideSpeed, 2, 2f).OnComplete(() => {
-                    cloud_4.transform.DOScale(0, 0.25f);
-                    });
+                    HideCloud(cloud_4);
+                    RiseOcean(drop4);   
+                    counter++;                  
 
-                    cloud_4.SetActive(false);
-                    
-                    falling_4.SetActive(true);
                 }
                 
                 else if(hit2D.collider.CompareTag("Cloud_5"))
                 {
                     Debug.Log("Ceci n'est pas CINQUE");
                     
-                    myTween = cloud_5.transform.DOPunchScale(new Vector3 (0.85f,0.85f,0),hideSpeed, 2, 2f).OnComplete(() => {
-                    cloud_5.transform.DOScale(0, 0.25f);
-                    });
+                    HideCloud(cloud_5);
+                    RiseOcean(drop5);   
+                    counter++;                 
 
-                    cloud_5.SetActive(false);
-                    
-                    falling_5.SetActive(true);
                 }
                 
                 else if(hit2D.collider.CompareTag("Cloud_6"))
                 {
                     Debug.Log("Ceci n'est pas SEI");
                     
-                    myTween = cloud_6.transform.DOPunchScale(new Vector3 (0.85f,0.85f,0),hideSpeed, 2, 2f).OnComplete(() => {
-                    cloud_6.transform.DOScale(0, 0.25f);
-                    });
-
-                    cloud_6.SetActive(false);
+                    HideCloud(cloud_6);
+                    RiseOcean(drop6); 
+                    counter++;
                     
-                    falling_6.SetActive(true);
                 }
-                
                 
             }
         }
+
+        if(ocean.transform.position.y == -1)
+        {
+            oceanUp = true;
+        }
+    }
+
+    public void HideCloud(GameObject clouds)
+    {
+        myTween = clouds.transform.DOPunchScale(new Vector3 (0.85f,0.85f,0),hideSpeed, 2, 2f).OnComplete(() => {
+                    clouds.transform.DOScale(0, 0.35f);
+        
+        });
+
+        clouds.GetComponent<SpriteRenderer>().enabled = false;
+        //clouds.SetActive(false);
+    }
+
+    public void RiseOcean(GameObject waterdrop)
+    {
+        //waterdrop.SetActive(true);
+        waterdrop.GetComponent<SpriteRenderer>().enabled = true;
+        Debug.Log("I CAME IN LIKE A WRECKINGBALL");
+        myTween = waterdrop.transform.DOMoveY(-15f,2f);
+        ocean.transform.Translate(0,0.5f,0);
     }
 }

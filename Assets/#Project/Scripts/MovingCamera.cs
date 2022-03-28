@@ -12,8 +12,9 @@ public class MovingCamera : MonoBehaviour
     public Button rightButton;
     public float travel = 5.0f;
     public float limitTravel = 15f;
-
     public bool ballCenter = false;
+    public ClickChange clickChange;
+    public GameObject pupil;
 
     void Start()
     {
@@ -26,12 +27,16 @@ public class MovingCamera : MonoBehaviour
 		left.onClick.AddListener(MoveLeft);
         right.onClick.AddListener(MoveRight);
 
-        FromClouds();
     }
 
     void Update()
     {
-        if(cameraTransform.position.x == -limitTravel)
+        if(clickChange.pupilOn == true)
+        {
+            pupil.SetActive(true);
+        }
+
+        if(cameraTransform.position.x == -limitTravel && clickChange.counter >= 6 && clickChange.oceanUp)
         {
             ballCenter = true;
         }
@@ -41,12 +46,6 @@ public class MovingCamera : MonoBehaviour
         }
     }
 
-    void FromClouds()
-    {
-        
-       //active l'animation des nuages
-        //Fait apparaitre les flèches du canvas
-    }
     void MoveLeft()
     {
         if(ballCenter == false)

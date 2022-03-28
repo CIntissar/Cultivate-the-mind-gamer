@@ -15,10 +15,6 @@ public class BalltoEye : MonoBehaviour
 
     void Update()
     {
-        if(clickChange.pupilOn == true)
-        {
-            pupil.SetActive(true);
-        }
 
         if(Input.GetMouseButtonDown(0))
         {

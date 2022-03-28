@@ -437,7 +437,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333608945}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.034480006, y: 2.5684795, z: 0}
+  m_LocalPosition: {x: -0.15, y: 2.5684795, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 1521729527}
@@ -456,9 +456,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.10810769, y: -0.2248688}
+  m_Offset: {x: -0.015954971, y: -0.03209102}
   serializedVersion: 2
-  m_Radius: 2.7106564
+  m_Radius: 0.35962117
 --- !u!1 &387725713
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,6 +801,7 @@ MonoBehaviour:
   apple: {fileID: 1853419316}
   greenApple: {fileID: 333608945}
   hatchesClicked: 0
+  appleBehaviour: {fileID: 0}
 --- !u!1 &1521729525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,6 +1054,7 @@ GameObject:
   - component: {fileID: 1853419318}
   - component: {fileID: 1853419317}
   - component: {fileID: 1853419319}
+  - component: {fileID: 1853419320}
   m_Layer: 0
   m_Name: apple_shadow
   m_TagString: Apple
@@ -1141,6 +1143,20 @@ CircleCollider2D:
   m_Offset: {x: -0.012958825, y: -0.031066597}
   serializedVersion: 2
   m_Radius: 0.3568073
+--- !u!114 &1853419320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853419316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19ebe36df0d17204a8ccba3910fe45fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rend: {fileID: 0}
+  greenAppleSprite: {fileID: 21300000, guid: e868ae409fb2cbd438a2063948c8f7e0, type: 3}
 --- !u!1 &2036831032
 GameObject:
   m_ObjectHideFlags: 0

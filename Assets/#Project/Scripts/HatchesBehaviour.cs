@@ -21,11 +21,10 @@ public class HatchesBehaviour : MonoBehaviour
 
     public void SlideAndGrow()
     {
-        apple.DOScale(new Vector2(0.18f,0.18f), 0.2f);
+        apple.DOScale(new Vector2(1f,1f), 0.2f);
         foreach (var item in hatches)
         {
             item.DOMoveX(4,1); //add on complete
-            print("1");
         }
         isSliding = false;
     }

@@ -36,9 +36,9 @@ public class BallEvent : MonoBehaviour
         {
             isMoving = true;
             currentRotation = transform.eulerAngles;
-            transform.DOMoveX(transform.position.x + 4f, 2f);
-            transform.DORotate(new Vector3 (0, 0, currentRotation.z - 120f), 2f);
-            transform.DOScale(new Vector3(transform.localScale.x + 0.4f, transform.localScale.y + 0.4f, 0), 2f);
+            transform.DOMoveX(transform.position.x + 4f, 1.5f);
+            transform.DORotate(new Vector3 (0, 0, currentRotation.z - 120f), 1.5f);
+            transform.DOScale(new Vector3(transform.localScale.x + 0.4f, transform.localScale.y + 0.4f, 0), 1.5f);
             yield return new WaitForSeconds(1.5f);
             isMoving = false;
             clickCount++;
@@ -59,7 +59,6 @@ public class BallEvent : MonoBehaviour
         {
             rend.DOFade(0, 0.5f);
         }
-        //animator.SetBool("fade", true);
         birdEvent.Fly();
     }
     

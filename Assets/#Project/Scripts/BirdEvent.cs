@@ -9,10 +9,13 @@ public class BirdEvent : MonoBehaviour
     Animator animator;
     public SpriteRenderer sprite;
     public float birdAnimDuration = 2f;
-    //public Animator transition;
-    public float transitionTime = 1f;
     [HideInInspector] public Tween myTween;
     public Ease easeType;
+    //public PathType pathSystem = PathType.CatmullRom;
+    public Vector2[] pathval = new Vector2[5];
+    //public List<int> randomNumbersList = new List<int>(5);
+    //public int nbrCopy;
+    public int nbr;
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -20,7 +23,8 @@ public class BirdEvent : MonoBehaviour
     }
     void Start()
     {
-        //DOTween.SetTweensCapacity(2000, 100);
+        //nbrCopy = Random.Range(0,4);
+        nbr = Random.Range(0,4);
     }
 
     void Update()
@@ -29,7 +33,9 @@ public class BirdEvent : MonoBehaviour
     }
     public void Fly()
     {
-        myTween = transform.DOMove(new Vector3 (Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0), birdAnimDuration).SetEase(easeType).OnComplete(Fly);
+        myTween = transform.DOMove(new Vector2(pathval[nbr].x, pathval[nbr].y), birdAnimDuration).SetEase(easeType).OnComplete(Fly);
+        //myTween = transform.DOLocalPath(pathval, 2, pathSystem);
+        // myTween = transform.DOMove(new Vector3 (Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0), birdAnimDuration).SetEase(easeType).OnComplete(Fly);
         //if smooth later on doesn't work, try using DOPath
     }
     public void StopAndExpand()
@@ -38,22 +44,9 @@ public class BirdEvent : MonoBehaviour
         transform.DOMove(Vector3.zero, 0.5f).OnComplete(() => {
             transform.DOScale(20, 1f).OnComplete(() => {
                 sprite.DOFade(1,1).OnComplete(() => {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    SceneManager.LoadScene("Dot on sea");
                 });
             });
         });
-
-        //LoadNextLevel();
     }
-    // public void LoadNextLevel()
-    // {
-    //     StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
-    // }
-    // IEnumerator LoadLevel(int levelIndex)
-    // {
-    //     sprite.DOFade(1,1);
-    //     yield return new WaitForSeconds(transitionTime);
-    //     SceneManager.LoadScene(levelIndex);
-    //     sprite.DOFade(0,1);
-    // }
 }

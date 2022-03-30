@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -27,7 +28,14 @@ public class LevelManager : MonoBehaviour
             {
                 if (hit2D.collider.CompareTag("Apple"))
                 {
-                    GoToPainting();
+                    if(appleBehaviour.spriteChanged)
+                    {
+                        SceneManager.LoadScene("EndScene");
+                    }
+                    else
+                    {
+                        GoToPainting();
+                    }
                 }
                 
                 if(hit2D.collider.CompareTag("Hatches"))

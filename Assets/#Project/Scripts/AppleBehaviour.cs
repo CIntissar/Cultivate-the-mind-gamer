@@ -7,6 +7,7 @@ public class AppleBehaviour : MonoBehaviour
 {
     [HideInInspector] public SpriteRenderer rend;
     public Sprite greenAppleSprite;
+    public bool spriteChanged = false;
     void Start()
     {
         rend = GetComponent<SpriteRenderer>();
@@ -20,5 +21,6 @@ public class AppleBehaviour : MonoBehaviour
     public void ChangeSprite()
     {
         rend.sprite = greenAppleSprite;
+        spriteChanged = true;
     }
 }

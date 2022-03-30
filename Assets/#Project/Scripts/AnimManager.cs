@@ -14,6 +14,11 @@ public class AnimManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(balltoEye.arrowAway == true)
+        {
+            animator.SetBool("arrowGone", true);
+        }
+
         if(balltoEye.blinkTransition == true)
         {
             animator.SetBool("isBlinking", true);

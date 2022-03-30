@@ -34,6 +34,8 @@ public class MovingCamera : MonoBehaviour
         if(clickChange.pupilOn == true)
         {
             pupil.SetActive(true);
+            //pupil.transform.DOMoveY(-15f,2f);
+            //-> faire en sorte qu'il remonte en un coup de la mer!!! 
         }
 
         if(cameraTransform.position.x == -limitTravel && clickChange.oceanUp)

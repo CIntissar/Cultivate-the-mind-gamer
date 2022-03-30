@@ -9,6 +9,7 @@ public class BalltoEye : MonoBehaviour
     //Script to make the pupil float after one click -> Poke the eyes and make the man come closer
     public int clickCount = 0;
     public int pokingCount = 0;
+    public bool arrowAway = false;
     public bool blinkTransition = false;
     public bool pokingTransition = false;
     public GameObject pupil;
@@ -30,16 +31,11 @@ public class BalltoEye : MonoBehaviour
                     Debug.Log("DON'T TOUCH ME!!!");
 
                     clickCount++;
-                    
-                    movingCamera.leftButton.interactable = false;
-                    movingCamera.leftButton.enabled = false;
-
-                    movingCamera.rightButton.interactable = false;
-                    movingCamera.rightButton.enabled = false;
 
                     if(clickCount == 1)
                     {
                         FloatingBall();
+                        arrowAway = true;
                     }
                     else if(clickCount == 2)
                     {

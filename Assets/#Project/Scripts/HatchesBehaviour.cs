@@ -5,13 +5,15 @@ using DG.Tweening;
 
 public class HatchesBehaviour : MonoBehaviour
 {
-    //public Transform hatches;
     //public bool isSliding = false;
     public GameObject[] hatches = new GameObject[3];
     public Transform apple;
     public RaycastHit2D hit2D;
-    
+    //public Transform firstSprite;
+    //public Transform secondSprite;
     //public bool hatchesClicked = false;
+    public List<Transform> sprites = new List<Transform>();
+    public int index = 0;
     void Start()
     {
        //hatches = GetComponentsInChildren<Transform>();
@@ -25,15 +27,18 @@ public class HatchesBehaviour : MonoBehaviour
 
     public void SlideAndGrow()
     {
-        for (int i = 0; i < hatches.Length; i++)
+        for (int j = 0; j < hatches.Length; j++)
         {
-            if(hit2D.collider.gameObject == hatches[i].gameObject)
+            if(hit2D.collider.gameObject == hatches[j].gameObject)
             {
-                hatches[i].transform.DOMoveX(4,1);
+                sprites[index].position = hatches[j].transform.position;
+                hatches[j].transform.DOMoveX(4,1);
+                index++;
             }
         }
-        //hatchesClicked = true;
-        apple.DOScale(new Vector2(1f,1f), 0.2f);
-        //isSliding = false;
+            //hatchesClicked = true;
+            //apple.DOScale(new Vector2(1f,1f), 0.1f);
+            //isSliding = false;
+            //boucle for des sprites avant celle des portes
     }
 }

@@ -12,10 +12,11 @@ public class BirdEvent : MonoBehaviour
     [HideInInspector] public Tween myTween;
     public Ease easeType;
     //public PathType pathSystem = PathType.CatmullRom;
-    public Vector2[] pathval = new Vector2[5];
+    //[SerializeField] Transform[] waypoints;
+    //[SerializeField] int waypointIndex = 0;
     //public List<int> randomNumbersList = new List<int>(5);
     //public int nbrCopy;
-    public int nbr;
+    //public int nbr;
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -24,7 +25,7 @@ public class BirdEvent : MonoBehaviour
     void Start()
     {
         //nbrCopy = Random.Range(0,4);
-        nbr = Random.Range(0,4);
+        //nbr = Random.Range(0,4);
     }
 
     void Update()
@@ -33,9 +34,13 @@ public class BirdEvent : MonoBehaviour
     }
     public void Fly()
     {
-        myTween = transform.DOMove(new Vector2(pathval[nbr].x, pathval[nbr].y), birdAnimDuration).SetEase(easeType).OnComplete(Fly);
+        // if(waypointIndex <= waypoints.Length - 1)
+        // {
+        //     myTween = transform.DOMove(new Vector2(waypoints[waypointIndex].transform.position.x, waypoints[waypointIndex].transform.position.y), birdAnimDuration).SetEase(easeType).OnComplete(Fly);
+
+        // }
+        myTween = transform.DOMove(new Vector3 (Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0), birdAnimDuration).SetEase(easeType).OnComplete(Fly);
         //myTween = transform.DOLocalPath(pathval, 2, pathSystem);
-        // myTween = transform.DOMove(new Vector3 (Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0), birdAnimDuration).SetEase(easeType).OnComplete(Fly);
         //if smooth later on doesn't work, try using DOPath
     }
     public void StopAndExpand()

@@ -6,12 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class BalltoEye : MonoBehaviour
 {
-    //Function to make the pupil float after one click
-
-    public float clickCount = 0;
+    //Script to make the pupil float after one click -> Poke the eyes and make the man come closer
+    public int clickCount = 0;
+    public int pokingCount = 0;
     public bool blinkTransition = false;
     public bool pokingTransition = false;
-
     public GameObject pupil;
     public MovingCamera movingCamera;
     public ClickChange clickChange;
@@ -38,12 +37,36 @@ public class BalltoEye : MonoBehaviour
                     }
                     else if(clickCount == 2)
                     {
-                        Blink();
+                        blinkTransition = true;
                     }
                 }
                 else if(movingCamera.ballCenter == true && hit2D.collider.CompareTag("Skin"))
                 {
-                    Poke();
+                    pokingCount++;
+
+                    if(pokingCount == 1)
+                    {
+                        Debug.Log("OUTCH!!!");
+                        pokingTransition = true;
+                        //sound of hurting!
+                    }
+                    else if(pokingCount == 2)
+                    {
+                        //Poke(); -> je dois en créer un autre pour que le perso avance + new background                        
+                        //sound of hurting again                        
+                    }
+                    else if(pokingCount == 3)
+                    {
+                        // Poke à nouveau, le perso parait plus clair et encore décor différent
+                        //sound of hurting again more
+                    }
+                    else if(pokingCount >= 4)
+                    {
+                        //Last Poke
+                        SceneManager.LoadScene("GiantHead");
+
+                    }
+
                 }
             }
         }
@@ -54,22 +77,6 @@ public class BalltoEye : MonoBehaviour
         pupil.transform.DOMoveY(transform.position.y + 4.5f, 2f);
     }
 
-    void Blink()
-    {
-        //having a transition (fading in/out) to make appear the eyes 
-        // animation blink every 5 sec?
-        blinkTransition = true;
-              
-    }
 
-    void Poke()
-    {
-        //then a simple transition with eyes blinking?
-        //touching the eyes and have hurted sound? 
-        // after 3 clicks -> transition for the face? 
-        Debug.Log("OUTCH!!!");
-        pokingTransition = true;
-        SceneManager.LoadScene("Ball'nBird");
-    }
         
 }

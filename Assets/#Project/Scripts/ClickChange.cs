@@ -11,11 +11,9 @@ public class ClickChange : MonoBehaviour
     public BalltoEye balltoEye;
     public int counter = 0;
     public bool pupilOn = false;
-    public Animation anim;
 
     public GameObject cloud_1;
     public GameObject drop;
-
     public GameObject cloud_2;
     public GameObject cloud_3;
     public GameObject drop3;
@@ -26,6 +24,7 @@ public class ClickChange : MonoBehaviour
     public GameObject cloud_6;
     public GameObject drop6;
     public GameObject ocean;
+    
     public bool oceanUp = false;
     public float hideSpeed = 1f;
     void Update()

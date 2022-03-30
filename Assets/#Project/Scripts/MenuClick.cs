@@ -69,6 +69,7 @@ public class MenuClick : MonoBehaviour
                     if(touch >= 3 && appleOn == false)
                     {
                         myTween.Kill();
+                        //sound of hit (comical one?)
                         apple.GetComponent<SpriteRenderer>().enabled = true;
                         appleOn = true;
                     }

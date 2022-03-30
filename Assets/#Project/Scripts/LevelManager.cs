@@ -7,11 +7,9 @@ public class LevelManager : MonoBehaviour
 {
     public Transform treePainting;
     public float spritePositionY = 0f;
-    //public GameObject[] hatches;
     public HatchesBehaviour hatchesBehaviour;
     public GameObject apple;
     public GameObject greenApple;
-    public bool hatchesClicked;
     public AppleBehaviour appleBehaviour;
 
     void Start()
@@ -20,7 +18,7 @@ public class LevelManager : MonoBehaviour
     }
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); //using raycasts
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray);
 
         if(Input.GetMouseButtonDown(0))
@@ -29,17 +27,9 @@ public class LevelManager : MonoBehaviour
             {
                 if (hit2D.collider.CompareTag("Apple"))
                 {
-                    //print("hey apple !");
                     GoToPainting();
                 }
-
-                // for (int i = 0; i < hatches.Length; i++)
-                // {
-                //     if(hit2D.collider.CompareTag("Hatches"))
-                //     {
-                //         hatchesBehaviour[i].SlideAndGrow();
-                //     }
-                // }
+                
                 if(hit2D.collider.CompareTag("Hatches"))
                 {
                     hatchesBehaviour.SlideAndGrow();

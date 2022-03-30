@@ -30,6 +30,12 @@ public class BalltoEye : MonoBehaviour
                     Debug.Log("DON'T TOUCH ME!!!");
 
                     clickCount++;
+                    
+                    movingCamera.leftButton.interactable = false;
+                    movingCamera.leftButton.enabled = false;
+
+                    movingCamera.rightButton.interactable = false;
+                    movingCamera.rightButton.enabled = false;
 
                     if(clickCount == 1)
                     {

@@ -10,8 +10,8 @@ public class MovingCamera : MonoBehaviour
     Transform cameraTransform;
     public Button leftButton;
     public Button rightButton;
-    public float travel = 5.0f;
-    public float limitTravel = 15f;
+    public float travel = 10.0f;
+    public float limitTravel = 20f;
     public bool ballCenter = false;
     public ClickChange clickChange;
     public GameObject pupil;
@@ -56,15 +56,19 @@ public class MovingCamera : MonoBehaviour
             {
                 cameraTransform.Translate(0,0,0);
                 Debug.Log("Reserved to staff");
+                leftButton.interactable = false;
             }
             else
             {
+                Debug.Log("BABY COME BACK");
                 cameraTransform.Translate(-travel,0,0);
+                rightButton.interactable = true;    
             }
         }
         else
         {
             cameraTransform.Translate(0,0,0);
+            // leftButton.enabled = false;
         }
 
     }
@@ -79,15 +83,18 @@ public class MovingCamera : MonoBehaviour
             {
                 cameraTransform.Translate(0,0,0);
                 Debug.Log("Reserved to staff");
+                rightButton.interactable = false;
             }
             else
             {
                 cameraTransform.Translate(travel,0,0);
+                leftButton.interactable = true;
             }
         }
         else
         {
             cameraTransform.Translate(0,0,0);
+            // rightButton.enabled = false;
         }
     }
     

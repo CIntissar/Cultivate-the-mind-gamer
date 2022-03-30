@@ -10,7 +10,7 @@ public class BallEvent : MonoBehaviour
     [SerializeField] SpriteRenderer bird;
     [HideInInspector] bool isMoving = false;
     Vector3 currentRotation;
-    public float clickCount = 0;
+    [HideInInspector] public float clickCount = 0;
     [SerializeField] Transform upperBall;
     [SerializeField] Animator animator;
     public SpriteRenderer[] spriteRenderers;
@@ -52,14 +52,15 @@ public class BallEvent : MonoBehaviour
     }
     public IEnumerator OpenUpAndFly()
     {
-        upperBall.DOMoveY(transform.position.y + 3f, 0.9f);
-        yield return new WaitForSeconds(0.9f);
-        bird.DOFade(1, 0.1f);
-        foreach (SpriteRenderer rend in spriteRenderers)
-        {
-            rend.DOFade(0, 0.5f);
-        }
-        birdEvent.Fly();
+        upperBall.DOMoveY(transform.position.y + 3f, 0.9f).OnComplete(() => {
+            bird.DOFade(1, 0.1f);
+            foreach (SpriteRenderer rend in spriteRenderers)
+            {
+                rend.DOFade(0, 0.5f);
+            }
+            birdEvent.Fly();
+        });
+        yield return new WaitForSeconds(1.2f);
+        gameObject.SetActive(false);
     }
-    
 }

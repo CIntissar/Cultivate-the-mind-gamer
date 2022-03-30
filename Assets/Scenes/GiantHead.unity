@@ -320,7 +320,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1521729527}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &56229337
 PolygonCollider2D:
@@ -437,11 +437,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333608945}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.15, y: 2.5684795, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: -12.35, y: 12.62, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1521729527}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &333608948
 CircleCollider2D:
@@ -566,11 +566,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676762694}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.11448, y: 0.43, z: 0}
+  m_LocalPosition: {x: -12.18, y: 10.481521, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1521729527}
-  m_RootOrder: 4
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &676762696
 SpriteRenderer:
@@ -704,7 +704,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1521729527}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &995412339
 PolygonCollider2D:
@@ -777,11 +777,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075538164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.11448, y: -1.44, z: 0}
+  m_LocalPosition: {x: -12.27, y: 8.611521, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1521729527}
-  m_RootOrder: 5
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1075538166
 SpriteRenderer:
@@ -1046,13 +1046,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1768097693}
-  - {fileID: 333608947}
   - {fileID: 995412338}
   - {fileID: 56229336}
-  - {fileID: 676762695}
-  - {fileID: 1075538165}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1521729528
 MonoBehaviour:
@@ -1071,6 +1068,11 @@ MonoBehaviour:
   - {fileID: 995412336}
   - {fileID: 56229334}
   apple: {fileID: 333608947}
+  sprites:
+  - {fileID: 676762695}
+  - {fileID: 1075538165}
+  - {fileID: 333608947}
+  index: 0
 --- !u!1 &1768097691
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,6 +1323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
   greenAppleSprite: {fileID: 21300000, guid: e868ae409fb2cbd438a2063948c8f7e0, type: 3}
+  spriteChanged: 0
 --- !u!1 &2063754083
 GameObject:
   m_ObjectHideFlags: 0

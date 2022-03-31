@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    public Transform treePainting;
-    public float spritePositionY = 0f;
-    public HatchesBehaviour hatchesBehaviour;
+    [SerializeField] Transform treePainting;
+    [SerializeField] float spritePositionY = 0f;
+    [SerializeField] HatchesBehaviour hatchesBehaviour;
     public GameObject apple;
-    public GameObject greenApple;
-    public AppleBehaviour appleBehaviour;
+    [SerializeField] GameObject greenApple;
+    AppleBehaviour appleBehaviour;
 
     void Start()
     {

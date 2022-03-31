@@ -20,7 +20,6 @@ public class BallEvent : MonoBehaviour
         birdEvent = bird.GetComponent<BirdEvent>();
         animator = GetComponent<Animator>();
         bird = GameObject.FindGameObjectWithTag("Bird").GetComponent<SpriteRenderer>();
-        //add get component in children, returns array,
     }
     void Start()
     {

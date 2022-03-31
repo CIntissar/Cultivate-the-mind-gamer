@@ -484,6 +484,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1391846980, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
+      propertyPath: minDistanceX
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391846980, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
+      propertyPath: minDistanceY
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391846980, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
+      propertyPath: birdAnimDuration
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391846980, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
       propertyPath: pathval.Array.size
       value: 5
       objectReference: {fileID: 0}

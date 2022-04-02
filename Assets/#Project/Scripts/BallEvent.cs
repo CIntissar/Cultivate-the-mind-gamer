@@ -8,17 +8,16 @@ public class BallEvent : MonoBehaviour
 {
     [SerializeField] BirdEvent birdEvent;
     [SerializeField] SpriteRenderer bird;
+    [SerializeField] FakeBirdBehaviour fakeBirdBehaviour;
     [HideInInspector] bool isMoving = false;
     Vector3 currentRotation;
     [HideInInspector] public float clickCount = 0;
     [SerializeField] Transform upperBall;
-    [SerializeField] Animator animator;
     public SpriteRenderer[] spriteRenderers;
     
     void Awake()
     {
         birdEvent = bird.GetComponent<BirdEvent>();
-        animator = GetComponent<Animator>();
         bird = GameObject.FindGameObjectWithTag("Bird").GetComponent<SpriteRenderer>();
     }
     void Start()
@@ -53,11 +52,13 @@ public class BallEvent : MonoBehaviour
     {
         upperBall.DOMoveY(transform.position.y + 3f, 0.9f).OnComplete(() => {
             bird.DOFade(1, 0.1f);
+            fakeBirdBehaviour.FadeIn();
             foreach (SpriteRenderer rend in spriteRenderers)
             {
                 rend.DOFade(0, 0.5f);
             }
             birdEvent.Fly();
+            fakeBirdBehaviour.FollowWaypoint();
         });
         yield return new WaitForSeconds(1.2f);
         gameObject.SetActive(false);

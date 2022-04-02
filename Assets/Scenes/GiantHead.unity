@@ -959,12 +959,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 260fd835c3a58524492933d10b74fb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treePainting: {fileID: 1521729527}
-  spritePositionY: -0.05
   hatchesBehaviour: {fileID: 1521729528}
   apple: {fileID: 1853419316}
   greenApple: {fileID: 333608945}
-  appleBehaviour: {fileID: 0}
 --- !u!1 &1521729525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,7 +1039,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521729525}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.11448, y: 10.05152, z: 0}
+  m_LocalPosition: {x: -0.0455, y: 10.1315, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1768097693}
@@ -1063,16 +1060,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f352d78cd965734b99a74bbbf082c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spritePositionY: -0.05
+  easeType: 30
   hatches:
   - {fileID: 1768097691}
   - {fileID: 995412336}
   - {fileID: 56229334}
-  apple: {fileID: 333608947}
   sprites:
   - {fileID: 676762695}
   - {fileID: 1075538165}
   - {fileID: 333608947}
-  index: 0
 --- !u!1 &1768097691
 GameObject:
   m_ObjectHideFlags: 0

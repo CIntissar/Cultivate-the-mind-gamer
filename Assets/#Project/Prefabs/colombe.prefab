@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8492634671063774194}
   - component: {fileID: 3852068014751288314}
   - component: {fileID: 8009070831591240393}
-  - component: {fileID: 6215484630898228670}
   - component: {fileID: 1391846980}
   m_Layer: 0
   m_Name: colombe
@@ -75,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: adc63582e03dbab4db206171839ca7c0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -111,25 +110,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.7772322, y: 1.3923953}
   m_EdgeRadius: 0
---- !u!95 &6215484630898228670
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8642605012189752961}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3066668448bbc94459db82de09b3a6ad, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1391846980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,5 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e36dacc6c2c7c344088519401c923478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transition: {fileID: 0}
-  transitionTime: 1
+  sprite: {fileID: 0}
+  birdAnimDuration: 1.8
+  easeType: 1
+  minDistanceX: 4
+  minDistanceY: 4

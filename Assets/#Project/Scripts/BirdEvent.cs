@@ -57,7 +57,7 @@ public class BirdEvent : MonoBehaviour
     {
         myTween.Kill();
         transform.DOMove(Vector3.zero, 0.5f).OnComplete(() => {
-            transform.DOScale(30, 1f).OnComplete(() => {
+            transform.DOScale(35, 1f).OnComplete(() => {
                 sprite.DOFade(1,0.9f).OnComplete(() => {
                     SceneManager.LoadScene("Dot on sea");
                 });

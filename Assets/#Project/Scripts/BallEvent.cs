@@ -14,15 +14,11 @@ public class BallEvent : MonoBehaviour
     [HideInInspector] public float clickCount = 0;
     [SerializeField] Transform upperBall;
     public SpriteRenderer[] spriteRenderers;
-    
-    void Awake()
+    void Start()
     {
         birdEvent = bird.GetComponent<BirdEvent>();
         bird = GameObject.FindGameObjectWithTag("Bird").GetComponent<SpriteRenderer>();
-    }
-    void Start()
-    {
-       spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
     }
     void Update()
     {
@@ -51,16 +47,17 @@ public class BallEvent : MonoBehaviour
     public IEnumerator OpenUpAndFly()
     {
         upperBall.DOMoveY(transform.position.y + 3f, 0.9f).OnComplete(() => {
-            bird.DOFade(1, 0.1f);
-            fakeBirdBehaviour.FadeIn();
+            bird.DOFade(1, 0.1f); //foreach (Spriterenderer item in birdsSprite) --> do fade
+            fakeBirdBehaviour.FadeIn(); // delete this
             foreach (SpriteRenderer rend in spriteRenderers)
             {
                 rend.DOFade(0, 0.5f);
             }
-            birdEvent.Fly();
-            fakeBirdBehaviour.FollowWaypoint();
+            birdEvent.Fly(); //call the other function
+            fakeBirdBehaviour.StartFlying(); //dlete this
         });
         yield return new WaitForSeconds(1.2f);
         gameObject.SetActive(false);
+        //1. maybe switch brid fade and ball fade ?
     }
 }

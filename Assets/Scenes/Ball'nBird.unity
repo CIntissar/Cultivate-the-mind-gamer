@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &115371732
 Transform:
   m_ObjectHideFlags: 0
@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 255778492}
   - component: {fileID: 255778493}
   m_Layer: 0
-  m_Name: FakeBirdManager
+  m_Name: BirdManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -283,14 +283,11 @@ MonoBehaviour:
   birdsSprite:
   - {fileID: 1950617810}
   - {fileID: 501945889}
-  birdsPosition:
-  - {fileID: 1950617809}
-  - {fileID: 501945888}
-  waypoints:
-  - {fileID: 115371732}
-  - {fileID: 1377896326}
-  - {fileID: 1369206710}
-  - {fileID: 750737633}
+  fakeBirds: []
+  birdAnimDuration: 1.8
+  easeType: 0
+  minDistanceX: 5
+  minDistanceY: 5
 --- !u!1001 &501945885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -361,6 +358,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1391846980, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
     - {fileID: 8009070831591240393, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
+    - {fileID: 160825111263804176, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
 --- !u!1 &501945886 stripped
 GameObject:
@@ -660,7 +658,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &750737633
 Transform:
   m_ObjectHideFlags: 0
@@ -690,7 +688,7 @@ GameObject:
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1369206710
 Transform:
   m_ObjectHideFlags: 0
@@ -720,7 +718,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1377896326
 Transform:
   m_ObjectHideFlags: 0
@@ -931,6 +929,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1391846980, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
     - {fileID: 8009070831591240393, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
+    - {fileID: 160825111263804176, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
 --- !u!1 &1950617807 stripped
 GameObject:
@@ -1221,9 +1220,17 @@ PrefabInstance:
       propertyPath: sprite
       value: 
       objectReference: {fileID: 570822517}
+    - target: {fileID: 1391846980, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
+      propertyPath: minDistanceX
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391846980, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
+      propertyPath: minDistanceY
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8492634671063774194, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8492634671063774194, guid: 7f3a8a3f9e6f9244e819580680830938, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1289,7 +1296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3145734040659811375, guid: 02f32cae47ed66846b802b067a60f927, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3145734040659811375, guid: 02f32cae47ed66846b802b067a60f927, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1342,7 +1349,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3236030669145448268, guid: 4e49e08785ffccb4fb0032543fde790a, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3236030669145448268, guid: 4e49e08785ffccb4fb0032543fde790a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1396,6 +1403,14 @@ PrefabInstance:
       propertyPath: bird
       value: 
       objectReference: {fileID: 1391846975}
+    - target: {fileID: 3236030669145448271, guid: 4e49e08785ffccb4fb0032543fde790a, type: 3}
+      propertyPath: birdEvent
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3236030669145448271, guid: 4e49e08785ffccb4fb0032543fde790a, type: 3}
+      propertyPath: fakeBirdBehaviour
+      value: 
+      objectReference: {fileID: 255778493}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e49e08785ffccb4fb0032543fde790a, type: 3}
 --- !u!1001 &8257106441469062492
@@ -1409,6 +1424,10 @@ PrefabInstance:
       propertyPath: bird
       value: 
       objectReference: {fileID: 1391846980}
+    - target: {fileID: 2056676321, guid: c4096cd8a8793a7439f7f868afe28899, type: 3}
+      propertyPath: birdEvent
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2056676321, guid: c4096cd8a8793a7439f7f868afe28899, type: 3}
       propertyPath: fakeBirdBehaviour
       value: 

@@ -10,11 +10,12 @@ public class ClickDetection : MonoBehaviour
     public GameObject ball;
     [SerializeField] BirdEvent birdEvent;
     public GameObject bird;
+    [SerializeField] FakeBirdBehaviour fakeBirdBehaviour;
 
     void Awake()
     {
-        ballEvent = ball.GetComponent<BallEvent>();
         birdEvent = bird.GetComponent<BirdEvent>();
+        ballEvent = ball.GetComponent<BallEvent>();
     }
 
     void Start()
@@ -37,6 +38,10 @@ public class ClickDetection : MonoBehaviour
                 if(hit2D.collider.CompareTag("Bird"))
                 {
                     birdEvent.StopAndExpand(); //bird stops flying and expands
+                }
+                if(hit2D.collider.CompareTag("Fake"))
+                {
+                    fakeBirdBehaviour.DestroyBird();
                 }
             }
             else

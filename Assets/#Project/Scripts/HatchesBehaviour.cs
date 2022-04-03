@@ -9,6 +9,7 @@ public class HatchesBehaviour : MonoBehaviour
     [SerializeField] Ease easeType = Ease.OutBounce;
     public GameObject[] hatches = new GameObject[3];
     RaycastHit2D hit2D;
+    Ray ray;
     public List<Transform> sprites = new List<Transform>();
     int index = 0;
     void Start()
@@ -18,7 +19,7 @@ public class HatchesBehaviour : MonoBehaviour
     
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         hit2D = Physics2D.GetRayIntersection(ray);
     }
 

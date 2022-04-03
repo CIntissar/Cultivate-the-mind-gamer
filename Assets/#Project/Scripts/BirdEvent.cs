@@ -10,8 +10,8 @@ public class BirdEvent : MonoBehaviour
     [SerializeField] float birdAnimDuration = 1.8f;
     [HideInInspector] public Tween myTween;
     [SerializeField] Ease easeType;
-    [SerializeField] float minDistanceX = 3;
-    [SerializeField] float minDistanceY = 3;
+    [SerializeField] float minDistanceX = 5;
+    [SerializeField] float minDistanceY = 5;
     float restartLoop = 0;
     Vector3 currentPosition;
     Vector3 nextPosition;
@@ -49,9 +49,6 @@ public class BirdEvent : MonoBehaviour
             Fly();
 
         });
-        //inside while loop --> make sure the min distance between both position is respected
-        //if not, restart the loop
-        //"if the distance of both position is smaller than the min distance AND the loop hasn't restarted 100 times --> restart the loop"
     }
     public void StopAndExpand()
     {

@@ -5,18 +5,51 @@ using DG.Tweening;
 
 public class FakeBirdBehaviour : MonoBehaviour
 {
-    //[SerializeField] List<GameObject> fakeBirds = new List<GameObject>();
-    [SerializeField] SpriteRenderer[] birdsSprite;
-    [SerializeField] Transform[] birdsPosition;
-    [SerializeField] List<Transform> waypoints = new List<Transform>();
-    int nbr;
+    public SpriteRenderer[] birdsSprite;
+    [SerializeField] List<Transform> fakeBirds = new List<Transform>();
+    [SerializeField] float birdAnimDuration = 1.8f;
+    [HideInInspector] public Tween myTween;
+    [SerializeField] Ease easeType;
+    [SerializeField] float minDistanceX = 5;
+    [SerializeField] float minDistanceY = 5;
+    float restartLoop = 0;
+    Vector3 currentPosition;
+    Vector3 nextPosition;
+    RaycastHit2D hit2D;
+    Ray ray;
     void Start()
     {
-        
+        nextPosition = new Vector3(Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0);
     }
     void Update()
     {
-        
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        hit2D = Physics2D.GetRayIntersection(ray);
+    }
+    public void StartFlying()
+    {
+        for (int i = 0; i < fakeBirds.Count; i++)
+        {
+            myTween = transform.DOMove(nextPosition, birdAnimDuration).SetEase(easeType).OnComplete(() => {
+                currentPosition = nextPosition;
+                nextPosition = new Vector3(Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0);
+                restartLoop = 0;
+                while(restartLoop <= 100)
+                {
+                    if(currentPosition.x + minDistanceX <= nextPosition.x || currentPosition.y + minDistanceY <= nextPosition.y) //si la distance sst trop petite
+                    {
+                        nextPosition = new Vector3(Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0);//trouve une atre position
+                        restartLoop++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+            
+                }
+            });
+        }
+        StartFlying();
     }
     public void FadeIn()
     {
@@ -25,16 +58,14 @@ public class FakeBirdBehaviour : MonoBehaviour
             item.DOFade(1, 0.1f);
         }
     }
-    public void FollowWaypoint()
+    public void DestroyBird()
     {
-        for (int i = 0; i < birdsPosition.Length; i++) //for each bird
+        for (int i = 0; i < fakeBirds.Count; i++)
         {
-            nbr = Random.Range(0, waypoints.Count); //choose a random index from the waypoint list
-            birdsPosition[i].DOMove(new Vector3 (waypoints[nbr].position.x, waypoints[nbr].position.y, 0), 1.8f);
-            //birdsPosition[i].position = waypoints[nbr].position; //go to that waypoint
+            if(hit2D.collider.gameObject == fakeBirds[i].gameObject)
+            {
+                Destroy(fakeBirds[i]);
+            }
         }
     }
-    //put this script in levelmanager
-    //reference it in ball script
-    //make a function here to make them fade in
 }

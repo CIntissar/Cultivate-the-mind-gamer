@@ -7,7 +7,7 @@ public class Return : MonoBehaviour
     // Make the clouds go back where it started
     private void Update() 
     {
-        transform.Translate(0.01f, 0, 0);
+        transform.Translate(0.005f, 0, 0);
 
         if(transform.position.x >= 30f)
         {

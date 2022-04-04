@@ -12,6 +12,9 @@ public class BalltoEye : MonoBehaviour
     public bool arrowAway = false;
     public bool blinkTransition = false;
     public bool pokingTransition = false;
+    public bool poke1 = false;
+    public bool poke2 = false;
+    public bool poke3 = false;
     public GameObject pupil;
     public MovingCamera movingCamera;
     public ClickChange clickChange;
@@ -54,16 +57,19 @@ public class BalltoEye : MonoBehaviour
                     }
                     else if(pokingCount == 2)
                     {
+                        poke1 = true;
                         //Poke(); -> je dois en créer un autre pour que le perso avance + new background                        
                         //sound of hurting again                        
                     }
                     else if(pokingCount == 3)
                     {
+                        poke2 = true;
                         // Poke à nouveau, le perso parait plus clair et encore décor différent
                         //sound of hurting again more
                     }
                     else if(pokingCount >= 4)
                     {
+                        poke3 = true;
                         //Last Poke
                         SceneManager.LoadScene("GiantHead");
 
@@ -78,6 +84,7 @@ public class BalltoEye : MonoBehaviour
     {
         pupil.transform.DOMoveY(transform.position.y + 4.5f, 2f);
     }
+
 
 
         

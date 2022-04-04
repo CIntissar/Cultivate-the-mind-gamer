@@ -33,11 +33,8 @@ public class MovingCamera : MonoBehaviour
     {
         if(clickChange.pupilOn == true)
         {
-            pupil.transform.DOMoveY(-0.68f,0.2f).SetEase(Ease.InBounce);
-            //DOShakePosition(float duration, float/Vector3 strength, int vibrato, float randomness, bool snapping, bool fadeOut)?
-            // A ESSAYER!!!!
-
             pupil.SetActive(true);
+
             //-> faire en sorte qu'il remonte en un coup de la mer!!! 
         }
 

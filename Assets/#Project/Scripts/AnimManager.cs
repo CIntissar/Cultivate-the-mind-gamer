@@ -30,21 +30,17 @@ public class AnimManager : MonoBehaviour
             animator.SetBool("pokingTransition", true);
         }
 
-        // if(balltoEye.pokingCount == 1)
-        // {
-        //     animator.SetInteger("poking", 1);
-        // }
-        // else if(balltoEye.pokingCount == 2)
-        // {
-        //     animator.SetInteger("poking", 2);
-        // }
-        // else if(balltoEye.pokingCount == 3)
-        // {
-        //     animator.SetInteger("poking", 3);
-        // }
-        // else if(balltoEye.pokingCount == 4)
-        // {
-        //     animator.SetInteger("poking", 4);
-        // }
+        else if(balltoEye.poke1 == true)
+        {
+            animator.SetBool("pokingTransition", true);
+        }
+        else if(balltoEye.poke2 == true)
+        {
+            animator.SetBool("pokingTransition", true);
+        }
+        else if(balltoEye.poke3 == true)
+        {
+            animator.SetBool("pokingTransition", true);
+        }
     }
 }

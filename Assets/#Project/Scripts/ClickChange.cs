@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine;
 using DG.Tweening;
 
@@ -38,64 +39,71 @@ public class ClickChange : MonoBehaviour
 
             if (hit2D.collider != null)
             {
-                                
-                if(hit2D.collider.CompareTag("Cloud_1"))
+                if(EventSystem.current.IsPointerOverGameObject(0))
                 {
-                    Debug.Log("Ceci n'est pas UNO");
-                    
-                    ShrinkCloud(cloud_1);
-                    RiseOcean(drop);
-                    counter++;                    
-
+                    counter += 0;
                 }
-                else if(hit2D.collider.CompareTag("Cloud_2"))
-                {
-                    Debug.Log("Ceci n'est pas DUO");
-                    
-                    ShrinkCloud(cloud_2);
-                    counter++;
 
-                }
-                
-                else if(hit2D.collider.CompareTag("Cloud_3"))
+                else
                 {
-                    Debug.Log("Ceci n'est pas TRE");
-                    
-                    ShrinkCloud(cloud_3);
-                    //HideCloud(cloud_3);
-                    RiseOcean(drop3); 
-                    counter++;
+                    if(hit2D.collider.CompareTag("Cloud_1"))
+                    {
+                        Debug.Log("Ceci n'est pas UNO");
+                        
+                        ShrinkCloud(cloud_1);
+                        RiseOcean(drop);
+                        counter++;                    
 
-                }
-                
-                else if(hit2D.collider.CompareTag("Cloud_4"))
-                {
-                    Debug.Log("Ceci n'est pas QUATTRO");
-                    
-                    ShrinkCloud(cloud_4);
-                    RiseOcean(drop4);   
-                    counter++;                  
+                    }
+                    else if(hit2D.collider.CompareTag("Cloud_2"))
+                    {
+                        Debug.Log("Ceci n'est pas DUO");
+                        
+                        ShrinkCloud(cloud_2);
+                        counter++;
 
-                }
-                
-                else if(hit2D.collider.CompareTag("Cloud_5"))
-                {
-                    Debug.Log("Ceci n'est pas CINQUE");
+                    }
                     
-                    ShrinkCloud(cloud_5);
-                    RiseOcean(drop5);   
-                    counter++;                 
+                    else if(hit2D.collider.CompareTag("Cloud_3"))
+                    {
+                        Debug.Log("Ceci n'est pas TRE");
+                        
+                        ShrinkCloud(cloud_3);
+                        //HideCloud(cloud_3);
+                        RiseOcean(drop3); 
+                        counter++;
 
-                }
-                
-                else if(hit2D.collider.CompareTag("Cloud_6"))
-                {
-                    Debug.Log("Ceci n'est pas SEI");
+                    }
                     
-                    ShrinkCloud(cloud_6);
-                    RiseOcean(drop6); 
-                    counter++;
+                    else if(hit2D.collider.CompareTag("Cloud_4"))
+                    {
+                        Debug.Log("Ceci n'est pas QUATTRO");
+                        
+                        ShrinkCloud(cloud_4);
+                        RiseOcean(drop4);   
+                        counter++;                  
+
+                    }
                     
+                    else if(hit2D.collider.CompareTag("Cloud_5"))
+                    {
+                        Debug.Log("Ceci n'est pas CINQUE");
+                        
+                        ShrinkCloud(cloud_5);
+                        RiseOcean(drop5);   
+                        counter++;                 
+
+                    }
+                    
+                    else if(hit2D.collider.CompareTag("Cloud_6"))
+                    {
+                        Debug.Log("Ceci n'est pas SEI");
+                        
+                        ShrinkCloud(cloud_6);
+                        RiseOcean(drop6); 
+                        counter++;
+                        
+                    }
                 }
                 
             }
@@ -124,7 +132,7 @@ public class ClickChange : MonoBehaviour
         //waterdrop.SetActive(true);
         waterdrop.GetComponent<SpriteRenderer>().enabled = true;
         Debug.Log("I CAME IN LIKE A WRECKINGBALL");
-        myTween = waterdrop.transform.DOMoveY(-15f,2f);
+        myTween = waterdrop.transform.DOMoveY(-15f,3f);
         ocean.transform.Translate(0,0.5f,0);
     }
 }

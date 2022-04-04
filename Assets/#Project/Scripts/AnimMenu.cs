@@ -14,11 +14,6 @@ public class AnimMenu : MonoBehaviour
 
     void Update()
     {   
-        if(menuClick.touch < 3)
-        {
-            animator.SetTrigger("activate");
-        }
-        
 
         if(menuClick.appleOn)
         {

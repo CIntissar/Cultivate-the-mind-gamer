@@ -11,12 +11,14 @@ public class MenuClick : MonoBehaviour
     public int limitTouch = 3;
     public GameObject man;
     public GameObject hat;
+    public GameObject lion;
     public GameObject apple;
     public GameObject frame;
     public GameObject frame2;
     public GameObject frame3;
     public bool appleOn = false;
     [HideInInspector] public Tween myTween;
+    public AnimMenu animMenu;
 
 
     void Update()
@@ -34,6 +36,7 @@ public class MenuClick : MonoBehaviour
                     if(counter == 0)
                     {
                         //animation -> Lion Appear!
+                        lion.transform.DOMoveX(transform.position.x + 1.25f,1f);
                         //sound rawr
                         counter++;
                     }
@@ -64,10 +67,10 @@ public class MenuClick : MonoBehaviour
                     }
                 }
 
-                else if(hit2D.collider.CompareTag("Man"))
+                if(hit2D.collider.CompareTag("Man"))
                 {
-
                     touch++;
+                    animMenu.animator.SetTrigger("hatJump");
 
                     if(touch >= 3 && appleOn == false)
                     {
@@ -80,8 +83,8 @@ public class MenuClick : MonoBehaviour
                     {
                         SceneManager.LoadScene("Ball'nBird");
                     }
-
                 }
+
             }
         }
     }

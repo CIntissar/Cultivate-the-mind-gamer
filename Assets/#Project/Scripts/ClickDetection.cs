@@ -6,28 +6,28 @@ using UnityEngine.UI;
 
 public class ClickDetection : MonoBehaviour
 {
-    public BallEvent ballEvent;
+    [SerializeField] BallEvent ballEvent;
     public GameObject ball;
-    public BirdEvent birdEvent;
+    [SerializeField] BirdEvent birdEvent;
     public GameObject bird;
+    [SerializeField] FakeBirdBehaviour fakeBirdBehaviour;
 
     void Awake()
     {
-        ballEvent = ball.GetComponent<BallEvent>();
         birdEvent = bird.GetComponent<BirdEvent>();
-        //birdAnimator = GameObject.FindGameObjectWithTag("Bird").GetComponent<Animator>();
+        ballEvent = ball.GetComponent<BallEvent>();
     }
 
     void Start()
     {
 
     }
-    void Update() //put this code in another function
+    void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); //using raycasts
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray);
         
-        if(Input.GetMouseButtonDown(0)) //if left click is pressed
+        if(Input.GetMouseButtonDown(0))
         {
             if (hit2D.collider != null) //if the ray hits something
             {
@@ -38,6 +38,10 @@ public class ClickDetection : MonoBehaviour
                 if(hit2D.collider.CompareTag("Bird"))
                 {
                     birdEvent.StopAndExpand(); //bird stops flying and expands
+                }
+                if(hit2D.collider.CompareTag("Fake"))
+                {
+                    fakeBirdBehaviour.DestroyBird();
                 }
             }
             else

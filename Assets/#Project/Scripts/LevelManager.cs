@@ -6,12 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    public Transform treePainting;
-    public float spritePositionY = 0f;
-    public HatchesBehaviour hatchesBehaviour;
-    public GameObject apple;
-    public GameObject greenApple;
-    public AppleBehaviour appleBehaviour;
+    //[SerializeField] Transform treePainting; //delete this
+    [SerializeField] HatchesBehaviour hatchesBehaviour;
+    public GameObject apple; //shadow apple
+    [SerializeField] GameObject greenApple;
+    AppleBehaviour appleBehaviour;
 
     void Start()
     {
@@ -40,15 +39,12 @@ public class LevelManager : MonoBehaviour
                 
                 if(hit2D.collider.CompareTag("Hatches"))
                 {
-                    hatchesBehaviour.SlideAndGrow();
+                    hatchesBehaviour.Slide();
                 }
                 if (hit2D.collider.CompareTag("GreenApple"))
                 {
                     appleBehaviour.ChangeSprite();
-                    greenApple.transform.DOScale(0, 0.4f).OnComplete(() => {
-                        treePainting.DOMoveY(10.05152f,1);
-                    });
-                    //change the apple sprite
+                    StartCoroutine(hatchesBehaviour.ScaleDown());
                     //rideaux
                 }
             }
@@ -58,9 +54,8 @@ public class LevelManager : MonoBehaviour
             }
         }
     }
-    void GoToPainting()
+    void GoToPainting() //put this in hatchets behaviour
     {
-        //temporary
-        treePainting.DOMoveY(spritePositionY, 1).SetEase(Ease.OutBounce);
+        hatchesBehaviour.DropDown();
     }
 }

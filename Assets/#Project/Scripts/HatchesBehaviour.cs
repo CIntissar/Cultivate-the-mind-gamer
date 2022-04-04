@@ -5,27 +5,29 @@ using DG.Tweening;
 
 public class HatchesBehaviour : MonoBehaviour
 {
-    //public bool isSliding = false;
+    [SerializeField] float spritePositionY = -0.05f; //put this in hatches behaviour + sprite position at -0.05f
+    [SerializeField] Ease easeType = Ease.OutBounce;
     public GameObject[] hatches = new GameObject[3];
-    public Transform apple;
-    public RaycastHit2D hit2D;
-    //public Transform firstSprite;
-    //public Transform secondSprite;
-    //public bool hatchesClicked = false;
+    RaycastHit2D hit2D;
+    Ray ray;
     public List<Transform> sprites = new List<Transform>();
-    public int index = 0;
+    int index = 0;
     void Start()
     {
-       //hatches = GetComponentsInChildren<Transform>();
+       
     }
     
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         hit2D = Physics2D.GetRayIntersection(ray);
     }
 
-    public void SlideAndGrow()
+    public void DropDown()
+    {
+        transform.DOMoveY(spritePositionY, 1).SetEase(easeType);
+    }
+    public void Slide()
     {
         for (int j = 0; j < hatches.Length; j++)
         {
@@ -36,9 +38,14 @@ public class HatchesBehaviour : MonoBehaviour
                 index++;
             }
         }
-            //hatchesClicked = true;
-            //apple.DOScale(new Vector2(1f,1f), 0.1f);
-            //isSliding = false;
-            //boucle for des sprites avant celle des portes
+    }
+    public IEnumerator ScaleDown()
+    {
+        for (int i = 0; i < sprites.Count; i++)
+        {
+            sprites[i].transform.DOScale(Vector3.zero, 0.4f);
+        }
+        yield return new WaitForSeconds(0.8f);
+        transform.DOMoveY(10.05152f,1);
     }
 }

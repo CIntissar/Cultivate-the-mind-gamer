@@ -6,26 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class BirdEvent : MonoBehaviour
 {
-    Animator animator;
     public SpriteRenderer sprite;
-    public float birdAnimDuration = 2f;
+    [SerializeField] float birdAnimDuration = 1.8f;
     [HideInInspector] public Tween myTween;
-    public Ease easeType;
-    //public PathType pathSystem = PathType.CatmullRom;
-    //[SerializeField] Transform[] waypoints;
-    //[SerializeField] int waypointIndex = 0;
-    //public List<int> randomNumbersList = new List<int>(5);
-    //public int nbrCopy;
-    //public int nbr;
+    [SerializeField] Ease easeType;
+    [SerializeField] float minDistanceX = 5;
+    [SerializeField] float minDistanceY = 5;
+    float restartLoop = 0;
+    Vector3 currentPosition;
+    Vector3 nextPosition;
     void Awake()
     {
-        animator = GetComponent<Animator>();
         sprite = GameObject.FindGameObjectWithTag("whiteSprite").GetComponent<SpriteRenderer>();
     }
     void Start()
     {
-        //nbrCopy = Random.Range(0,4);
-        //nbr = Random.Range(0,4);
+        nextPosition = new Vector3(Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0);
     }
 
     void Update()
@@ -34,21 +30,32 @@ public class BirdEvent : MonoBehaviour
     }
     public void Fly()
     {
-        // if(waypointIndex <= waypoints.Length - 1)
-        // {
-        //     myTween = transform.DOMove(new Vector2(waypoints[waypointIndex].transform.position.x, waypoints[waypointIndex].transform.position.y), birdAnimDuration).SetEase(easeType).OnComplete(Fly);
+        myTween = transform.DOMove(nextPosition, birdAnimDuration).SetEase(easeType).OnComplete(() => {
+            currentPosition = nextPosition;
+            nextPosition = new Vector3(Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0);
+            restartLoop = 0;
+            while(restartLoop <= 100)
+            {
+                if(currentPosition.x + minDistanceX <= nextPosition.x || currentPosition.y + minDistanceY <= nextPosition.y) //si la distance sst trop petite
+                {
+                    nextPosition = new Vector3(Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0);//trouve une atre position
+                    restartLoop++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            Fly();
 
-        // }
-        myTween = transform.DOMove(new Vector3 (Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0), birdAnimDuration).SetEase(easeType).OnComplete(Fly);
-        //myTween = transform.DOLocalPath(pathval, 2, pathSystem);
-        //if smooth later on doesn't work, try using DOPath
+        });
     }
     public void StopAndExpand()
     {
         myTween.Kill();
         transform.DOMove(Vector3.zero, 0.5f).OnComplete(() => {
-            transform.DOScale(20, 1f).OnComplete(() => {
-                sprite.DOFade(1,1).OnComplete(() => {
+            transform.DOScale(35, 1f).OnComplete(() => {
+                sprite.DOFade(1,0.9f).OnComplete(() => {
                     SceneManager.LoadScene("Dot on sea");
                 });
             });

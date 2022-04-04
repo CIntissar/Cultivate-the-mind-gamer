@@ -6,14 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class MenuClick : MonoBehaviour
 {
+    public int touch = 0;
+    public int counter = 0;
+    public int limitTouch = 3;
+    public GameObject man;
+    public GameObject hat;
+    public GameObject apple;
     public GameObject frame;
     public GameObject frame2;
     public GameObject frame3;
-    public GameObject apple;
-    public GameObject hat;
-    public GameObject man;
-    public int counter = 0;
-    public int touch = 0;
     public bool appleOn = false;
     [HideInInspector] public Tween myTween;
 
@@ -32,6 +33,7 @@ public class MenuClick : MonoBehaviour
                 {
                     if(counter == 0)
                     {
+                        //animation -> Lion Appear!
                         //sound rawr
                         counter++;
                     }
@@ -64,13 +66,14 @@ public class MenuClick : MonoBehaviour
 
                 else if(hit2D.collider.CompareTag("Man"))
                 {
+
                     touch++;
 
                     if(touch >= 3 && appleOn == false)
                     {
                         myTween.Kill();
                         //sound of hit (comical one?)
-                        apple.GetComponent<SpriteRenderer>().enabled = true;
+                        //apple.GetComponent<SpriteRenderer>().enabled = true;
                         appleOn = true;
                     }
                     else if(appleOn == true)

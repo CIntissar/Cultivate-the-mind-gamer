@@ -10,7 +10,10 @@ public class ClickChange : MonoBehaviour
 
     public BalltoEye balltoEye;
     public int counter = 0;
+    public float hideSpeed = 1f;
     public bool pupilOn = false;
+    public bool oceanUp = false;
+    public bool cloudHiding = false;
 
     public GameObject cloud_1;
     public GameObject drop;
@@ -25,8 +28,6 @@ public class ClickChange : MonoBehaviour
     public GameObject drop6;
     public GameObject ocean;
     
-    public bool oceanUp = false;
-    public float hideSpeed = 1f;
     void Update()
     {
         
@@ -42,7 +43,7 @@ public class ClickChange : MonoBehaviour
                 {
                     Debug.Log("Ceci n'est pas UNO");
                     
-                    HideCloud(cloud_1);
+                    ShrinkCloud(cloud_1);
                     RiseOcean(drop);
                     counter++;                    
 
@@ -51,7 +52,7 @@ public class ClickChange : MonoBehaviour
                 {
                     Debug.Log("Ceci n'est pas DUO");
                     
-                    HideCloud(cloud_2);
+                    ShrinkCloud(cloud_2);
                     counter++;
 
                 }
@@ -60,7 +61,8 @@ public class ClickChange : MonoBehaviour
                 {
                     Debug.Log("Ceci n'est pas TRE");
                     
-                    HideCloud(cloud_3);
+                    ShrinkCloud(cloud_3);
+                    //HideCloud(cloud_3);
                     RiseOcean(drop3); 
                     counter++;
 
@@ -70,7 +72,7 @@ public class ClickChange : MonoBehaviour
                 {
                     Debug.Log("Ceci n'est pas QUATTRO");
                     
-                    HideCloud(cloud_4);
+                    ShrinkCloud(cloud_4);
                     RiseOcean(drop4);   
                     counter++;                  
 
@@ -80,7 +82,7 @@ public class ClickChange : MonoBehaviour
                 {
                     Debug.Log("Ceci n'est pas CINQUE");
                     
-                    HideCloud(cloud_5);
+                    ShrinkCloud(cloud_5);
                     RiseOcean(drop5);   
                     counter++;                 
 
@@ -90,7 +92,7 @@ public class ClickChange : MonoBehaviour
                 {
                     Debug.Log("Ceci n'est pas SEI");
                     
-                    HideCloud(cloud_6);
+                    ShrinkCloud(cloud_6);
                     RiseOcean(drop6); 
                     counter++;
                     
@@ -108,15 +110,13 @@ public class ClickChange : MonoBehaviour
 
     }
 
-    public void HideCloud(GameObject clouds)
+    public void ShrinkCloud(GameObject clouds)
     {
-        myTween = clouds.transform.DOPunchScale(new Vector3 (0.85f,0.85f,0),hideSpeed, 2, 2f).OnComplete(() => {
-                    clouds.transform.DOScale(0, 0.35f);
-        
+        myTween = clouds.transform.DOPunchScale(new Vector3 (0.85f,0.85f,0),hideSpeed, 1, 2f).OnComplete(() => {
+                    clouds.transform.DOScale(0, 0.35f).OnComplete(() => {
+                        clouds.gameObject.SetActive(false);
+                    });
         });
-
-        clouds.GetComponent<SpriteRenderer>().enabled = false;
-        //clouds.SetActive(false);
     }
 
     public void RiseOcean(GameObject waterdrop)

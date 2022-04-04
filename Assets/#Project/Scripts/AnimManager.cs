@@ -6,6 +6,7 @@ public class AnimManager : MonoBehaviour
 {
     public Animator animator;
     public BalltoEye balltoEye;
+    
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();

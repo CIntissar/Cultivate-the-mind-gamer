@@ -4,6 +4,8 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(PolygonCollider2D))]
+[RequireComponent(typeof(Animator))]
 public class BirdEvent : MonoBehaviour
 {
     public SpriteRenderer sprite;
@@ -16,6 +18,8 @@ public class BirdEvent : MonoBehaviour
     Vector3 currentPosition;
     Vector3 nextPosition;
     public bool isFlying = false;
+    //Rigidbody2D rb;
+    Vector2 currentScale;
 
     void Awake()
     {
@@ -23,16 +27,25 @@ public class BirdEvent : MonoBehaviour
     }
     void Start()
     {
+        //rb = gameObject.GetComponent<Rigidbody2D>();
         nextPosition = new Vector3(Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         
     }
     public void Fly()
     {
         isFlying = true;
+        if(nextPosition.x < transform.position.x && transform.localScale.x == 1)
+        {
+            Flip();
+        }
+        else if(nextPosition.x > transform.position.x && transform.localScale.x == -1)
+        {
+            Flip();
+        }
         myTween = transform.DOMove(nextPosition, birdAnimDuration).SetEase(easeType).OnComplete(() => {
             currentPosition = nextPosition;
             nextPosition = new Vector3(Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0);
@@ -64,5 +77,11 @@ public class BirdEvent : MonoBehaviour
                 });
             });
         });
+    }
+    void Flip()
+    {
+        Vector3 birdScale = transform.localScale;
+        birdScale.x *= -1;
+        transform.localScale = birdScale;
     }
 }

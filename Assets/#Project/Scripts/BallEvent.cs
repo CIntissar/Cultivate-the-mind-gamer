@@ -16,7 +16,6 @@ public class BallEvent : MonoBehaviour
     public SpriteRenderer[] spriteRenderers;
     void Start()
     {
-        birdEvent = bird.GetComponent<BirdEvent>();
         bird = GameObject.FindGameObjectWithTag("Bird").GetComponent<SpriteRenderer>();
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
     }

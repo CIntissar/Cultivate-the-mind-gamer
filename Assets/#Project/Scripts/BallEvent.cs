@@ -47,14 +47,13 @@ public class BallEvent : MonoBehaviour
     public IEnumerator OpenUpAndFly()
     {
         upperBall.DOMoveY(transform.position.y + 3f, 0.9f).OnComplete(() => {
-            bird.DOFade(1, 0.1f); //foreach (Spriterenderer item in birdsSprite) --> do fade
-            fakeBirdBehaviour.FadeIn(); // delete this
+            bird.DOFade(1, 0.1f);
+            fakeBirdBehaviour.FadeIn();
             foreach (SpriteRenderer rend in spriteRenderers)
             {
                 rend.DOFade(0, 0.5f);
             }
-            birdEvent.Fly(); //call the other function
-            fakeBirdBehaviour.StartFlying(); //dlete this
+            birdEvent.Fly();
         });
         yield return new WaitForSeconds(1.2f);
         gameObject.SetActive(false);

@@ -39,10 +39,10 @@ public class ClickDetection : MonoBehaviour
                 {
                     birdEvent.StopAndExpand(); //bird stops flying and expands
                 }
-                if(hit2D.collider.CompareTag("Fake"))
-                {
-                    fakeBirdBehaviour.DestroyBird();
-                }
+                // if(hit2D.collider.CompareTag("Fake"))
+                // {
+                //     fakeBirdBehaviour.DestroyBird();
+                // }
             }
             else
             {

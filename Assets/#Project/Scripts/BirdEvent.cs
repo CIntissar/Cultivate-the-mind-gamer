@@ -15,6 +15,8 @@ public class BirdEvent : MonoBehaviour
     float restartLoop = 0;
     Vector3 currentPosition;
     Vector3 nextPosition;
+    public bool isFlying = false;
+
     void Awake()
     {
         sprite = GameObject.FindGameObjectWithTag("whiteSprite").GetComponent<SpriteRenderer>();
@@ -30,6 +32,7 @@ public class BirdEvent : MonoBehaviour
     }
     public void Fly()
     {
+        isFlying = true;
         myTween = transform.DOMove(nextPosition, birdAnimDuration).SetEase(easeType).OnComplete(() => {
             currentPosition = nextPosition;
             nextPosition = new Vector3(Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0);
@@ -52,6 +55,7 @@ public class BirdEvent : MonoBehaviour
     }
     public void StopAndExpand()
     {
+        //isFlying = false;
         myTween.Kill();
         transform.DOMove(Vector3.zero, 0.5f).OnComplete(() => {
             transform.DOScale(35, 1f).OnComplete(() => {

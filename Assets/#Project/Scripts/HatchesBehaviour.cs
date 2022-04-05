@@ -12,6 +12,8 @@ public class HatchesBehaviour : MonoBehaviour
     Ray ray;
     public List<Transform> sprites = new List<Transform>();
     int index = 0;
+    public bool canMove = true;
+    float xPosition = 4f;
     void Start()
     {
        
@@ -31,11 +33,20 @@ public class HatchesBehaviour : MonoBehaviour
     {
         for (int j = 0; j < hatches.Length; j++)
         {
-            if(hit2D.collider.gameObject == hatches[j].gameObject)
+            if(hit2D.collider.gameObject == hatches[j].gameObject && canMove)
             {
                 sprites[index].position = hatches[j].transform.position;
-                hatches[j].transform.DOMoveX(4,1);
+                hatches[j].transform.DOMoveX(xPosition,1).OnComplete(() => {
+                    if(hatches[j].transform.position.x == xPosition)
+                    {
+                        canMove = false;
+                    }
+                });
                 index++;
+            }
+            else
+            {
+                print("...");
             }
         }
     }

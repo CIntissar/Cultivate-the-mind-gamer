@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Route : MonoBehaviour
 {
-    [SerializeField] Transform[] controlPoints;
+    public Transform[] controlPoints;
     Vector2 gizmosPosition;
 
     // Start is called before the first frame update
@@ -24,7 +24,7 @@ public class Route : MonoBehaviour
         {
             gizmosPosition = Mathf.Pow(1 - t, 3) * controlPoints[0].position + 3 * Mathf.Pow(1 - t, 2) * t * controlPoints[1].position + 3 * (1 - t) * Mathf.Pow(t, 2) * controlPoints[2].position + Mathf.Pow(t, 3) * controlPoints[3].position;
 
-            Gizmos.DrawSphere(gizmosPosition, 0.25f);
+            Gizmos.DrawSphere(gizmosPosition, 0.20f);
         }
         //draw lines --> make curve editing more descriptive
         

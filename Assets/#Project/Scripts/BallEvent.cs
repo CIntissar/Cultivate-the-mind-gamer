@@ -6,17 +6,15 @@ using UnityEngine.UI;
 
 public class BallEvent : MonoBehaviour
 {
-    [SerializeField] BirdEvent birdEvent;
-    [SerializeField] SpriteRenderer bird;
-    [SerializeField] FakeBirdBehaviour fakeBirdBehaviour;
+    //[SerializeField] BirdEvent birdEvent;
+    [SerializeField] List<GameObject> birds = new List<GameObject>(); 
     [HideInInspector] bool isMoving = false;
     Vector3 currentRotation;
     [HideInInspector] public float clickCount = 0;
     [SerializeField] Transform upperBall;
-    public SpriteRenderer[] spriteRenderers;
+    SpriteRenderer[] spriteRenderers;
     void Start()
     {
-        bird = GameObject.FindGameObjectWithTag("Bird").GetComponent<SpriteRenderer>();
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
     }
     void Update()
@@ -46,16 +44,20 @@ public class BallEvent : MonoBehaviour
     public IEnumerator OpenUpAndFly()
     {
         upperBall.DOMoveY(transform.position.y + 3f, 0.9f).OnComplete(() => {
-            bird.DOFade(1, 0.1f);
-            fakeBirdBehaviour.FadeIn();
+            foreach (GameObject item in birds)
+            {
+                item.GetComponent<SpriteRenderer>().DOFade(1, 0.1f);
+            }
             foreach (SpriteRenderer rend in spriteRenderers)
             {
                 rend.DOFade(0, 0.5f);
             }
-            birdEvent.Fly();
+            foreach (GameObject item in birds)
+            {
+                item.GetComponent<BirdEvent>().Fly();
+            }
         });
         yield return new WaitForSeconds(1.2f);
         gameObject.SetActive(false);
-        //1. maybe switch brid fade and ball fade ?
     }
 }

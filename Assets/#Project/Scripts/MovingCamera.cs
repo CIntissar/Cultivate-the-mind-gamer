@@ -13,6 +13,7 @@ public class MovingCamera : MonoBehaviour
     public float travel = 10.0f;
     public float limitTravel = 20f;
     public bool ballCenter = false;
+    public bool pupilAnimation = false;
     public ClickChange clickChange;
     public GameObject pupil;
 
@@ -33,9 +34,13 @@ public class MovingCamera : MonoBehaviour
     {
         if(clickChange.pupilOn == true)
         {
-            pupil.SetActive(true);
-
+            pupil.SetActive(true); // ANIMATION
+            pupilAnimation = true;
             //-> faire en sorte qu'il remonte en un coup de la mer!!! 
+        }
+        else if(clickChange.pupilOn == false)
+        {
+            pupil.SetActive(false);
         }
 
         if(cameraTransform.position.x == -limitTravel && clickChange.oceanUp)

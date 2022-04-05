@@ -6,6 +6,7 @@ public class AnimManager : MonoBehaviour
 {
     public Animator animator;
     public BalltoEye balltoEye;
+    public ClickChange clickChange;
     
     void Start()
     {
@@ -25,22 +26,22 @@ public class AnimManager : MonoBehaviour
             animator.SetBool("isBlinking", true);
         }
 
-        if(balltoEye.pokingTransition == true)
+        if(clickChange.pokingTransition == true)
         {
             animator.SetBool("pokingTransition", true);
         }
 
-        else if(balltoEye.poke1 == true)
+        if(clickChange.poke1 == true)
         {
-            animator.SetBool("pokingTransition", true);
+            animator.SetBool("poke1", true);
         }
-        else if(balltoEye.poke2 == true)
+        if(clickChange.poke2 == true)
         {
-            animator.SetBool("pokingTransition", true);
+            animator.SetBool("poke2", true);
         }
-        else if(balltoEye.poke3 == true)
+        if(clickChange.poke3 == true)
         {
-            animator.SetBool("pokingTransition", true);
+            animator.SetBool("poke3", true);
         }
     }
 }

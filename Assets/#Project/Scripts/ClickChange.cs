@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine;
 using DG.Tweening;
@@ -11,10 +12,18 @@ public class ClickChange : MonoBehaviour
 
     public BalltoEye balltoEye;
     public int counter = 0;
+    public int pokingCount = 0;
     public float hideSpeed = 1f;
+
+    public bool poke1 = false;
+    public bool poke2 = false;
+    public bool poke3 = false;
+
     public bool pupilOn = false;
     public bool oceanUp = false;
+    public bool uiTouched = false;
     public bool cloudHiding = false;
+    public bool pokingTransition = false;
 
     public GameObject cloud_1;
     public GameObject drop;
@@ -37,15 +46,20 @@ public class ClickChange : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray);
 
+            if(EventSystem.current.IsPointerOverGameObject())
+            {
+                counter += 0;
+                uiTouched = true;
+            }
+            else
+            {
+                uiTouched = false;
+            }
+
             if (hit2D.collider != null)
             {
-                if(EventSystem.current.IsPointerOverGameObject(0))
-                {
-                    counter += 0;
-                }
+                if(!EventSystem.current.IsPointerOverGameObject() && EventSystem.current.currentSelectedGameObject == null){
 
-                else
-                {
                     if(hit2D.collider.CompareTag("Cloud_1"))
                     {
                         Debug.Log("Ceci n'est pas UNO");
@@ -104,18 +118,47 @@ public class ClickChange : MonoBehaviour
                         counter++;
                         
                     }
+
+                    if(counter >= 6)
+                    {
+                        pupilOn = true;
+                        oceanUp = true;
+                    }
+
+                    if(hit2D.collider.CompareTag("Skin"))
+                    {
+                        pokingCount++;
+                        pupilOn = false;
+
+                        if(pokingCount == 1)
+                        {
+                            Debug.Log("OUTCH!!!");
+                            pokingTransition = true;
+                            //sound of hurting!
+                        }
+                        else if(pokingCount == 2)
+                        {
+                            poke1 = true;
+                            //Poke(); -> je dois en créer un autre pour que le perso avance + new background                        
+                            //sound of hurting again                        
+                        }
+                        else if(pokingCount == 3)
+                        {
+                            poke2 = true;
+                            // Poke à nouveau, le perso parait plus clair et encore décor différent
+                            //sound of hurting again more
+                        }
+                        else if(pokingCount >= 4)
+                        {
+                            poke3 = true;
+                            //Last Poke
+                            SceneManager.LoadScene("GiantHead");
+                        }
+                    }
                 }
-                
+           
             }
         }
-
-        if(counter >= 6)
-        {
-            pupilOn = true;
-            oceanUp = true;
-        }
-
-
     }
 
     public void ShrinkCloud(GameObject clouds)

@@ -17,6 +17,15 @@ public class BalltoEye : MonoBehaviour
 
     void Update()
     {
+        if(movingCamera.pupilAnimation == true)
+        {
+            animator.SetBool("outSea", true);
+        }
+        else if(movingCamera.pupilAnimation == false)
+        {
+            animator.SetBool("outSea",false); // PLEASE FIND A WAY OR CHANGE
+        }
+        
         if(Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -32,6 +41,7 @@ public class BalltoEye : MonoBehaviour
 
                     if(clickCount == 1)
                     {
+                        movingCamera.pupilAnimation = false;
                         FloatingBall();
                         arrowAway = true;
                     }
@@ -41,10 +51,6 @@ public class BalltoEye : MonoBehaviour
                     }
                 }
 
-                if(movingCamera.pupilAnimation == true)
-                {
-                    animator.SetBool("outSea", true);
-                }
                 // if(hit2D.collider.CompareTag("Skin"))
                 // {
                 //     pokingCount++;

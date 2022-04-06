@@ -31,7 +31,7 @@ public class MenuClick : MonoBehaviour
             if (hit2D.collider != null)
             {
                                 
-                if(hit2D.collider.CompareTag("Lion"))
+                if(hit2D.collider.CompareTag("Lion")) //lion
                 {
                     if(counter == 0)
                     {
@@ -41,13 +41,14 @@ public class MenuClick : MonoBehaviour
                         counter++;
                     }
                     
-                    else if(counter == 1)
+                    else if(counter == 1) //lion
                     {
                         FallinTitle(frame,-1.9f);
                         FindObjectOfType<AudioManager>().Play("PaintingFall");
                         counter++;
                     }
-
+                    
+                    FindObjectOfType<AudioManager>().Play("LionPurr");
                     // else if(counter == 2)
                     // {
                     //     FallinTitle(frame2,1.5f);
@@ -70,7 +71,7 @@ public class MenuClick : MonoBehaviour
                     // }
                 }
 
-                if(hit2D.collider.CompareTag("FrameFall1"))
+                if(hit2D.collider.CompareTag("FrameFall1")) //"jeux vidéo"
                 {
                     if(counter == 2)
                     {
@@ -80,7 +81,7 @@ public class MenuClick : MonoBehaviour
                     }
                 }
 
-                if(hit2D.collider.CompareTag("FrameFall2"))
+                if(hit2D.collider.CompareTag("FrameFall2")) //"ceci"
                 {
                      if(counter == 3)
                     {
@@ -94,7 +95,6 @@ public class MenuClick : MonoBehaviour
                 {
                     if(counter >= 4)
                     {
-                        FindObjectOfType<AudioManager>().Play("LionPurr");
                         counter++;
                         PoppingMan();
                     }

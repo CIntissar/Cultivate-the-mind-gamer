@@ -250,6 +250,7 @@ GameObject:
   - component: {fileID: 56229336}
   - component: {fileID: 56229335}
   - component: {fileID: 56229337}
+  - component: {fileID: 56229338}
   m_Layer: 0
   m_Name: portiques_closes_2
   m_TagString: Hatches
@@ -360,6 +361,19 @@ PolygonCollider2D:
       - {x: 0.66771114, y: -0.7235535}
       - {x: 0.66973686, y: 0.56897545}
       - {x: 0.6249589, y: 0.70381767}
+--- !u!114 &56229338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56229334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f352d78cd965734b99a74bbbf082c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canMove: 1
 --- !u!1 &333608945
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,7 +455,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &333608948
 CircleCollider2D:
@@ -570,7 +584,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &676762696
 SpriteRenderer:
@@ -623,6 +637,88 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &717717282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 717717283}
+  - component: {fileID: 717717284}
+  m_Layer: 0
+  m_Name: empty frame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &717717283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717717282}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.18980001, y: -0.10700035, z: 0}
+  m_LocalScale: {x: 2.9631567, y: 2.4453237, z: 2.0222}
+  m_Children: []
+  m_Father: {fileID: 1521729527}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &717717284
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717717282}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 7
+  m_Sprite: {fileID: 21300000, guid: 65eddcee7abf5624db2f8ef57faae66f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 5.63, y: 4.92}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &995412336
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,6 +730,7 @@ GameObject:
   - component: {fileID: 995412338}
   - component: {fileID: 995412337}
   - component: {fileID: 995412339}
+  - component: {fileID: 995412340}
   m_Layer: 0
   m_Name: portiques_closes_1
   m_TagString: Hatches
@@ -752,6 +849,19 @@ PolygonCollider2D:
       - {x: 0.38619825, y: -0.64144516}
       - {x: 0.6085119, y: -0.626735}
       - {x: 0.6502898, y: -0.5979342}
+--- !u!114 &995412340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995412336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f352d78cd965734b99a74bbbf082c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canMove: 1
 --- !u!1 &1075538164
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,7 +891,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1075538166
 SpriteRenderer:
@@ -850,7 +960,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1302234591
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -959,9 +1069,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 260fd835c3a58524492933d10b74fb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hatchesBehaviour: {fileID: 1521729528}
-  apple: {fileID: 1853419316}
+  hatches:
+  - {fileID: 1768097693}
+  - {fileID: 995412338}
+  - {fileID: 56229336}
+  sprites:
+  - {fileID: 676762695}
+  - {fileID: 333608947}
+  - {fileID: 1075538165}
+  shadowApple: {fileID: 1853419316}
   greenApple: {fileID: 333608945}
+  treePainting: {fileID: 1521729527}
+  spritePositionY: -0.05
+  easeType: 30
 --- !u!1 &1521729525
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,7 +1092,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1521729527}
   - component: {fileID: 1521729526}
-  - component: {fileID: 1521729528}
   m_Layer: 0
   m_Name: tree_background
   m_TagString: Untagged
@@ -1039,37 +1158,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521729525}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0455, y: 10.1315, z: 0}
+  m_LocalPosition: {x: -0.0455, y: 10.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1768097693}
   - {fileID: 995412338}
   - {fileID: 56229336}
+  - {fileID: 717717283}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1521729528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1521729525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f352d78cd965734b99a74bbbf082c98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spritePositionY: -0.05
-  easeType: 30
-  hatches:
-  - {fileID: 1768097691}
-  - {fileID: 995412336}
-  - {fileID: 56229334}
-  sprites:
-  - {fileID: 676762695}
-  - {fileID: 1075538165}
-  - {fileID: 333608947}
 --- !u!1 &1768097691
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,6 +1179,7 @@ GameObject:
   - component: {fileID: 1768097693}
   - component: {fileID: 1768097692}
   - component: {fileID: 1768097694}
+  - component: {fileID: 1768097695}
   m_Layer: 0
   m_Name: portiques_closes_0
   m_TagString: Hatches
@@ -1206,6 +1305,19 @@ PolygonCollider2D:
       - {x: 0.4304363, y: -0.6416291}
       - {x: 0.6336955, y: -0.63478196}
       - {x: 0.68, y: -0.59}
+--- !u!114 &1768097695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768097691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f352d78cd965734b99a74bbbf082c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canMove: 1
 --- !u!1 &1853419316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,7 +1430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ebe36df0d17204a8ccba3910fe45fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rend: {fileID: 0}
   greenAppleSprite: {fileID: 21300000, guid: e868ae409fb2cbd438a2063948c8f7e0, type: 3}
   spriteChanged: 0
 --- !u!1 &2063754083

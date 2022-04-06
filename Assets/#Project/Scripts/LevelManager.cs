@@ -6,14 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] HatchesBehaviour hatchesBehaviour;
-    public GameObject apple; //shadow apple
+    [SerializeField] List<Transform> hatches = new List<Transform>();
+    [SerializeField] List<Transform> sprites = new List<Transform>();
+    [SerializeField] GameObject shadowApple; //shadow apple
     [SerializeField] GameObject greenApple;
     AppleBehaviour appleBehaviour;
+    [SerializeField] Transform treePainting;
+    [SerializeField] float spritePositionY = -0.05f;
+    [SerializeField] Ease easeType = Ease.OutBounce;
+    bool startLoop = true;
 
     void Start()
     {
-        appleBehaviour = apple.GetComponent<AppleBehaviour>();
+        appleBehaviour = shadowApple.GetComponent<AppleBehaviour>();
     }
     void Update()
     {
@@ -32,18 +37,37 @@ public class LevelManager : MonoBehaviour
                     }
                     else
                     {
-                        hatchesBehaviour.DropDown();
+                        treePainting.DOMoveY(spritePositionY, 1).SetEase(easeType);
                     }
                 }
                 
                 if(hit2D.collider.CompareTag("Hatches"))
                 {
-                    hatchesBehaviour.Slide();
+                    startLoop = true;
+                    for (int i = 0; i < hatches.Count; i++)
+                    {
+                        if(startLoop)
+                        {
+                            if(hit2D.collider.gameObject == hatches[i].gameObject && hatches[i].GetComponent<HatchesBehaviour>().canMove)
+                            {
+                                for (int j = 0; j < sprites.Count; j++)
+                                {
+                                    if(i==j)
+                                    {
+                                        sprites[j].position = hatches[i].position;
+                                        hatches[i].DOMoveX(4,1);
+                                        hatches[i].GetComponent<HatchesBehaviour>().canMove = false;
+                                    }
+                                }
+                                startLoop = false;
+                            }
+                        }
+                    }
                 }
                 if (hit2D.collider.CompareTag("GreenApple"))
                 {
                     appleBehaviour.ChangeSprite();
-                    StartCoroutine(hatchesBehaviour.ScaleDown());
+                    StartCoroutine(ScaleDown());
                     //rideaux
                 }
             }
@@ -52,5 +76,14 @@ public class LevelManager : MonoBehaviour
                 Debug.Log("there's nothing here...");
             }
         }
+    }
+    public IEnumerator ScaleDown()
+    {
+        for (int i = 0; i < sprites.Count; i++)
+        {
+            sprites[i].transform.DOScale(Vector3.zero, 0.4f);
+        }
+        yield return new WaitForSeconds(0.8f);
+        treePainting.DOMoveY(10.75f,1);
     }
 }

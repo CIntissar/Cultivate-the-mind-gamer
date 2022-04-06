@@ -1196,6 +1196,26 @@ PrefabInstance:
       propertyPath: birds.Array.data[3]
       value: 
       objectReference: {fileID: 105597373}
+    - target: {fileID: 3236030669145448271, guid: 4e49e08785ffccb4fb0032543fde790a, type: 3}
+      propertyPath: birdSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3236030669145448271, guid: 4e49e08785ffccb4fb0032543fde790a, type: 3}
+      propertyPath: birdSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 1562832019}
+    - target: {fileID: 3236030669145448271, guid: 4e49e08785ffccb4fb0032543fde790a, type: 3}
+      propertyPath: birdSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 1490661186}
+    - target: {fileID: 3236030669145448271, guid: 4e49e08785ffccb4fb0032543fde790a, type: 3}
+      propertyPath: birdSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 1759430487}
+    - target: {fileID: 3236030669145448271, guid: 4e49e08785ffccb4fb0032543fde790a, type: 3}
+      propertyPath: birdSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 105597377}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e49e08785ffccb4fb0032543fde790a, type: 3}
 --- !u!1001 &8257106441469062492

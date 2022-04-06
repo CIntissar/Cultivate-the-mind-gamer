@@ -9,6 +9,7 @@ public class ClickDetection : MonoBehaviour
     [SerializeField] BallEvent ballEvent;
     public GameObject ball;
     public List<GameObject> birds = new List<GameObject>();
+    public SpriteRenderer[] birdSprites;
     public float clickedOnce = 0;
     void Start()
     {
@@ -31,9 +32,11 @@ public class ClickDetection : MonoBehaviour
                 {
                     if(hit2D.collider.gameObject == birds[i].gameObject && birds[i].GetComponent<BirdEvent>().canBeClicked)
                     {
-                        birds[i].GetComponent<BirdEvent>().canBeClicked = false;
                         clickedOnce += 1;
-                        if(clickedOnce >= birds.Count)
+                        birds[i].GetComponent<BirdEvent>().canBeClicked = false;
+                        birdSprites[i].DOColor(new Color (0.3f, 0.4f, 0.6f, 1f), 0.2f);
+                        print(clickedOnce);
+                        if(clickedOnce == birds.Count)
                         {
                             birds[i].GetComponent<BirdEvent>().StopAndExpand();
                         }

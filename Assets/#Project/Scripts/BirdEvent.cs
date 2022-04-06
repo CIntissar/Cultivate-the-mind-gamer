@@ -55,6 +55,11 @@ public class BirdEvent : MonoBehaviour
 
         });
     }
+    // public void BirdWasClicked()
+    // {
+    //     canBeClicked = false;
+    //     gameObject.GetComponent<SpriteRenderer>().DOColor(new Color (150, 150, 150), 0.1f);
+    // }
     public void StopAndExpand()
     {
         //birdAnimation.enabled = false;

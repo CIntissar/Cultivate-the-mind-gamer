@@ -27,6 +27,7 @@ public class BirdEvent : MonoBehaviour
     }
     public void Fly()
     {
+        //sound : bird flying
         if(nextPosition.x < transform.position.x && transform.localScale.x == 1)
         {
             Flip();
@@ -65,6 +66,7 @@ public class BirdEvent : MonoBehaviour
         //birdAnimation.enabled = false;
         //myTween.Kill();
         transform.DOMove(Vector3.zero, 0.5f).OnComplete(() => {
+            //sound : explode ? ou wosh
             transform.DOScale(35, 1f);
             StartCoroutine(sceneChanger.ChangeScene());
         });

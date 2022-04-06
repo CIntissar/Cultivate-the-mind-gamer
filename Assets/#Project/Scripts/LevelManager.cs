@@ -6,14 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] List<Transform> hatches = new List<Transform>();
-    [SerializeField] List<Transform> sprites = new List<Transform>();
-    [SerializeField] GameObject shadowApple; //shadow apple
-    [SerializeField] GameObject greenApple;
-    AppleBehaviour appleBehaviour;
     [SerializeField] Transform treePainting;
     [SerializeField] float spritePositionY = -0.05f;
-    [SerializeField] Ease easeType = Ease.OutBounce;
+    [SerializeField] Ease paintingEaseType = Ease.OutBounce;
+    [SerializeField] GameObject shadowApple; //shadow apple
+    [SerializeField] List<Transform> hatches = new List<Transform>();
+    [SerializeField] List<Transform> sprites = new List<Transform>();
+    [SerializeField] GameObject greenApple;
+    AppleBehaviour appleBehaviour;
+    [SerializeField] Transform leftCurtain;
+    [SerializeField] Transform rightCurtain;
+    [SerializeField] Ease curtainEaseType;
     bool startLoop = true;
 
     void Start()
@@ -33,11 +36,13 @@ public class LevelManager : MonoBehaviour
                 {
                     if(appleBehaviour.spriteChanged)
                     {
-                        SceneManager.LoadScene("EndScene");
+                        //SceneManager.LoadScene("EndScene");
+                        CloseCurtains();
                     }
                     else
                     {
-                        treePainting.DOMoveY(spritePositionY, 1).SetEase(easeType);
+                        //sound : bounce
+                        treePainting.DOMoveY(spritePositionY, 1).SetEase(paintingEaseType);
                     }
                 }
                 
@@ -55,6 +60,7 @@ public class LevelManager : MonoBehaviour
                                     if(i==j)
                                     {
                                         sprites[j].position = hatches[i].position;
+                                        //sound : open
                                         hatches[i].DOMoveX(4,1);
                                         hatches[i].GetComponent<HatchesBehaviour>().canMove = false;
                                     }
@@ -68,7 +74,6 @@ public class LevelManager : MonoBehaviour
                 {
                     appleBehaviour.ChangeSprite();
                     StartCoroutine(ScaleDown());
-                    //rideaux
                 }
             }
             else
@@ -81,9 +86,16 @@ public class LevelManager : MonoBehaviour
     {
         for (int i = 0; i < sprites.Count; i++)
         {
+            //sound : scale down
             sprites[i].transform.DOScale(Vector3.zero, 0.4f);
         }
         yield return new WaitForSeconds(0.8f);
         treePainting.DOMoveY(10.75f,1);
+    }
+    void CloseCurtains()
+    {
+        //sound : curtains
+        rightCurtain.DOMoveX(1, 0.8f);
+        leftCurtain.DOMoveX(-3, 1);
     }
 }

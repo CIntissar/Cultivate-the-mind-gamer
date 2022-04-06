@@ -27,8 +27,8 @@ public class BallEvent : MonoBehaviour
         {
             isMoving = true;
             currentRotation = transform.eulerAngles;
-            //play sound
-            FindObjectOfType<AudioManager>().Play("testSound1");
+            //sound : ball rolling
+            //FindObjectOfType<AudioManager>().Play("testSound1");
             transform.DOMoveX(transform.position.x + 4f, 1.5f);
             transform.DORotate(new Vector3 (0, 0, currentRotation.z - 120f), 1.5f);
             transform.DOScale(new Vector3(transform.localScale.x + 0.4f, transform.localScale.y + 0.4f, 0), 1.5f);
@@ -45,7 +45,8 @@ public class BallEvent : MonoBehaviour
     }
     public IEnumerator OpenUpAndFly()
     {
-        upperBall.DOMoveY(transform.position.y + 3f, 0.9f).OnComplete(() => {
+        //sound : ball pops up
+        upperBall.DOMoveY(transform.position.y + 3f, 0.8f).OnComplete(() => {
             foreach (GameObject item in birds)
             {
                 item.GetComponent<SpriteRenderer>().DOFade(1, 0.1f);

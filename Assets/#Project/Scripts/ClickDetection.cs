@@ -32,6 +32,7 @@ public class ClickDetection : MonoBehaviour
                 {
                     if(hit2D.collider.gameObject == birds[i].gameObject && birds[i].GetComponent<BirdEvent>().canBeClicked)
                     {
+                        //sound : poof
                         clickedOnce += 1;
                         birds[i].GetComponent<BirdEvent>().canBeClicked = false;
                         birdSprites[i].DOColor(new Color (0.3f, 0.4f, 0.6f, 1f), 0.2f);

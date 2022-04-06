@@ -478,7 +478,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d4dec22672c5a04797ecebfffde4631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 1152820697}
+  spriteAnimation: {fileID: 1152820695}
+--- !u!1 &1152820694 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3145734040659811373, guid: 02f32cae47ed66846b802b067a60f927, type: 3}
+  m_PrefabInstance: {fileID: 3145734040089776985}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1152820695
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152820694}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 692c91d506f1ab54091e277d811fb666, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!212 &1152820697 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3145734040659811372, guid: 02f32cae47ed66846b802b067a60f927, type: 3}
+  m_PrefabInstance: {fileID: 3145734040089776985}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1490661182
 GameObject:
   m_ObjectHideFlags: 0

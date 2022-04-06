@@ -36,8 +36,9 @@ public class ClickDetection : MonoBehaviour
                         birds[i].GetComponent<BirdEvent>().canBeClicked = false;
                         birdSprites[i].DOColor(new Color (0.3f, 0.4f, 0.6f, 1f), 0.2f);
                         print(clickedOnce);
-                        if(clickedOnce == birds.Count)
+                        if(clickedOnce >= birds.Count)
                         {
+                            KillAllTweens();
                             birds[i].GetComponent<BirdEvent>().StopAndExpand();
                         }
                     }
@@ -47,6 +48,13 @@ public class ClickDetection : MonoBehaviour
             {
                 Debug.Log("there's nothing here...");
             }
+        }
+    }
+    void KillAllTweens()
+    {
+        for (int i = 0; i < birds.Count; i++)
+        {
+            birds[i].GetComponent<BirdEvent>().myTween.Kill();
         }
     }
 }

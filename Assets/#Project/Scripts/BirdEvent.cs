@@ -63,7 +63,7 @@ public class BirdEvent : MonoBehaviour
     public void StopAndExpand()
     {
         //birdAnimation.enabled = false;
-        myTween.Kill();
+        //myTween.Kill();
         transform.DOMove(Vector3.zero, 0.5f).OnComplete(() => {
             transform.DOScale(35, 1f);
             StartCoroutine(sceneChanger.ChangeScene());

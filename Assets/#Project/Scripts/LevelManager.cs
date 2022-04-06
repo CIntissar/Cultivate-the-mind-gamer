@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    //[SerializeField] Transform treePainting; //delete this
     [SerializeField] HatchesBehaviour hatchesBehaviour;
     public GameObject apple; //shadow apple
     [SerializeField] GameObject greenApple;
@@ -33,7 +32,7 @@ public class LevelManager : MonoBehaviour
                     }
                     else
                     {
-                        GoToPainting();
+                        hatchesBehaviour.DropDown();
                     }
                 }
                 
@@ -53,9 +52,5 @@ public class LevelManager : MonoBehaviour
                 Debug.Log("there's nothing here...");
             }
         }
-    }
-    void GoToPainting() //put this in hatchets behaviour
-    {
-        hatchesBehaviour.DropDown();
     }
 }

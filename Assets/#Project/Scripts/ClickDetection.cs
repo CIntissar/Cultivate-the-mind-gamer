@@ -9,6 +9,7 @@ public class ClickDetection : MonoBehaviour
     [SerializeField] BallEvent ballEvent;
     public GameObject ball;
     public List<GameObject> birds = new List<GameObject>();
+    public float clickedOnce = 0;
     void Start()
     {
         ballEvent = ball.GetComponent<BallEvent>();
@@ -26,15 +27,16 @@ public class ClickDetection : MonoBehaviour
                 {
                     StartCoroutine(ballEvent.RollOver()); //the ball rolls
                 }
-                foreach (GameObject item in birds)
+                for (int i = 0; i < birds.Count; i++)
                 {
-                    if(hit2D.collider.CompareTag("Bird"))
+                    if(hit2D.collider.gameObject == birds[i].gameObject && birds[i].GetComponent<BirdEvent>().canBeClicked)
                     {
-                        item.GetComponent<BirdEvent>().StopAndExpand(); //bird stops flying and expands 
-                    }
-                    else if (hit2D.collider.CompareTag("Fake"))
-                    {
-                        Destroy(item);
+                        birds[i].GetComponent<BirdEvent>().canBeClicked = false;
+                        clickedOnce += 1;
+                        if(clickedOnce >= birds.Count)
+                        {
+                            birds[i].GetComponent<BirdEvent>().StopAndExpand();
+                        }
                     }
                 }
             }

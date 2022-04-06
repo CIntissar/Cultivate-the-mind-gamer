@@ -7,11 +7,10 @@ public class HatchesBehaviour : MonoBehaviour
 {
     [SerializeField] float spritePositionY = -0.05f; //put this in hatches behaviour + sprite position at -0.05f
     [SerializeField] Ease easeType = Ease.OutBounce;
-    public GameObject[] hatches = new GameObject[3];
+    [SerializeField] GameObject[] hatches = new GameObject[3];
     RaycastHit2D hit2D;
     Ray ray;
-    public List<Transform> sprites = new List<Transform>();
-    int index = 0;
+    [SerializeField] List<Transform> sprites = new List<Transform>();
     public bool canMove = true;
     float xPosition = 4f;
     void Start()
@@ -31,22 +30,17 @@ public class HatchesBehaviour : MonoBehaviour
     }
     public void Slide()
     {
-        for (int j = 0; j < hatches.Length; j++)
+        for (int i = 0; i < hatches.Length; i++) //for each door
         {
-            if(hit2D.collider.gameObject == hatches[j].gameObject && canMove)
+            if(hit2D.collider.gameObject == hatches[i].gameObject && canMove)
             {
-                sprites[index].position = hatches[j].transform.position;
-                hatches[j].transform.DOMoveX(xPosition,1).OnComplete(() => {
-                    if(hatches[j].transform.position.x == xPosition)
+                sprites[i].position = hatches[i].transform.position;
+                hatches[i].transform.DOMoveX(xPosition,1).OnComplete(() => {
+                    if(hatches[i].transform.position.x == xPosition)
                     {
                         canMove = false;
                     }
                 });
-                index++;
-            }
-            else
-            {
-                print("...");
             }
         }
     }

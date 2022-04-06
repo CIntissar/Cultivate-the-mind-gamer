@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Animator))]
 public class BirdEvent : MonoBehaviour
 {
-    public SpriteRenderer sprite;
     [SerializeField] float birdAnimDuration = 1.8f;
     [HideInInspector] public Tween myTween;
     [SerializeField] Ease easeType;
@@ -17,19 +16,14 @@ public class BirdEvent : MonoBehaviour
     float restartLoop = 0;
     Vector3 currentPosition;
     Vector3 nextPosition;
+    Animator birdAnimation;
+    public bool canBeClicked = true;
+    public SceneChanger sceneChanger;
 
-    void Awake()
-    {
-        sprite = GameObject.FindGameObjectWithTag("whiteSprite").GetComponent<SpriteRenderer>();
-    }
     void Start()
     {
+        birdAnimation = gameObject.GetComponent<Animator>();
         nextPosition = new Vector3(Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0);
-    }
-
-    void FixedUpdate()
-    {
-        
     }
     public void Fly()
     {
@@ -63,14 +57,11 @@ public class BirdEvent : MonoBehaviour
     }
     public void StopAndExpand()
     {
-        //isFlying = false;
+        //birdAnimation.enabled = false;
         myTween.Kill();
         transform.DOMove(Vector3.zero, 0.5f).OnComplete(() => {
-            transform.DOScale(35, 1f).OnComplete(() => {
-                sprite.DOFade(1,0.9f).OnComplete(() => {
-                    SceneManager.LoadScene("Dot on sea");
-                });
-            });
+            transform.DOScale(35, 1f);
+            StartCoroutine(sceneChanger.ChangeScene());
         });
     }
     void Flip()

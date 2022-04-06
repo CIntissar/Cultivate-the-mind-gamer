@@ -28,6 +28,7 @@ public class ClickChange : MonoBehaviour
     public GameObject cloud_1;
     public GameObject drop;
     public GameObject cloud_2;
+    public GameObject drop2;
     public GameObject cloud_3;
     public GameObject drop3;
     public GameObject cloud_4;
@@ -74,6 +75,7 @@ public class ClickChange : MonoBehaviour
                         Debug.Log("Ceci n'est pas DUO");
                         
                         ShrinkCloud(cloud_2);
+                        RiseOcean(drop2); 
                         counter++;
 
                     }
@@ -148,10 +150,13 @@ public class ClickChange : MonoBehaviour
                             // Poke à nouveau, le perso parait plus clair et encore décor différent
                             //sound of hurting again more
                         }
-                        else if(pokingCount >= 4)
+                        else if(pokingCount == 4)
                         {
                             poke3 = true;
-                            //Last Poke
+                            //SceneManager.LoadScene("GiantHead");
+                        }
+                        else if(pokingCount > 4)
+                        {
                             SceneManager.LoadScene("GiantHead");
                         }
                     }
@@ -178,4 +183,5 @@ public class ClickChange : MonoBehaviour
         myTween = waterdrop.transform.DOMoveY(-15f,3f);
         ocean.transform.Translate(0,0.5f,0);
     }
+    
 }

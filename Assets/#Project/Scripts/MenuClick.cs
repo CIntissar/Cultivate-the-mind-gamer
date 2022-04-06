@@ -48,21 +48,51 @@ public class MenuClick : MonoBehaviour
                         counter++;
                     }
 
-                    else if(counter == 2)
+                    // else if(counter == 2)
+                    // {
+                    //     FallinTitle(frame2,1.5f);
+                    //     FindObjectOfType<AudioManager>().Play("PaintingFall");
+                    //     counter++;
+                    // }
+
+                    // else if(counter == 3)
+                    // {
+                    //     FallinTitle(frame3,2.5f);
+                    //     FindObjectOfType<AudioManager>().Play("PaintingFall");
+                    //     counter++;
+                    // }
+
+                    // else if(counter >= 4)
+                    // {
+                    //     FindObjectOfType<AudioManager>().Play("LionPurr");
+                    //     counter++;
+                    //     PoppingMan();
+                    // }
+                }
+
+                if(hit2D.collider.CompareTag("FrameFall1"))
+                {
+                    if(counter == 2)
                     {
                         FallinTitle(frame2,1.5f);
                         FindObjectOfType<AudioManager>().Play("PaintingFall");
                         counter++;
                     }
+                }
 
-                    else if(counter == 3)
+                if(hit2D.collider.CompareTag("FrameFall2"))
+                {
+                     if(counter == 3)
                     {
                         FallinTitle(frame3,2.5f);
                         FindObjectOfType<AudioManager>().Play("PaintingFall");
                         counter++;
                     }
+                }
 
-                    else if(counter >= 4)
+                if(hit2D.collider.CompareTag("FrameFall3"))
+                {
+                    if(counter >= 4)
                     {
                         FindObjectOfType<AudioManager>().Play("LionPurr");
                         counter++;

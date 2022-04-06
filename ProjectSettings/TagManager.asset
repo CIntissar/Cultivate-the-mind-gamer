@@ -22,6 +22,9 @@ TagManager:
   - Man
   - Lion
   - Fake
+  - FrameFall1
+  - FrameFall2
+  - FrameFall3
   layers:
   - Default
   - TransparentFX

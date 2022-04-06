@@ -5,9 +5,10 @@ using UnityEngine;
 public class Return : MonoBehaviour
 {
     // Make the clouds go back where it started
+    public float cloudSpeed = 0.05f;
     private void Update() 
     {
-        transform.Translate(0.005f, 0, 0);
+        transform.Translate(cloudSpeed * Time.deltaTime, 0, 0);
 
         if(transform.position.x >= 30f)
         {

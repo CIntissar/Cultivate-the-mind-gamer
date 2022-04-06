@@ -15,16 +15,21 @@ public class BalltoEye : MonoBehaviour
     public ClickChange clickChange;
     public MovingCamera movingCamera;
 
+    void Start()
+    {
+        animator.SetBool("outSea", true);
+    }
+
     void Update()
     {
-        if(movingCamera.pupilAnimation == true)
-        {
-            animator.SetBool("outSea", true);
-        }
-        else if(movingCamera.pupilAnimation == false)
-        {
-            animator.SetBool("outSea",false); // PLEASE FIND A WAY OR CHANGE
-        }
+        // if(movingCamera.pupilAnimation == true)
+        // {
+        //     animator.SetBool("outSea", true);
+        // }
+        // else if(movingCamera.pupilAnimation == false)
+        // {
+        //     animator.SetBool("outSea", false);
+        // }
         
         if(Input.GetMouseButtonDown(0))
         {
@@ -41,8 +46,8 @@ public class BalltoEye : MonoBehaviour
 
                     if(clickCount == 1)
                     {
-                        movingCamera.pupilAnimation = false;
-                        FloatingBall();
+                        animator.SetBool("outSea", false);
+                        //FloatingBall();
                         arrowAway = true;
                     }
                     else if(clickCount == 2)

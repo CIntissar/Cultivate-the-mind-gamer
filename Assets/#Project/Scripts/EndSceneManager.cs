@@ -22,7 +22,7 @@ public class EndSceneManager : MonoBehaviour
     void OpenCurtains()
     {
         FindObjectOfType<AudioManager>().Play("CurtainsClose");
-        rightCurtain.DOMoveX(endPosition, 0.7f);
-        leftCurtain.DOMoveX(-endPosition, 0.9f);
+        rightCurtain.DOMoveX(endPosition, 0.9f);
+        leftCurtain.DOMoveX(-endPosition, 1.1f);
     }
 }

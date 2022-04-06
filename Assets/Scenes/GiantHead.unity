@@ -997,8 +997,8 @@ MonoBehaviour:
   - {fileID: 56229336}
   sprites:
   - {fileID: 2093403914}
-  - {fileID: 333608947}
   - {fileID: 525739319}
+  - {fileID: 333608947}
   greenApple: {fileID: 333608945}
   leftCurtain: {fileID: 276284571}
   rightCurtain: {fileID: 1481151803}

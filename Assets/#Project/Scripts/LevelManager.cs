@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Transform leftCurtain;
     [SerializeField] Transform rightCurtain;
     [SerializeField] Ease curtainEaseType;
-    bool startLoop = true;
+    int index = 0;
 
     void Start()
     {
@@ -48,26 +48,15 @@ public class LevelManager : MonoBehaviour
                 
                 if(hit2D.collider.CompareTag("Hatches"))
                 {
-                    startLoop = true;
-                    for (int i = 0; i < hatches.Count; i++)
+                    for (int i = 0; i < hatches.Count; i++) //pour chaque portes
                     {
-                        if(startLoop)
+                        if(hit2D.collider.gameObject == hatches[i].gameObject && hatches[i].GetComponent<HatchesBehaviour>().canMove)
                         {
-                            if(hit2D.collider.gameObject == hatches[i].gameObject && hatches[i].GetComponent<HatchesBehaviour>().canMove)
-                            {
-                                for (int j = 0; j < sprites.Count; j++)
-                                {
-                                    if(i==j)
-                                    {
-                                        sprites[j].position = hatches[i].position;
-                                        //sound : open
-                                        FindObjectOfType<AudioManager>().Play("Open");
-                                        hatches[i].DOMoveX(4,1);
-                                        hatches[i].GetComponent<HatchesBehaviour>().canMove = false;
-                                    }
-                                }
-                                startLoop = false;
-                            }
+                            sprites[index].position = hatches[i].position;
+                            FindObjectOfType<AudioManager>().Play("Open");
+                            hatches[i].DOMoveX(4,1);
+                            hatches[i].GetComponent<HatchesBehaviour>().canMove = false;
+                            index++;
                         }
                     }
                 }
@@ -100,7 +89,7 @@ public class LevelManager : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("CurtainsClose");
         rightCurtain.DOMoveX(3, 0.7f);
         leftCurtain.DOMoveX(-3, 0.9f);
-        yield return new WaitForSeconds(1.6f);
+        yield return new WaitForSeconds(1.7f);
         SceneManager.LoadScene("EndScene");
     }
 }

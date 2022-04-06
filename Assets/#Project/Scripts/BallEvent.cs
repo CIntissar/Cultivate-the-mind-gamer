@@ -29,10 +29,10 @@ public class BallEvent : MonoBehaviour
             //sound : ball rolling
             FindObjectOfType<AudioManager>().Play("RollingStone");
             currentRotation = transform.eulerAngles;
-            transform.DOMoveX(transform.position.x + 4f, 1.5f);
-            transform.DORotate(new Vector3 (0, 0, currentRotation.z - 120f), 1.5f);
-            transform.DOScale(new Vector3(transform.localScale.x + 0.4f, transform.localScale.y + 0.4f, 0), 1.5f);
-            yield return new WaitForSeconds(1.5f);
+            transform.DOMoveX(transform.position.x + 4f, 2f);
+            transform.DORotate(new Vector3 (0, 0, currentRotation.z - 120f), 2f);
+            transform.DOScale(new Vector3(transform.localScale.x + 0.4f, transform.localScale.y + 0.4f, 0), 2f);
+            yield return new WaitForSeconds(1.4f);
             isMoving = false;
             clickCount++;
 

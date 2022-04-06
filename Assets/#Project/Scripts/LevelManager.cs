@@ -42,6 +42,7 @@ public class LevelManager : MonoBehaviour
                     else
                     {
                         //sound : bounce
+                        FindObjectOfType<AudioManager>().Play("PaintingFall");
                         treePainting.DOMoveY(spritePositionY, 1).SetEase(paintingEaseType);
                     }
                 }
@@ -61,6 +62,7 @@ public class LevelManager : MonoBehaviour
                                     {
                                         sprites[j].position = hatches[i].position;
                                         //sound : open
+                                        FindObjectOfType<AudioManager>().Play("Open");
                                         hatches[i].DOMoveX(4,1);
                                         hatches[i].GetComponent<HatchesBehaviour>().canMove = false;
                                     }
@@ -87,6 +89,7 @@ public class LevelManager : MonoBehaviour
         for (int i = 0; i < sprites.Count; i++)
         {
             //sound : scale down
+            FindObjectOfType<AudioManager>().Play("AppleClicked");
             sprites[i].transform.DOScale(Vector3.zero, 0.4f);
         }
         yield return new WaitForSeconds(0.8f);
@@ -95,6 +98,7 @@ public class LevelManager : MonoBehaviour
     void CloseCurtains()
     {
         //sound : curtains
+        FindObjectOfType<AudioManager>().Play("CurtainsClose");
         rightCurtain.DOMoveX(1, 0.8f);
         leftCurtain.DOMoveX(-3, 1);
     }

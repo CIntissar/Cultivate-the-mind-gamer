@@ -36,6 +36,7 @@ public class BirdEvent : MonoBehaviour
         {
             Flip();
         }
+        FindObjectOfType<AudioManager>().Play("BirdFlying");
         myTween = transform.DOMove(nextPosition, birdAnimDuration).SetEase(easeType).OnComplete(() => {
             currentPosition = nextPosition;
             nextPosition = new Vector3(Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0);
@@ -56,17 +57,13 @@ public class BirdEvent : MonoBehaviour
 
         });
     }
-    // public void BirdWasClicked()
-    // {
-    //     canBeClicked = false;
-    //     gameObject.GetComponent<SpriteRenderer>().DOColor(new Color (150, 150, 150), 0.1f);
-    // }
     public void StopAndExpand()
     {
         //birdAnimation.enabled = false;
         //myTween.Kill();
         transform.DOMove(Vector3.zero, 0.5f).OnComplete(() => {
             //sound : explode ? ou wosh
+            FindObjectOfType<AudioManager>().Play("ExplodingBird");
             transform.DOScale(35, 1f);
             StartCoroutine(sceneChanger.ChangeScene());
         });

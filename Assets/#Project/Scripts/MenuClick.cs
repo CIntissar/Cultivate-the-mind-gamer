@@ -44,18 +44,21 @@ public class MenuClick : MonoBehaviour
                     else if(counter == 1)
                     {
                         FallinTitle(frame,-1.9f);
+                        FindObjectOfType<AudioManager>().Play("PaintingFall");
                         counter++;
                     }
 
                     else if(counter == 2)
                     {
                         FallinTitle(frame2,1.5f);
+                        FindObjectOfType<AudioManager>().Play("PaintingFall");
                         counter++;
                     }
 
                     else if(counter == 3)
                     {
                         FallinTitle(frame3,2.5f);
+                        FindObjectOfType<AudioManager>().Play("PaintingFall");
                         counter++;
                     }
 
@@ -70,7 +73,7 @@ public class MenuClick : MonoBehaviour
                 if(hit2D.collider.CompareTag("Man"))
                 {
                     touch++;
-                    //sound : hat jump
+                    FindObjectOfType<AudioManager>().Play("Hat");
                     animMenu.animator.SetTrigger("hatJump");
 
                     if(touch >= 3 && appleOn == false)

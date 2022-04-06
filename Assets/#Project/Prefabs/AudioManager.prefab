@@ -43,4 +43,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fae0825b62dd0254480123e062e5cffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundsList: []
+  soundsList:
+  - name: LionRawr
+    clip: {fileID: 8300000, guid: 76f352cd3f716ee4f8c94d2d50446c6d, type: 3}
+    volume: 1
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: LionPurr
+    clip: {fileID: 8300000, guid: 0ba6a2323b9a02c42a4d11df3c89b7b1, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Hat
+    clip: {fileID: 8300000, guid: f6ebd290145be6f4cacbea3a5ccc39b7, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: PaintingFall
+    clip: {fileID: 8300000, guid: 0fc8dad954ce3c446b490a5ba6426f4d, type: 3}
+    volume: 0.69
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: RollingStone
+    clip: {fileID: 8300000, guid: 04be01d860b6ff849b1056a60d937522, type: 3}
+    volume: 1
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Pop
+    clip: {fileID: 8300000, guid: 494c2e3b6c8fcf2449b86a007334ab77, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: BirdFlying
+    clip: {fileID: 8300000, guid: 32e320f1ce81bbb41b09b1203305564d, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: BirdClicked
+    clip: {fileID: 8300000, guid: af91c408681840f4da9472f34f415084, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: ExplodingBird
+    clip: {fileID: 8300000, guid: 5e4c8eac55c5ea340a1fd355f71501db, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Open
+    clip: {fileID: 8300000, guid: cc4fc029fc9e029479dc3e4fa884c4f4, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: AppleClicked
+    clip: {fileID: 8300000, guid: 9cbe59fdea1233844932891dcfc5b6d2, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: CurtainsClose
+    clip: {fileID: 8300000, guid: 004ae602bfd308f439a8e2b8834709df, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}

@@ -19,6 +19,7 @@ public class BirdEvent : MonoBehaviour
     Animator birdAnimation;
     public bool canBeClicked = true;
     public SceneChanger sceneChanger;
+    [SerializeField] Vector3 lastPosition;
 
     void Start()
     {
@@ -61,7 +62,7 @@ public class BirdEvent : MonoBehaviour
     {
         //birdAnimation.enabled = false;
         //myTween.Kill();
-        transform.DOMove(Vector3.zero, 0.5f).OnComplete(() => {
+        transform.DOMove(lastPosition, 0.5f).OnComplete(() => {
             //sound : explode ? ou wosh
             FindObjectOfType<AudioManager>().Play("ExplodingBird");
             transform.DOScale(35, 1f);

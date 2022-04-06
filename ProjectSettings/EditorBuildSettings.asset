@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GiantHead.unity
     guid: b0444f9f12e3ff4458e701b353b0e794
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: f70d2af6e9d91c343955a3c97249ed80
   m_configObjects: {}

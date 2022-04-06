@@ -36,8 +36,7 @@ public class LevelManager : MonoBehaviour
                 {
                     if(appleBehaviour.spriteChanged)
                     {
-                        //SceneManager.LoadScene("EndScene");
-                        CloseCurtains();
+                        StartCoroutine(CloseCurtains());
                     }
                     else
                     {
@@ -95,11 +94,13 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
         treePainting.DOMoveY(10.75f,1);
     }
-    void CloseCurtains()
+    IEnumerator CloseCurtains()
     {
         //sound : curtains
         FindObjectOfType<AudioManager>().Play("CurtainsClose");
-        rightCurtain.DOMoveX(1, 0.8f);
-        leftCurtain.DOMoveX(-3, 1);
+        rightCurtain.DOMoveX(3, 0.7f);
+        leftCurtain.DOMoveX(-3, 0.9f);
+        yield return new WaitForSeconds(1.6f);
+        SceneManager.LoadScene("EndScene");
     }
 }

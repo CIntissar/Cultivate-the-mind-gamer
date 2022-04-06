@@ -37,7 +37,7 @@ public class MenuClick : MonoBehaviour
                     {
                         //animation -> Lion Appear!
                         lion.transform.DOMoveX(transform.position.x + 1.25f,1f);
-                        //sound rawr
+                        FindObjectOfType<AudioManager>().Play("LionRawr");
                         counter++;
                     }
                     
@@ -61,7 +61,7 @@ public class MenuClick : MonoBehaviour
 
                     else if(counter >= 4)
                     {
-                        //sound rawr
+                        FindObjectOfType<AudioManager>().Play("LionPurr");
                         counter++;
                         PoppingMan();
                     }
@@ -70,6 +70,7 @@ public class MenuClick : MonoBehaviour
                 if(hit2D.collider.CompareTag("Man"))
                 {
                     touch++;
+                    //sound : hat jump
                     animMenu.animator.SetTrigger("hatJump");
 
                     if(touch >= 3 && appleOn == false)
@@ -91,6 +92,7 @@ public class MenuClick : MonoBehaviour
 
     void FallinTitle(GameObject frames,float position)
     {
+        //sound : falling object
         myTween = frames.transform.DOMoveY(position,1).SetEase(Ease.OutBounce);
     }
 

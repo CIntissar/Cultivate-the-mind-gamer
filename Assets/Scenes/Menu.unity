@@ -193,7 +193,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 5d41b89fae9dd994d829d007da618c27, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -391,7 +391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1237173333174695108, guid: 386ee291b8990a4409ff77d7f5b81d1c, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1237173333174695109, guid: 386ee291b8990a4409ff77d7f5b81d1c, type: 3}
       propertyPath: m_RootOrder
@@ -607,7 +607,7 @@ Transform:
   m_Children:
   - {fileID: 2082878943}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1204673891
 BoxCollider2D:
@@ -729,7 +729,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 4b79e85940c0370409d88275711a8429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -754,7 +754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1237173333174695108, guid: 386ee291b8990a4409ff77d7f5b81d1c, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1237173333174695109, guid: 386ee291b8990a4409ff77d7f5b81d1c, type: 3}
       propertyPath: m_RootOrder
@@ -976,7 +976,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 1c4d5a809f044fc47ac84a3997568226, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1150,7 +1150,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1620515502
 GameObject:
@@ -1560,7 +1560,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1968750473
 GameObject:
@@ -1651,6 +1651,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 30997494248293176, guid: 2581dd59429ae764ea0116555ab3195f, type: 3}
+      propertyPath: soundsList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 30997494248293176, guid: 2581dd59429ae764ea0116555ab3195f, type: 3}
+      propertyPath: soundsList.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 76f352cd3f716ee4f8c94d2d50446c6d, type: 3}
+    - target: {fileID: 30997494248293176, guid: 2581dd59429ae764ea0116555ab3195f, type: 3}
+      propertyPath: soundsList.Array.data[0].name
+      value: LionRawr
+      objectReference: {fileID: 0}
+    - target: {fileID: 30997494248293176, guid: 2581dd59429ae764ea0116555ab3195f, type: 3}
+      propertyPath: soundsList.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ba6a2323b9a02c42a4d11df3c89b7b1, type: 3}
+    - target: {fileID: 30997494248293176, guid: 2581dd59429ae764ea0116555ab3195f, type: 3}
+      propertyPath: soundsList.Array.data[1].name
+      value: LionPurr
+      objectReference: {fileID: 0}
+    - target: {fileID: 30997494248293176, guid: 2581dd59429ae764ea0116555ab3195f, type: 3}
+      propertyPath: soundsList.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ba6a2323b9a02c42a4d11df3c89b7b1, type: 3}
+    - target: {fileID: 30997494248293176, guid: 2581dd59429ae764ea0116555ab3195f, type: 3}
+      propertyPath: soundsList.Array.data[2].name
+      value: LionPurr
+      objectReference: {fileID: 0}
+    - target: {fileID: 30997494248293176, guid: 2581dd59429ae764ea0116555ab3195f, type: 3}
+      propertyPath: soundsList.Array.data[0].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 30997494248293176, guid: 2581dd59429ae764ea0116555ab3195f, type: 3}
+      propertyPath: soundsList.Array.data[1].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 30997494248293176, guid: 2581dd59429ae764ea0116555ab3195f, type: 3}
+      propertyPath: soundsList.Array.data[2].volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 30997494248293177, guid: 2581dd59429ae764ea0116555ab3195f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1796,7 +1836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1237173333174695108, guid: 386ee291b8990a4409ff77d7f5b81d1c, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1237173333174695109, guid: 386ee291b8990a4409ff77d7f5b81d1c, type: 3}
       propertyPath: m_RootOrder

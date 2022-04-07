@@ -21,6 +21,8 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        FindObjectOfType<AudioManager>().StopPlaying("BeachAmbiance");
+        FindObjectOfType<AudioManager>().Play("MountainAmbiance");
         appleBehaviour = shadowApple.GetComponent<AppleBehaviour>();
     }
     void Update()

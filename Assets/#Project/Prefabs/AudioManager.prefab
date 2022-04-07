@@ -63,8 +63,14 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: PaintingFall
-    clip: {fileID: 8300000, guid: 0fc8dad954ce3c446b490a5ba6426f4d, type: 3}
+    clip: {fileID: 8300000, guid: 38ca3686676a86b42af154445ffa84e6, type: 3}
     volume: 0.69
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: HeyThere
+    clip: {fileID: 8300000, guid: 023d254fa0375f54f8e2bb4e75d6a499, type: 3}
+    volume: 1
     pitch: 0
     loop: 0
     source: {fileID: 0}
@@ -115,4 +121,22 @@ MonoBehaviour:
     volume: 1
     pitch: 0
     loop: 0
+    source: {fileID: 0}
+  - name: ForestAmbiance
+    clip: {fileID: 8300000, guid: 4ba5704653be9f7428591630c3419db3, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: BeachAmbiance
+    clip: {fileID: 8300000, guid: fa70317ebf9efe44aa714bd011c50bd5, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: MountainAmbiance
+    clip: {fileID: 8300000, guid: b137f763ab2d45e4ba441ea2c71293c4, type: 3}
+    volume: 0.495
+    pitch: 0
+    loop: 1
     source: {fileID: 0}

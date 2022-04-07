@@ -12,6 +12,7 @@ public class EndSceneManager : MonoBehaviour
 
     void Start()
     {
+        FindObjectOfType<AudioManager>().StopPlaying("MountainAmbiance");
         OpenCurtains();
     }
 

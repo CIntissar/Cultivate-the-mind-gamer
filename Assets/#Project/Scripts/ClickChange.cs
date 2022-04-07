@@ -39,6 +39,11 @@ public class ClickChange : MonoBehaviour
     public GameObject drop6;
     public GameObject ocean;
     
+    void Start()
+    {
+        FindObjectOfType<AudioManager>().StopPlaying("ForestAmbiance");
+        FindObjectOfType<AudioManager>().Play("BeachAmbiance");
+    }
     void Update()
     {
         

@@ -64,8 +64,8 @@ public class BirdEvent : MonoBehaviour
         //myTween.Kill();
         transform.DOMove(lastPosition, 0.5f).OnComplete(() => {
             //sound : explode ? ou wosh
+            transform.DOScale(42, 0.8f);
             FindObjectOfType<AudioManager>().Play("ExplodingBird");
-            transform.DOScale(35, 1f);
             StartCoroutine(sceneChanger.ChangeScene());
         });
     }

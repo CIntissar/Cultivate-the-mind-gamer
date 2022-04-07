@@ -76,7 +76,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Pop
     clip: {fileID: 8300000, guid: 494c2e3b6c8fcf2449b86a007334ab77, type: 3}
-    volume: 1
+    volume: 0.664
     pitch: 0
     loop: 0
     source: {fileID: 0}

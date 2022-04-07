@@ -161,7 +161,7 @@ MonoBehaviour:
   minDistanceY: 5
   canBeClicked: 1
   sceneChanger: {fileID: 1146321362}
-  lastPosition: {x: -0.12, y: 0.8, z: 0}
+  lastPosition: {x: -0.12, y: 1, z: 0}
 --- !u!95 &105597375
 Animator:
   serializedVersion: 3
@@ -548,7 +548,7 @@ MonoBehaviour:
   minDistanceY: 5
   canBeClicked: 1
   sceneChanger: {fileID: 1146321362}
-  lastPosition: {x: -0.12, y: 0.8, z: 0}
+  lastPosition: {x: -0.12, y: 1, z: 0}
 --- !u!95 &1490661184
 Animator:
   serializedVersion: 3
@@ -697,7 +697,7 @@ MonoBehaviour:
   minDistanceY: 5
   canBeClicked: 1
   sceneChanger: {fileID: 1146321362}
-  lastPosition: {x: -0.12, y: 0.8, z: 0}
+  lastPosition: {x: -0.12, y: 1, z: 0}
 --- !u!95 &1562832017
 Animator:
   serializedVersion: 3
@@ -962,7 +962,7 @@ MonoBehaviour:
   minDistanceY: 5
   canBeClicked: 1
   sceneChanger: {fileID: 1146321362}
-  lastPosition: {x: -0.12, y: 0.8, z: 0}
+  lastPosition: {x: -0.12, y: 1, z: 0}
 --- !u!95 &1759430485
 Animator:
   serializedVersion: 3

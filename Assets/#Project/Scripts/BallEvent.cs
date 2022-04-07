@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class BallEvent : MonoBehaviour
 {
-    //[SerializeField] BirdEvent birdEvent;
     [SerializeField] List<GameObject> birds = new List<GameObject>(); 
     [HideInInspector] bool isMoving = false;
     Vector3 currentRotation;
@@ -32,7 +31,7 @@ public class BallEvent : MonoBehaviour
             transform.DOMoveX(transform.position.x + 4f, 2f);
             transform.DORotate(new Vector3 (0, 0, currentRotation.z - 120f), 2f);
             transform.DOScale(new Vector3(transform.localScale.x + 0.4f, transform.localScale.y + 0.4f, 0), 2f);
-            yield return new WaitForSeconds(1.4f);
+            yield return new WaitForSeconds(2f);
             isMoving = false;
             clickCount++;
 

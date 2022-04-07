@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
     public Sounds[] soundsList;
+    Scene currentScene;
     void Awake()
     {
+        string sceneName = currentScene.name;
         if(instance == null)
         {
             instance = this;
@@ -35,6 +38,25 @@ public class AudioManager : MonoBehaviour
         //play the music here
         //Play("music");
     }
+    void Update()
+    {
+        // currentScene = SceneManager.GetActiveScene();
+        // if(currentScene.name == "Ball'nBird")
+        // {
+        //     print("we're on scene 2 !");
+        //     Play("ForestAmbiance");
+        // }
+        // else if(currentScene.name == "Dot on sea")
+        // {
+        //     StopPlaying("ForestAmbiance");
+        //     Play("BeachAmbiance");
+        // }
+        // else if(currentScene.name == "GiantHead")
+        // {
+        //     StopPlaying("BeachAmbiance");
+        //     Play("MountainAmbiance");
+        // }
+    }
     public void Play(string name)
     {
         Sounds s = Array.Find(soundsList, sounds => sounds.name == name);
@@ -43,5 +65,15 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Play();
+    }
+    public void StopPlaying (string sound)
+    {
+        Sounds s = Array.Find(soundsList, item => item.name == sound);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+        s.source.Stop();
     }
 }

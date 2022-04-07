@@ -97,6 +97,7 @@ public class MenuClick : MonoBehaviour
                     {
                         counter++;
                         PoppingMan();
+                        FindObjectOfType<AudioManager>().Play("HeyThere");
                     }
                 }
 

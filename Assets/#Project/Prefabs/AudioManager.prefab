@@ -63,8 +63,14 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: PaintingFall
-    clip: {fileID: 8300000, guid: 0fc8dad954ce3c446b490a5ba6426f4d, type: 3}
+    clip: {fileID: 8300000, guid: 38ca3686676a86b42af154445ffa84e6, type: 3}
     volume: 0.69
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: HeyThere
+    clip: {fileID: 8300000, guid: 023d254fa0375f54f8e2bb4e75d6a499, type: 3}
+    volume: 1
     pitch: 0
     loop: 0
     source: {fileID: 0}
@@ -98,6 +104,12 @@ MonoBehaviour:
     pitch: 0
     loop: 0
     source: {fileID: 0}
+  - name: CloudDisappear
+    clip: {fileID: 8300000, guid: e6a75070d016e094eb8292ef283a79e1, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 1
+    source: {fileID: 0}
   - name: Open
     clip: {fileID: 8300000, guid: cc4fc029fc9e029479dc3e4fa884c4f4, type: 3}
     volume: 1
@@ -112,6 +124,54 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: CurtainsClose
     clip: {fileID: 8300000, guid: 004ae602bfd308f439a8e2b8834709df, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: ForestAmbiance
+    clip: {fileID: 8300000, guid: 4ba5704653be9f7428591630c3419db3, type: 3}
+    volume: 0.732
+    pitch: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: BeachAmbiance
+    clip: {fileID: 8300000, guid: fa70317ebf9efe44aa714bd011c50bd5, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: MountainAmbiance
+    clip: {fileID: 8300000, guid: b137f763ab2d45e4ba441ea2c71293c4, type: 3}
+    volume: 0.495
+    pitch: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: WaterDrop
+    clip: {fileID: 8300000, guid: 1acc69ad3959fd848a050fd8d1432c0b, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: PupilAscend
+    clip: {fileID: 8300000, guid: ba508410c743de84a836f1d2138e0f4b, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Outch1
+    clip: {fileID: 8300000, guid: 28194562a22e1ca47a76ddab26958233, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Outch2
+    clip: {fileID: 8300000, guid: 0f4557764ec49cb428c43eb58377df72, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Outch3
+    clip: {fileID: 8300000, guid: ae752cc38147b89449e2efc86e90bbd3, type: 3}
     volume: 1
     pitch: 0
     loop: 0

@@ -13,6 +13,7 @@ public class ClickDetection : MonoBehaviour
     public float clickedOnce = 0;
     void Start()
     {
+        FindObjectOfType<AudioManager>().Play("ForestAmbiance");
         ballEvent = ball.GetComponent<BallEvent>();
     }
     void Update()

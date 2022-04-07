@@ -39,6 +39,11 @@ public class ClickChange : MonoBehaviour
     public GameObject drop6;
     public GameObject ocean;
     
+    void Start()
+    {
+        FindObjectOfType<AudioManager>().StopPlaying("ForestAmbiance");
+        FindObjectOfType<AudioManager>().Play("BeachAmbiance");
+    }
     void Update()
     {
         
@@ -64,7 +69,7 @@ public class ClickChange : MonoBehaviour
                     if(hit2D.collider.CompareTag("Cloud_1"))
                     {
                         Debug.Log("Ceci n'est pas UNO");
-                        
+                        //sound : cloud disappear
                         ShrinkCloud(cloud_1);
                         RiseOcean(drop);
                         counter++;                    
@@ -73,7 +78,7 @@ public class ClickChange : MonoBehaviour
                     else if(hit2D.collider.CompareTag("Cloud_2"))
                     {
                         Debug.Log("Ceci n'est pas DUO");
-                        
+                        //sound : cloud disappear
                         ShrinkCloud(cloud_2);
                         RiseOcean(drop2); 
                         counter++;
@@ -83,7 +88,7 @@ public class ClickChange : MonoBehaviour
                     else if(hit2D.collider.CompareTag("Cloud_3"))
                     {
                         Debug.Log("Ceci n'est pas TRE");
-                        
+                        //sound : cloud disappear
                         ShrinkCloud(cloud_3);
                         //HideCloud(cloud_3);
                         RiseOcean(drop3); 
@@ -94,7 +99,7 @@ public class ClickChange : MonoBehaviour
                     else if(hit2D.collider.CompareTag("Cloud_4"))
                     {
                         Debug.Log("Ceci n'est pas QUATTRO");
-                        
+                        //sound : disapear
                         ShrinkCloud(cloud_4);
                         RiseOcean(drop4);   
                         counter++;                  
@@ -104,7 +109,7 @@ public class ClickChange : MonoBehaviour
                     else if(hit2D.collider.CompareTag("Cloud_5"))
                     {
                         Debug.Log("Ceci n'est pas CINQUE");
-                        
+                        //sound : disappear
                         ShrinkCloud(cloud_5);
                         RiseOcean(drop5);   
                         counter++;                 
@@ -114,7 +119,7 @@ public class ClickChange : MonoBehaviour
                     else if(hit2D.collider.CompareTag("Cloud_6"))
                     {
                         Debug.Log("Ceci n'est pas SEI");
-                        
+                        //sound : disappear
                         ShrinkCloud(cloud_6);
                         RiseOcean(drop6); 
                         counter++;
@@ -182,6 +187,7 @@ public class ClickChange : MonoBehaviour
         Debug.Log("I CAME IN LIKE A WRECKINGBALL");
         myTween = waterdrop.transform.DOMoveY(-15f,3f);
         ocean.transform.Translate(0,0.5f,0);
+        FindObjectOfType<AudioManager>().Play("WaterDrop");
     }
     
 }

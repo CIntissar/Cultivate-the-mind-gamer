@@ -104,6 +104,12 @@ MonoBehaviour:
     pitch: 0
     loop: 0
     source: {fileID: 0}
+  - name: CloudDisappear
+    clip: {fileID: 8300000, guid: e6a75070d016e094eb8292ef283a79e1, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 1
+    source: {fileID: 0}
   - name: Open
     clip: {fileID: 8300000, guid: cc4fc029fc9e029479dc3e4fa884c4f4, type: 3}
     volume: 1
@@ -124,7 +130,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: ForestAmbiance
     clip: {fileID: 8300000, guid: 4ba5704653be9f7428591630c3419db3, type: 3}
-    volume: 1
+    volume: 0.732
     pitch: 0
     loop: 1
     source: {fileID: 0}
@@ -139,4 +145,34 @@ MonoBehaviour:
     volume: 0.495
     pitch: 0
     loop: 1
+    source: {fileID: 0}
+  - name: WaterDrop
+    clip: {fileID: 8300000, guid: 1acc69ad3959fd848a050fd8d1432c0b, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: PupilAscend
+    clip: {fileID: 8300000, guid: ba508410c743de84a836f1d2138e0f4b, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Outch1
+    clip: {fileID: 8300000, guid: 28194562a22e1ca47a76ddab26958233, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Outch2
+    clip: {fileID: 8300000, guid: 0f4557764ec49cb428c43eb58377df72, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Outch3
+    clip: {fileID: 8300000, guid: ae752cc38147b89449e2efc86e90bbd3, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
     source: {fileID: 0}

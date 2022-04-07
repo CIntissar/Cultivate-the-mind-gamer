@@ -12,6 +12,7 @@ public class BallEvent : MonoBehaviour
     [HideInInspector] public float clickCount = 0;
     [SerializeField] Transform upperBall;
     SpriteRenderer[] spriteRenderers;
+    [SerializeField] SpriteRenderer quote;
     void Start()
     {
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
@@ -47,6 +48,7 @@ public class BallEvent : MonoBehaviour
         //sound : ball pops up
         FindObjectOfType<AudioManager>().Play("Pop");
         upperBall.DOMoveY(transform.position.y + 3f, 0.8f).OnComplete(() => {
+            quote.DOFade(0, 0.5f);
             foreach (GameObject item in birds)
             {
                 item.GetComponent<SpriteRenderer>().DOFade(1, 0.1f);

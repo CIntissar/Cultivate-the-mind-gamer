@@ -12,6 +12,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject shadowApple; //shadow apple
     [SerializeField] List<Transform> hatches = new List<Transform>();
     [SerializeField] List<Transform> sprites = new List<Transform>();
+    [SerializeField] SpriteRenderer whiteQuote;
+    [SerializeField] SpriteRenderer blackQuote;
     [SerializeField] GameObject greenApple;
     AppleBehaviour appleBehaviour;
     [SerializeField] Transform leftCurtain;
@@ -58,6 +60,14 @@ public class LevelManager : MonoBehaviour
                             FindObjectOfType<AudioManager>().Play("Open");
                             hatches[i].DOMoveX(4,1);
                             hatches[i].GetComponent<HatchesBehaviour>().canMove = false;
+                            if(index==0)
+                            {
+                                whiteQuote.DOFade(0.854902f, 0.5f);
+                            }
+                            else if(index==1)
+                            {
+                                blackQuote.DOFade(0.854902f, 0.5f);
+                            }
                             index++;
                         }
                     }

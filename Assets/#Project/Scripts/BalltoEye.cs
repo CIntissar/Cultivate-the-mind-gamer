@@ -47,6 +47,7 @@ public class BalltoEye : MonoBehaviour
                     if(clickCount == 1)
                     {
                         animator.SetBool("outSea", false);
+                        FindObjectOfType<AudioManager>().Play("PupilAscend");
                         //FloatingBall();
                         arrowAway = true;
                     }
@@ -90,10 +91,10 @@ public class BalltoEye : MonoBehaviour
         }
     }
 
-    void FloatingBall()
-    {
-        pupil.transform.DOMoveY(transform.position.y + 4.5f, 2f);
-    }
+    // void FloatingBall()
+    // {
+    //     pupil.transform.DOMoveY(transform.position.y + 4.5f, 2f);
+    // }
 
 
 

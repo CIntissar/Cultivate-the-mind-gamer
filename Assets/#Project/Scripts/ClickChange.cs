@@ -42,6 +42,7 @@ public class ClickChange : MonoBehaviour
     void Start()
     {
         FindObjectOfType<AudioManager>().StopPlaying("ForestAmbiance");
+        FindObjectOfType<AudioManager>().StopPlaying("BirdFlying");
         FindObjectOfType<AudioManager>().Play("BeachAmbiance");
     }
     void Update()
@@ -71,7 +72,7 @@ public class ClickChange : MonoBehaviour
                         Debug.Log("Ceci n'est pas UNO");
                         //sound : cloud disappear
                         ShrinkCloud(cloud_1);
-                        RiseOcean(drop);
+                        StartCoroutine(RiseOcean(drop));
                         counter++;                    
 
                     }
@@ -80,7 +81,7 @@ public class ClickChange : MonoBehaviour
                         Debug.Log("Ceci n'est pas DUO");
                         //sound : cloud disappear
                         ShrinkCloud(cloud_2);
-                        RiseOcean(drop2); 
+                        StartCoroutine(RiseOcean(drop2)); 
                         counter++;
 
                     }
@@ -91,7 +92,7 @@ public class ClickChange : MonoBehaviour
                         //sound : cloud disappear
                         ShrinkCloud(cloud_3);
                         //HideCloud(cloud_3);
-                        RiseOcean(drop3); 
+                        StartCoroutine(RiseOcean(drop3)); 
                         counter++;
 
                     }
@@ -101,7 +102,7 @@ public class ClickChange : MonoBehaviour
                         Debug.Log("Ceci n'est pas QUATTRO");
                         //sound : disapear
                         ShrinkCloud(cloud_4);
-                        RiseOcean(drop4);   
+                        StartCoroutine(RiseOcean(drop4));   
                         counter++;                  
 
                     }
@@ -111,7 +112,7 @@ public class ClickChange : MonoBehaviour
                         Debug.Log("Ceci n'est pas CINQUE");
                         //sound : disappear
                         ShrinkCloud(cloud_5);
-                        RiseOcean(drop5);   
+                        StartCoroutine(RiseOcean(drop5));   
                         counter++;                 
 
                     }
@@ -121,7 +122,7 @@ public class ClickChange : MonoBehaviour
                         Debug.Log("Ceci n'est pas SEI");
                         //sound : disappear
                         ShrinkCloud(cloud_6);
-                        RiseOcean(drop6); 
+                        StartCoroutine(RiseOcean(drop6)); 
                         counter++;
                         
                     }
@@ -139,18 +140,21 @@ public class ClickChange : MonoBehaviour
 
                         if(pokingCount == 1)
                         {
+                            FindObjectOfType<AudioManager>().Play("Ouch1");
                             Debug.Log("OUTCH!!!");
                             pokingTransition = true;
                             //sound of hurting!
                         }
                         else if(pokingCount == 2)
                         {
+                            FindObjectOfType<AudioManager>().Play("Ouch2");
                             poke1 = true;
                             //Poke(); -> je dois en créer un autre pour que le perso avance + new background                        
-                            //sound of hurting again                        
+                            //sound of hurting again
                         }
                         else if(pokingCount == 3)
                         {
+                            FindObjectOfType<AudioManager>().Play("Ouch3");
                             poke2 = true;
                             // Poke à nouveau, le perso parait plus clair et encore décor différent
                             //sound of hurting again more
@@ -180,13 +184,14 @@ public class ClickChange : MonoBehaviour
         });
     }
 
-    public void RiseOcean(GameObject waterdrop)
+    public IEnumerator RiseOcean(GameObject waterdrop)
     {
         //waterdrop.SetActive(true);
         waterdrop.GetComponent<SpriteRenderer>().enabled = true;
         Debug.Log("I CAME IN LIKE A WRECKINGBALL");
         myTween = waterdrop.transform.DOMoveY(-15f,3f);
         ocean.transform.Translate(0,0.5f,0);
+        yield return new WaitForSeconds(0.8f);
         FindObjectOfType<AudioManager>().Play("WaterDrop");
     }
     

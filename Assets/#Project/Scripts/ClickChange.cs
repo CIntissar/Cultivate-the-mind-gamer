@@ -161,6 +161,7 @@ public class ClickChange : MonoBehaviour
                         }
                         else if(pokingCount == 4)
                         {
+                            FindObjectOfType<AudioManager>().Play("Ouch1");
                             poke3 = true;
                             //SceneManager.LoadScene("GiantHead");
                         }

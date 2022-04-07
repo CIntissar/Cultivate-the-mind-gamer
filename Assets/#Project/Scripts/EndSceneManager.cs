@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement; 
 using UnityEngine;
 using DG.Tweening;
 
@@ -17,7 +18,10 @@ public class EndSceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("Menu");
+        }
     }
     void OpenCurtains()
     {
@@ -25,4 +29,6 @@ public class EndSceneManager : MonoBehaviour
         rightCurtain.DOMoveX(endPosition, 0.9f);
         leftCurtain.DOMoveX(-endPosition, 1.1f);
     }
+
+    
 }

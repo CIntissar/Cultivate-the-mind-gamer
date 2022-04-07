@@ -50,10 +50,10 @@ public class BalltoEye : MonoBehaviour
                         //FloatingBall();
                         arrowAway = true;
                     }
-                    else if(clickCount == 2)
-                    {
-                        blinkTransition = true;
-                    }
+                    // else if(clickCount == 2)
+                    // {
+                    //     blinkTransition = true;
+                    // }
                 }
 
                 // if(hit2D.collider.CompareTag("Skin"))

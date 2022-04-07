@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using DG.Tweening;
-using UnityEngine.SceneManagement;
 
 public class MenuClick : MonoBehaviour
 {
     public int touch = 0;
     public int counter = 0;
     public int limitTouch = 3;
+    public SpriteRenderer quote;
     public GameObject man;
     public GameObject hat;
     public GameObject lion;
@@ -17,9 +18,9 @@ public class MenuClick : MonoBehaviour
     public GameObject frame2;
     public GameObject frame3;
     public bool appleOn = false;
-    [HideInInspector] public Tween myTween;
     public AnimMenu animMenu;
 
+    [HideInInspector] public Tween myTween;
 
     void Update()
     {
@@ -39,6 +40,8 @@ public class MenuClick : MonoBehaviour
                         lion.transform.DOMoveX(transform.position.x + 1.25f,1f);
                         FindObjectOfType<AudioManager>().Play("LionRawr");
                         counter++;
+                        //reveal quote
+                        quote.DOFade(1f, 2f);
                     }
                     
                     else if(counter == 1) //lion
@@ -98,6 +101,7 @@ public class MenuClick : MonoBehaviour
                         counter++;
                         PoppingMan();
                         FindObjectOfType<AudioManager>().Play("HeyThere");
+                        
                     }
                 }
 

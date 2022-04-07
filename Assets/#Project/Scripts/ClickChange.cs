@@ -38,6 +38,7 @@ public class ClickChange : MonoBehaviour
     public GameObject cloud_6;
     public GameObject drop6;
     public GameObject ocean;
+
     
     void Start()
     {
@@ -72,7 +73,7 @@ public class ClickChange : MonoBehaviour
                         //sound : cloud disappear
                         ShrinkCloud(cloud_1);
                         RiseOcean(drop);
-                        counter++;                    
+                        counter++;               
 
                     }
                     else if(hit2D.collider.CompareTag("Cloud_2"))
@@ -130,6 +131,7 @@ public class ClickChange : MonoBehaviour
                     {
                         pupilOn = true;
                         oceanUp = true;
+                      
                     }
 
                     if(hit2D.collider.CompareTag("Skin"))

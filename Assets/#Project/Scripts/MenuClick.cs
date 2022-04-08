@@ -18,6 +18,7 @@ public class MenuClick : MonoBehaviour
     public GameObject frame2;
     public GameObject frame3;
     public bool appleOn = false;
+    public bool clickedOnce = false;
     public AnimMenu animMenu;
 
     [HideInInspector] public Tween myTween;
@@ -96,11 +97,12 @@ public class MenuClick : MonoBehaviour
 
                 if(hit2D.collider.CompareTag("FrameFall3"))
                 {
-                    if(counter >= 4)
+                    if(counter >= 4 && clickedOnce == false)
                     {
                         counter++;
                         PoppingMan();
                         FindObjectOfType<AudioManager>().Play("HeyThere");
+                        clickedOnce = true;
                         
                     }
                 }

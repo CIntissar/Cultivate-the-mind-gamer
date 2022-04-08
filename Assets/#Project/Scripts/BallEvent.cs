@@ -4,12 +4,22 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 
+
+// THOMAS : this is not an event-related class so better rename it to BallBehaviour
+// event is a specific thing in c#
 public class BallEvent : MonoBehaviour
 {
+    // THOMAS : all of these variable can be private since they are not used outside of this class
+    // To show private variables in the inspector do this:
+    // [SerializeField] private int _touch;
+    // private fields always start with underscore _
+    
     [SerializeField] List<GameObject> birds = new List<GameObject>(); 
     [HideInInspector] bool isMoving = false;
     Vector3 currentRotation;
-    [HideInInspector] public float clickCount = 0;
+    // THOMAS: clickCount can be made private cause it's not use outside of this class
+    // THOMAS: clickCount should be an int not a float?
+    [HideInInspector] public float clickCount = 0; 
     [SerializeField] Transform upperBall;
     SpriteRenderer[] spriteRenderers;
     [SerializeField] SpriteRenderer quote;
@@ -23,11 +33,15 @@ public class BallEvent : MonoBehaviour
     }
     public IEnumerator RollOver()
     {
+        // THOMAS: move this check outside
         if(isMoving == false && clickCount < 3)
         {
             isMoving = true;
             //sound : ball rolling
-            FindObjectOfType<AudioManager>().Play("RollingStone");
+            
+            // THOMAS : cache AudioManager in Awake or at least test it for null. 
+            // Nowadays you can use the conditional access ? operator. This check if the thing before is null and will not execute Play(..) if it is.
+            FindObjectOfType<AudioManager>()?.Play("RollingStone");
             currentRotation = transform.eulerAngles;
             transform.DOMoveX(transform.position.x + 4f, 2f);
             transform.DORotate(new Vector3 (0, 0, currentRotation.z - 120f), 2f);
@@ -46,7 +60,7 @@ public class BallEvent : MonoBehaviour
     public IEnumerator OpenUpAndFly()
     {
         //sound : ball pops up
-        FindObjectOfType<AudioManager>().Play("Pop");
+        FindObjectOfType<AudioManager>()?.Play("Pop");
         upperBall.DOMoveY(transform.position.y + 3f, 0.8f).OnComplete(() => {
             quote.DOFade(0, 0.5f);
             foreach (GameObject item in birds)

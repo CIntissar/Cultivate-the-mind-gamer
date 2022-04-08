@@ -6,6 +6,11 @@ using DG.Tweening;
 
 public class MenuClick : MonoBehaviour
 {
+    // THOMAS : all of these variable can be private since they are not used outside of this class
+    // To show private variables in the inspector do this:
+    // [SerializeField] private int _touch;
+    // private fields always start with underscore _
+    
     public int touch = 0;
     public int counter = 0;
     public int limitTouch = 3;
@@ -21,7 +26,7 @@ public class MenuClick : MonoBehaviour
     public bool clickedOnce = false;
     public AnimMenu animMenu;
 
-    [HideInInspector] public Tween myTween;
+    [HideInInspector] public Tween myTween; // THOMAS: make it private?
 
     void Update()
     {
@@ -79,7 +84,13 @@ public class MenuClick : MonoBehaviour
                 {
                     if(counter == 2)
                     {
-                        FallinTitle(frame2,1.5f);
+                        //THOMAS: 1.5f is what they call a magic value. If someone else reads this he has no idea what 1.5f means
+                        // rename position to yPos and show these as variables in the inspector OR
+                        // create transforms in the scene, and use these as variables in this script to pass to the FallinTitle.
+                        // Then fallintitle takes the transform.position.y as a destination.
+                        FallinTitle(frame2,1.5f); 
+                        
+                        //THOMAS: cache AudioManager in Awake
                         FindObjectOfType<AudioManager>().Play("PaintingFall");
                         counter++;
                     }
@@ -119,9 +130,13 @@ public class MenuClick : MonoBehaviour
                         //sound of hit (comical one?)
                         //apple.GetComponent<SpriteRenderer>().enabled = true;
                         appleOn = true;
+                        
+                        // THOMAS: why no start the AnimMenu animation from here?
                     }
                     else if(appleOn == true)
                     {
+                        // THOMAS: try to no use to many funny characters like ' " : \ / in names
+                        // It might have worked now but you got lucky :)
                         SceneManager.LoadScene("Ball'nBird");
                     }
                 }
@@ -140,6 +155,9 @@ public class MenuClick : MonoBehaviour
     {
         myTween = man.transform.DOMoveY(0f,1.5f).OnComplete(() => {
                     man.transform.DOMoveY(-5f,1).OnComplete(() => {
+                        // THOMAS: little detail but this last move is invisible to the player right?
+                        // So you could just 'set' the X value of the position iso doing an animation and then wait a second.
+                        // Check out Sequences in DoTween.
                         man.transform.DOMoveX(Random.Range(5f,20f),1).OnComplete(PoppingMan);
                     });
             });

@@ -16,6 +16,8 @@ public class AnimManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // THOMAS: move this out of the Update loop, and call them from other classes 
+        // THOMAS: these are actually more animation 'triggers' than booleans as well.
         if(balltoEye.arrowAway == true)
         {
             animator.SetBool("arrowGone", true);

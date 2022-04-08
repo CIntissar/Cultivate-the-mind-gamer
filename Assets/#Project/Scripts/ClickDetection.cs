@@ -13,7 +13,7 @@ public class ClickDetection : MonoBehaviour
     public float clickedOnce = 0;
     void Start()
     {
-        FindObjectOfType<AudioManager>().Play("ForestAmbiance");
+        FindObjectOfType<AudioManager>()?.Play("ForestAmbiance");
         ballEvent = ball.GetComponent<BallEvent>();
     }
     void Update()
@@ -27,6 +27,9 @@ public class ClickDetection : MonoBehaviour
             {
                 if (hit2D.collider.CompareTag("Ball")) //if that something is the ball
                 {
+                    // THOMAS: check clickcount here, not inside RollOver
+                    // This is a detail but you could argue that the moment you call RollOver you assume the ball will rollover and it doesn't fail.
+                    // THOMAS: if(isMoving == false && clickCount < 3)
                     StartCoroutine(ballEvent.RollOver()); //the ball rolls
                 }
                 for (int i = 0; i < birds.Count; i++)

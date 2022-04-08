@@ -71,7 +71,14 @@ public class ClickChange : MonoBehaviour
                     {
                         Debug.Log("Ceci n'est pas UNO");
                         //sound : cloud disappear
+                        // THOMAS: Create Cloud script , move ShrinkCloud to Cloud script
+                        
                         ShrinkCloud(cloud_1);
+                        
+                        // THOMAS: same for Ocean and then call Ocean.Rise()
+                        // THOMAS: same for drop
+                        // THOMAS: then add ClickInterface on cloud + call IncreaseCounter on ClickChange that increments counter
+                        
                         StartCoroutine(RiseOcean(drop));
                         counter++;                    
 

@@ -4,6 +4,10 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 
+
+// THOMAS : this is not an event-related class so better rename it to BirdBehaviour
+// event is a specific thing in c#
+
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Animator))]
 public class BirdEvent : MonoBehaviour

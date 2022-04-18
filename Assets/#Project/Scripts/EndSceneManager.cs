@@ -6,13 +6,18 @@ using DG.Tweening;
 
 public class EndSceneManager : MonoBehaviour
 {
-    [SerializeField] Transform leftCurtain;
-    [SerializeField] Transform rightCurtain;
-    [SerializeField] float endPosition;
+    [SerializeField] Transform _leftCurtain;
+    [SerializeField] Transform _rightCurtain;
+    [SerializeField] float _endPosition;
+    AudioManager _mySound;
 
+    void Awake()
+    {
+        _mySound = FindObjectOfType<AudioManager>();
+    }
     void Start()
     {
-        FindObjectOfType<AudioManager>().StopPlaying("MountainAmbiance");
+        _mySound.StopPlaying("MountainAmbiance");
         OpenCurtains();
     }
 
@@ -26,9 +31,9 @@ public class EndSceneManager : MonoBehaviour
     }
     void OpenCurtains()
     {
-        FindObjectOfType<AudioManager>().Play("CurtainsClose");
-        rightCurtain.DOMoveX(endPosition, 0.9f);
-        leftCurtain.DOMoveX(-endPosition, 1.1f);
+        _mySound.Play("CurtainsClose");
+        _rightCurtain.DOMoveX(_endPosition, 0.9f);
+        _leftCurtain.DOMoveX(-_endPosition, 1.1f);
     }
 
     

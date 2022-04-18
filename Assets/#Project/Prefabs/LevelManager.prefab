@@ -43,7 +43,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efff0e46bb730164f8fb93ad0a86b193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballEvent: {fileID: 0}
-  ball: {fileID: 0}
-  birdEvent: {fileID: 0}
-  bird: {fileID: 0}
+  _ballBehaviour: {fileID: 0}
+  _ball: {fileID: 0}
+  _birds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _birdSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

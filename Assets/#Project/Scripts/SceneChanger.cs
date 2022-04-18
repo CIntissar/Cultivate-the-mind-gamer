@@ -5,15 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    public SpriteRenderer sprite;
-    public Animator spriteAnimation;
+    [SerializeField] Animator _spriteAnimation;
     void Start()
     {
-        //sprite = GameObject.FindGameObjectWithTag("whiteSprite").GetComponent<SpriteRenderer>();
+        
     }
     public IEnumerator ChangeScene()
     {
-        spriteAnimation.SetBool("FadeIn", true);
+        _spriteAnimation.SetBool("FadeIn", true);
         yield return new WaitForSeconds(1.2f);
         SceneManager.LoadScene("Dot on sea");
     }

@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MouseCursor : MonoBehaviour
 {
-    [HideInInspector] public SpriteRenderer rend;
-    public Sprite magnifierCursor;
-    public Sprite normalCursor;
-    Ray ray;
-    public float positionOffSetY = 9f;
+    SpriteRenderer _rend;
+    [SerializeField] Sprite _magnifierCursor;
+    [SerializeField] Sprite _normalCursor;
+    Ray _ray;
+    [SerializeField] float _positionOffSetY = 9f;
     void Awake()
     {
         Cursor.visible = false;
@@ -17,7 +17,7 @@ public class MouseCursor : MonoBehaviour
     }
     void Start()
     {
-        rend = GetComponent<SpriteRenderer>();
+        _rend = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -26,22 +26,22 @@ public class MouseCursor : MonoBehaviour
 
         if(SceneManager.GetActiveScene () == SceneManager.GetSceneByName ("Dot on sea"))
         {
-            transform.position = new Vector2(cursorPos.x, cursorPos.y + positionOffSetY);
+            transform.position = new Vector2(cursorPos.x, cursorPos.y + _positionOffSetY);
         }
         else
         {
             transform.position = cursorPos;
         }
 
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics2D.Raycast(ray.origin, ray.direction))
+        if (Physics2D.Raycast(_ray.origin, _ray.direction))
         {
-            rend.sprite = magnifierCursor;
+            _rend.sprite = _magnifierCursor;
         }
         else
         {
-            rend.sprite = normalCursor;
+            _rend.sprite = _normalCursor;
         }
     }
 }

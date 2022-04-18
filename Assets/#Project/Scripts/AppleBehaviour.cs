@@ -5,12 +5,12 @@ using DG.Tweening;
 
 public class AppleBehaviour : MonoBehaviour
 {
-    SpriteRenderer rend;
-    [SerializeField] Sprite greenAppleSprite;
+    SpriteRenderer _rend;
+    [SerializeField] Sprite _greenAppleSprite;
     [HideInInspector] public bool spriteChanged = false;
     void Start()
     {
-        rend = GetComponent<SpriteRenderer>();
+        _rend = GetComponent<SpriteRenderer>();
     }
 
     
@@ -20,7 +20,7 @@ public class AppleBehaviour : MonoBehaviour
     }
     public void ChangeSprite()
     {
-        rend.sprite = greenAppleSprite;
+        _rend.sprite = _greenAppleSprite;
         spriteChanged = true;
     }
 }

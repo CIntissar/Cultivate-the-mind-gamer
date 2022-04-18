@@ -154,7 +154,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: CurtainsClose
     clip: {fileID: 8300000, guid: 004ae602bfd308f439a8e2b8834709df, type: 3}
-    volume: 1
+    volume: 0.721
     pitch: 0
     loop: 0
     source: {fileID: 0}

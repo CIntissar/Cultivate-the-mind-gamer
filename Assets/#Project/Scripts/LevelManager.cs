@@ -6,75 +6,79 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] Transform treePainting;
-    [SerializeField] float spritePositionY = -0.05f;
-    [SerializeField] Ease paintingEaseType = Ease.OutBounce;
-    [SerializeField] GameObject shadowApple; //shadow apple
-    [SerializeField] List<Transform> hatches = new List<Transform>();
-    [SerializeField] List<Transform> sprites = new List<Transform>();
-    [SerializeField] SpriteRenderer whiteQuote;
-    [SerializeField] SpriteRenderer blackQuote;
-    [SerializeField] GameObject greenApple;
-    AppleBehaviour appleBehaviour;
-    [SerializeField] Transform leftCurtain;
-    [SerializeField] Transform rightCurtain;
-    [SerializeField] Ease curtainEaseType;
-    int index = 0;
+    [SerializeField] Transform _treePainting;
+    [SerializeField] float _spritePositionY = -0.05f;
+    [SerializeField] Ease _paintingEaseType = Ease.OutBounce;
+    [SerializeField] GameObject _shadowApple; //shadow apple
+    [SerializeField] List<Transform> _hatches = new List<Transform>();
+    [SerializeField] List<Transform> _sprites = new List<Transform>();
+    [SerializeField] SpriteRenderer _whiteQuote;
+    [SerializeField] SpriteRenderer _blackQuote;
+    [SerializeField] GameObject _greenApple;
+    AppleBehaviour _appleBehaviour;
+    [SerializeField] Transform _leftCurtain;
+    [SerializeField] Transform _rightCurtain;
+    [SerializeField] Ease _curtainEaseType;
+    int _index = 0;
+    AudioManager _mySound;
 
+    void Awake()
+    {
+        _mySound = FindObjectOfType<AudioManager>();
+    }
     void Start()
     {
-        FindObjectOfType<AudioManager>().StopPlaying("BeachAmbiance");
-        FindObjectOfType<AudioManager>().Play("MountainAmbiance");
-        appleBehaviour = shadowApple.GetComponent<AppleBehaviour>();
+        _mySound.StopPlaying("BeachAmbiance");
+        _mySound.Play("MountainAmbiance");
+        _appleBehaviour = _shadowApple.GetComponent<AppleBehaviour>();
     }
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray);
+        Ray _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D _hit2D = Physics2D.GetRayIntersection(_ray);
 
         if(Input.GetMouseButtonDown(0))
         {
-            if (hit2D.collider != null)
+            if (_hit2D.collider != null)
             {
-                if (hit2D.collider.CompareTag("Apple"))
+                if (_hit2D.collider.CompareTag("Apple"))
                 {
-                    if(appleBehaviour.spriteChanged)
+                    if(_appleBehaviour.spriteChanged)
                     {
                         StartCoroutine(CloseCurtains());
                     }
                     else
                     {
-                        //sound : bounce
-                        FindObjectOfType<AudioManager>().Play("PaintingFall");
-                        treePainting.DOMoveY(spritePositionY, 1).SetEase(paintingEaseType);
+                        _mySound.Play("PaintingFall");
+                        _treePainting.DOMoveY(_spritePositionY, 1).SetEase(_paintingEaseType);
                     }
                 }
                 
-                if(hit2D.collider.CompareTag("Hatches"))
+                if(_hit2D.collider.CompareTag("Hatches"))
                 {
-                    for (int i = 0; i < hatches.Count; i++) //pour chaque portes
+                    for (int i = 0; i < _hatches.Count; i++) //pour chaque portes
                     {
-                        if(hit2D.collider.gameObject == hatches[i].gameObject && hatches[i].GetComponent<HatchesBehaviour>().canMove)
+                        if(_hit2D.collider.gameObject == _hatches[i].gameObject && _hatches[i].GetComponent<HatchesBehaviour>().canMove)
                         {
-                            sprites[index].position = hatches[i].position;
-                            FindObjectOfType<AudioManager>().Play("Open");
-                            hatches[i].DOMoveX(4,1);
-                            hatches[i].GetComponent<HatchesBehaviour>().canMove = false;
-                            if(index==0)
+                            _sprites[_index].position = _hatches[i].position;
+                            _mySound.Play("Open");
+                            _hatches[i].DOMoveX(4,1);
+                            _hatches[i].GetComponent<HatchesBehaviour>().canMove = false;
+                            if(_index==0)
                             {
-                                whiteQuote.DOFade(0.854902f, 0.5f);
+                                _whiteQuote.DOFade(0.854902f, 0.5f);
                             }
-                            else if(index==1)
+                            else if(_index==1)
                             {
-                                blackQuote.DOFade(0.854902f, 0.5f);
+                                _blackQuote.DOFade(0.854902f, 0.5f);
                             }
-                            index++;
+                            _index++;
                         }
                     }
                 }
-                if (hit2D.collider.CompareTag("GreenApple"))
+                if (_hit2D.collider.CompareTag("GreenApple"))
                 {
-                    appleBehaviour.ChangeSprite();
+                    _appleBehaviour.ChangeSprite();
                     StartCoroutine(ScaleDown());
                 }
             }
@@ -86,21 +90,19 @@ public class LevelManager : MonoBehaviour
     }
     public IEnumerator ScaleDown()
     {
-        for (int i = 0; i < sprites.Count; i++)
+        for (int i = 0; i < _sprites.Count; i++)
         {
-            //sound : scale down
-            FindObjectOfType<AudioManager>().Play("AppleClicked");
-            sprites[i].transform.DOScale(Vector3.zero, 0.4f);
+            _mySound.Play("AppleClicked");
+            _sprites[i].transform.DOScale(Vector3.zero, 0.4f);
         }
         yield return new WaitForSeconds(0.8f);
-        treePainting.DOMoveY(10.75f,1);
+        _treePainting.DOMoveY(10.75f,1);
     }
     IEnumerator CloseCurtains()
     {
-        //sound : curtains
-        FindObjectOfType<AudioManager>().Play("CurtainsClose");
-        rightCurtain.DOMoveX(3, 0.7f);
-        leftCurtain.DOMoveX(-3, 0.9f);
+        _mySound.Play("CurtainsClose");
+        _rightCurtain.DOMoveX(3, 0.7f);
+        _leftCurtain.DOMoveX(-3, 0.9f);
         yield return new WaitForSeconds(1.7f);
         SceneManager.LoadScene("EndScene");
     }

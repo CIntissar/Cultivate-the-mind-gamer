@@ -6,61 +6,68 @@ using UnityEngine.UI;
 
 public class ClickDetection : MonoBehaviour
 {
-    [SerializeField] BallEvent ballEvent;
-    public GameObject ball;
-    public List<GameObject> birds = new List<GameObject>();
-    public SpriteRenderer[] birdSprites;
-    public float clickedOnce = 0;
+    [SerializeField] BallBehaviour _ballBehaviour;
+    [SerializeField] GameObject _ball;
+    [SerializeField] List<GameObject> _birds = new List<GameObject>();
+    [SerializeField] SpriteRenderer[] _birdSprites;
+    float _clickedOnce = 0;
+    AudioManager _mySound;
     void Start()
     {
-        FindObjectOfType<AudioManager>()?.Play("ForestAmbiance");
-        ballEvent = ball.GetComponent<BallEvent>();
+        _mySound = FindObjectOfType<AudioManager>();
+        _mySound.Play("ForestAmbiance");
+        _ballBehaviour = _ball.GetComponent<BallBehaviour>();
     }
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray);
+        Ray _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D _hit2D = Physics2D.GetRayIntersection(_ray);
         
         if(Input.GetMouseButtonDown(0))
         {
-            if (hit2D.collider != null) //if the ray hits something
+            if (_hit2D.collider != null) //if the ray hits something
             {
-                if (hit2D.collider.CompareTag("Ball")) //if that something is the ball
+                if (_hit2D.collider.CompareTag("Ball")) //if that something is the ball
                 {
+                    StartCoroutine(_ballBehaviour.RollOver()); //the ball rolls
+                    
                     // THOMAS: check clickcount here, not inside RollOver
                     // This is a detail but you could argue that the moment you call RollOver you assume the ball will rollover and it doesn't fail.
                     // THOMAS: if(isMoving == false && clickCount < 3)
-                    StartCoroutine(ballEvent.RollOver()); //the ball rolls
                 }
-                for (int i = 0; i < birds.Count; i++)
+                for (int i = 0; i < _birds.Count; i++)
                 {
-                    if(hit2D.collider.gameObject == birds[i].gameObject && birds[i].GetComponent<BirdEvent>().canBeClicked)
+                    if(_hit2D.collider.gameObject == _birds[i].gameObject && _birds[i].GetComponent<BirdBehaviour>().canBeClicked)
                     {
-                        //sound : poof
-                        FindObjectOfType<AudioManager>().Play("BirdClicked");
-                        clickedOnce += 1;
-                        birds[i].GetComponent<BirdEvent>().canBeClicked = false;
-                        birdSprites[i].DOColor(new Color (0.3f, 0.4f, 0.6f, 1f), 0.2f);
-                        print(clickedOnce);
-                        if(clickedOnce >= birds.Count)
+                        _mySound.Play("BirdClicked");
+                        _clickedOnce += 1;
+                        _birds[i].GetComponent<BirdBehaviour>().canBeClicked = false;
+                        _birdSprites[i].DOColor(new Color (0.3f, 0.4f, 0.6f, 1f), 0.2f);
+                        print(_clickedOnce);
+                        if(_clickedOnce >= _birds.Count)
                         {
                             KillAllTweens();
-                            birds[i].GetComponent<BirdEvent>().StopAndExpand();
+                            _birds[i].GetComponent<BirdBehaviour>().StopAndExpand();
                         }
                     }
                 }
             }
             else
-            {
                 Debug.Log("there's nothing here...");
-            }
+
         }
+        
     }
     void KillAllTweens()
     {
-        for (int i = 0; i < birds.Count; i++)
+        for (int i = 0; i < _birds.Count; i++)
         {
-            birds[i].GetComponent<BirdEvent>().myTween.Kill();
+            _birds[i].GetComponent<BirdBehaviour>().myTween.Kill();
         }
     }
+    // void InvokeMyCoroutine()
+    // {
+    //     StartCoroutine(_ballBehaviour.RollOver()); //the ball rolls
+
+    // }
 }

@@ -22,6 +22,9 @@ public class BirdBehaviour : MonoBehaviour
     [SerializeField] SceneChanger _sceneChanger;
     [SerializeField] Vector3 _lastPosition;
     AudioManager _mySound;
+    SpriteRenderer _birdSprite;
+    ClickDetection _clickDetection;
+    //bool _lastClickedBird;
 
     void Awake()
     {
@@ -32,6 +35,8 @@ public class BirdBehaviour : MonoBehaviour
     {
         _birdAnimation = gameObject.GetComponent<Animator>();
         _nextPosition = new Vector3(Random.Range(-8.1f, 8.3f), Random.Range(-2.4f, 4f), 0);
+        _birdSprite = gameObject.GetComponent<SpriteRenderer>();
+        _clickDetection = FindObjectOfType<ClickDetection>();
     }
 
     void Flip()
@@ -69,6 +74,22 @@ public class BirdBehaviour : MonoBehaviour
 
         });
     }
+    public void SelectBird()
+    {
+        if (canBeClicked)
+        {
+            _mySound.Play("BirdClicked");
+            _clickDetection.birds.Add(gameObject);
+            _clickDetection.clickedOnce++;
+            canBeClicked = false;
+            _birdSprite.DOColor(new Color (0.3f, 0.4f, 0.6f, 1f), 0.2f);
+            //_lastClickedBird = true;
+        }
+    }
+    //fonction pour détecter les click
+    //play sound
+    //si can be clicked = true --> lance la fonction
+    //change color
     public void StopAndExpand()
     {
         transform.DOMove(_lastPosition, 0.5f).OnComplete(() => {

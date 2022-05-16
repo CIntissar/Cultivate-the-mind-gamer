@@ -29,6 +29,10 @@ public class BallBehaviour : MonoBehaviour
     {
         
     }
+    public void StartToRoll()
+    {
+        StartCoroutine(RollOver());
+    }
     public IEnumerator RollOver()
     {
         // THOMAS: move this check outside

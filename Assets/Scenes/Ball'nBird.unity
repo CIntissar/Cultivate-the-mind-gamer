@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 105597375}
   - component: {fileID: 105597376}
   - component: {fileID: 105597379}
+  - component: {fileID: 105597374}
   m_Layer: 0
   m_Name: Bird4
   m_TagString: Bird
@@ -143,6 +144,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &105597374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105597373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98ec0aea670dc749a67d7a5400df9d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 105597379}
+        m_TargetAssemblyTypeName: BirdBehaviour, Assembly-CSharp
+        m_MethodName: SelectBird
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &105597375
 Animator:
   serializedVersion: 3
@@ -436,6 +464,72 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &674085502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 674085505}
+  - component: {fileID: 674085504}
+  - component: {fileID: 674085503}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &674085503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674085502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &674085504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674085502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &674085505
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674085502}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1146321360
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +750,7 @@ GameObject:
   - component: {fileID: 1490661184}
   - component: {fileID: 1490661185}
   - component: {fileID: 1490661188}
+  - component: {fileID: 1490661183}
   m_Layer: 0
   m_Name: Bird2
   m_TagString: Bird
@@ -663,6 +758,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1490661183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490661182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98ec0aea670dc749a67d7a5400df9d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1490661188}
+        m_TargetAssemblyTypeName: BirdBehaviour, Assembly-CSharp
+        m_MethodName: SelectBird
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &1490661184
 Animator:
   serializedVersion: 3
@@ -805,6 +927,7 @@ GameObject:
   - component: {fileID: 1562832017}
   - component: {fileID: 1562832018}
   - component: {fileID: 1562832021}
+  - component: {fileID: 1562832016}
   m_Layer: 0
   m_Name: Bird1
   m_TagString: Bird
@@ -812,6 +935,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1562832016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562832015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98ec0aea670dc749a67d7a5400df9d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1562832021}
+        m_TargetAssemblyTypeName: BirdBehaviour, Assembly-CSharp
+        m_MethodName: SelectBird
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &1562832017
 Animator:
   serializedVersion: 3
@@ -1087,6 +1237,7 @@ GameObject:
   - component: {fileID: 1759430485}
   - component: {fileID: 1759430486}
   - component: {fileID: 1759430489}
+  - component: {fileID: 1759430484}
   m_Layer: 0
   m_Name: Bird3
   m_TagString: Bird
@@ -1094,6 +1245,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1759430484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759430483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98ec0aea670dc749a67d7a5400df9d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1759430489}
+        m_TargetAssemblyTypeName: BirdBehaviour, Assembly-CSharp
+        m_MethodName: SelectBird
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &1759430485
 Animator:
   serializedVersion: 3
@@ -1310,6 +1488,33 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8257106440997654800, guid: c4096cd8a8793a7439f7f868afe28899, type: 3}
   m_PrefabInstance: {fileID: 8257106441469062492}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2056676321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056676320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98ec0aea670dc749a67d7a5400df9d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8257106441469062493}
+        m_TargetAssemblyTypeName: BallBehaviour, Assembly-CSharp
+        m_MethodName: StartToRoll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2074867050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,6 +1528,7 @@ GameObject:
   - component: {fileID: 2074867054}
   - component: {fileID: 2074867052}
   - component: {fileID: 2074867056}
+  - component: {fileID: 2074867053}
   m_Layer: 0
   m_Name: Bird5
   m_TagString: Bird
@@ -1407,6 +1613,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6172476, y: 1.8384025}
   m_EdgeRadius: 0
+--- !u!114 &2074867053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074867050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98ec0aea670dc749a67d7a5400df9d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2074867056}
+        m_TargetAssemblyTypeName: BirdBehaviour, Assembly-CSharp
+        m_MethodName: SelectBird
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &2074867054
 Animator:
   serializedVersion: 3
@@ -1580,6 +1813,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2056676320}
     - target: {fileID: 3236030669145448271, guid: 4e49e08785ffccb4fb0032543fde790a, type: 3}
+      propertyPath: _birds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3236030669145448271, guid: 4e49e08785ffccb4fb0032543fde790a, type: 3}
       propertyPath: _birds.Array.data[0]
       value: 
       objectReference: {fileID: 1562832015}
@@ -1628,6 +1865,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 471546957, guid: c4096cd8a8793a7439f7f868afe28899, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2056676321, guid: c4096cd8a8793a7439f7f868afe28899, type: 3}
       propertyPath: _quote
       value: 
@@ -1710,3 +1951,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4096cd8a8793a7439f7f868afe28899, type: 3}
+--- !u!114 &8257106441469062493 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2056676321, guid: c4096cd8a8793a7439f7f868afe28899, type: 3}
+  m_PrefabInstance: {fileID: 8257106441469062492}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056676320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e08fbabdd526bc64381b0faa13f42ef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

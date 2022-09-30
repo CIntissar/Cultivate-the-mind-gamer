@@ -1540,24 +1540,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 260fd835c3a58524492933d10b74fb80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treePainting: {fileID: 1521729527}
-  spritePositionY: -0.05
-  paintingEaseType: 30
-  shadowApple: {fileID: 1853419316}
-  hatches:
+  _treePainting: {fileID: 1521729527}
+  _spritePositionY: -0.05
+  _paintingEaseType: 30
+  _shadowApple: {fileID: 1853419316}
+  _hatches:
   - {fileID: 1768097693}
   - {fileID: 995412338}
   - {fileID: 56229336}
-  sprites:
+  _sprites:
   - {fileID: 2093403914}
   - {fileID: 525739319}
   - {fileID: 333608947}
-  whiteQuote: {fileID: 454472524}
-  blackQuote: {fileID: 1578155505}
-  greenApple: {fileID: 333608945}
-  leftCurtain: {fileID: 276284571}
-  rightCurtain: {fileID: 1481151803}
-  curtainEaseType: 1
+  _whiteQuote: {fileID: 454472524}
+  _blackQuote: {fileID: 1578155505}
+  _greenApple: {fileID: 333608945}
+  _leftCurtain: {fileID: 276284571}
+  _rightCurtain: {fileID: 1481151803}
+  _curtainEaseType: 0
 --- !u!1 &1470376098
 GameObject:
   m_ObjectHideFlags: 0
@@ -2175,7 +2175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ebe36df0d17204a8ccba3910fe45fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  greenAppleSprite: {fileID: 21300000, guid: e868ae409fb2cbd438a2063948c8f7e0, type: 3}
+  _greenAppleSprite: {fileID: 21300000, guid: e868ae409fb2cbd438a2063948c8f7e0, type: 3}
   spriteChanged: 0
 --- !u!1 &2063754083
 GameObject:

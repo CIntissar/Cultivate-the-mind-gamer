@@ -28,7 +28,9 @@ public class LevelManager : MonoBehaviour
     }
     void Start()
     {
+        print("Stopping beach ambiance now");
         _mySound.StopPlaying("BeachAmbiance");
+        print("beach ambiance stopped !");
         _mySound.Play("MountainAmbiance");
         _appleBehaviour = _shadowApple.GetComponent<AppleBehaviour>();
     }

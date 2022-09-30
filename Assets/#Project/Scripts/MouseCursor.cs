@@ -24,6 +24,8 @@ public class MouseCursor : MonoBehaviour
     {
         Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+        transform.position = cursorPos;
+
         if(SceneManager.GetActiveScene () == SceneManager.GetSceneByName ("Dot on sea"))
         {
             transform.position = new Vector2(cursorPos.x, cursorPos.y + _positionOffSetY);

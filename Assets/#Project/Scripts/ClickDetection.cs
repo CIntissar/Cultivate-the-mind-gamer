@@ -9,7 +9,7 @@ public class ClickDetection : MonoBehaviour
     [HideInInspector] public List<GameObject> birds = new List<GameObject>();
     [SerializeField] int nbrOfBirds = 5;
     public float clickedOnce = 0;
-    AudioManager _mySound;
+    [SerializeField] AudioManager _mySound;
     bool triggerFunction = false;
     void Start()
     {

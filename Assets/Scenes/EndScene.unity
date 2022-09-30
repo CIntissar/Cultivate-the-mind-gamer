@@ -317,9 +317,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de658d785d5a83a4e875b95beb7cfa89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftCurtain: {fileID: 1171302289}
-  rightCurtain: {fileID: 1274786542}
-  endPosition: 13.37
+  _leftCurtain: {fileID: 1171302289}
+  _rightCurtain: {fileID: 1274786542}
+  _endPosition: 13.29
 --- !u!4 &1131281280
 Transform:
   m_ObjectHideFlags: 0
